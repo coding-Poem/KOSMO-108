@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- 
+화면에 뜨는 내용
+
+cgiForm 테스트
+host : localhost:8088 connection : keep-alive sec-ch-ua : " Not A;Brand";v="99", "Chromium";v="99", "Google Chrome";v="99" sec-ch-ua-mobile : ?1 sec-ch-ua-platform : "Android" upgrade-insecure-requests : 1 user-agent : Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Mobile Safari/537.36 accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9 sec-fetch-site : same-origin sec-fetch-mode : navigate sec-fetch-dest : document referer : http://localhost:8088/firstWeb/cgiForm/from_1p.html accept-encoding : gzip, deflate, br accept-language : ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7 cookie : JSESSIONID=E2EE25CC75B1F7052210EC9452E0CE8F
+
+getParameter
+mname >>> : 윤요섭
+mid >>> : imyoseob
+mpw >>> : 0323
+mhp >>> : null
+mgender >>> : null mhobby >>> : book,sports,
+mlocal >>> : seoul
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>cgiForm Test</title>
+<!-- 디바이스에 최적화된 크기로 출력됨 -->
+<meta name="viweport" content="width=device-width, iitail-scale=1">
+<style type="text/css">
+/*렌더링 엔진이 실행된다.*/
+	div{
+	/*선택 대상은 div이다.*/
+			margin: 50px 0px 0px 100px;
+			/*시계방향으로 위, 오른쪽, 아래, 왼쪽으로 픽섹 마진을 정한다.*/
+		}
+</style>
+<script type="text/javascript">
+	// 자바스크립트 엔진이 실행된다.
+	function formTestCheck(){
+		alert("formTestCheck()함수 진입");
+		// formTestCheck()함수 진입이 알럿으로 가장 먼저 뜬다.
+		document.form_1p.action="/firstWeb/jspp/form_1p.jsp";
+		document.form_1p.method="GET";
+		document.form_1p.enctype="application/x-www-form-urlencoded";
+		document.form_1p.submit();
+	}
+	// 다큐먼트 객체에 form_1p에서 action, method, enctype, 
+	// 을 지정한다. submit함수를 쓴다.
+	
+</script>
+</head>
+<body>
+<div>
+<form name="form_1p" id="form_1p">
+<table border="1">
+<tr>
+	<td>이름</td>
+	<td><input type="text" name="mname" /></td>
+	<!-- input type= 여기 버전 잘보고 써야함. -->
+</tr>
+<tr>
+	<td>아이디</td>
+	<td>
+		<input type="text" name="mid" value="아이디"/>
+		<input type="button" name="midCheck" value="아이디중복확인"/>
+	</td>
+</tr>
+<tr>
+	<td>패스워드</td>
+	<td>
+	<input type="text" name="mpw" />
+	</td>
+</tr>
+<tr>
+	<td>패스워드</td>
+	<td>
+	<input type="text" name="mpw"/>
+	</td>
+</tr>
+<tr>
+	<td>취미</td>
+	<td>
+		<input type="checkbox" name="mhobby" value="book" />독서
+		<input type="checkbox" name="mhobby" value="sports" />운동
+		<input type="checkbox" name="mhobby" value="mugic"/>음악감상
+		<input type="checkbox" name="mhobby" value="trable"/>여행
+	</td>
+</tr>
+<tr>
+	<td>지역</td>
+	<td>
+		<select name="mlocal">
+			<option value="seoul">서울</option>
+			<option value="gunggido">경기도</option>
+			<option value="junju">전주</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td>소개글</td>
+	<td>
+		<textarea name="mmsg" rows="5" cols="50"></textarea>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<!-- 
+			hidden 타입은 화면에 display 되지 않는다. value는 서버로 전송이 된다.
+		 -->
+		<input type="hidden" id="isudtype" name="isudtype" value="I">
+		<input type="button" value="jsp_보내기" id="jspBtn" onclick="formTestCheck()"/>
+		<input type="reset" value="취소" />
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

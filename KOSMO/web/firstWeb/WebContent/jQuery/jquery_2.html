@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리 테스트</title>
+
+<!-- CDN -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	
+	window.jQuery(document).ready(function(){
+		alert("window.jQuery(document) 블럭");
+	});
+	
+	jQuery(document).ready(function(){
+		alert("jQuery(document) 블럭");
+	});
+	
+	window.$(document).ready(function(){
+		alert("window.$(document) 블럭");
+	});
+	
+	$(document).ready(function(){
+		alert("jquery ready 함수 블럭 >>> : ");
+		alert("$(document).ready() 형식만 사용하면 된다. "
+				+ "제이쿼리는 ready(function(){ }) ready함수 펑션 블럭에서만 사용한다. ");		
+	});
+	
+	jquery(document).ready(function(){
+		alert("jquery(document) 블럭");
+	});
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

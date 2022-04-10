@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+<style type="text/css">
+	div{
+		margin: 50px 0px 0px 100px;
+	}
+</style>
+
+<script type="text/javascript">
+	function formTestCheck(){
+		alert("formTestChect() 함수 진입");
+		document.formpractice.action="/firstWeb/jspp/formpractice.jsp";
+		document.formpractice.method="GET";
+		document.formpractice.enctype="application/x-www-form-wrlencoded";
+		document.formpractice.submit();	
+	}
+</script>
+</head>
+<body>
+<div>
+<form name="formpractice" id="formpractice">
+<table border="1">
+
+<tr>
+	<td>이름</td>
+	<td><input type="text" name="mname" /></td>
+</tr>
+<tr>
+	<td>아이디</td>
+	<td>
+		<input type="text" name="mid" value="아이디" />
+		<input type="button" name="midCheck" value="아이디 중복확인" />
+	</td>
+</tr>
+<tr>
+	<td>패스워드</td>
+	<td>
+		<input type="text" name="mpw"/>
+	</td>
+</tr>
+<tr>
+	<td>핸드폰</td>
+	<td>
+		<input type="text" name="mhp"/>
+	</td>
+</tr>
+<tr>
+	<td>성별</td>
+	<td>
+		<input type="radio" name="mgender" value="M" checked="checked" />남자
+		<input type="radio" name="mgender" value="F" /> 여자
+	</td>
+</tr>
+<tr>
+	<td>지역</td>
+	<td>
+		<select name="mlocal">
+			<option value="seoul">서울</option>
+			<option value="gungido">경기도</option>
+			<option value="junju">전주</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td>소개글</td>
+	<td>
+		<textarea name="mmsg" rows="5" cols="50"></textarea>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<input type="hidden" id="isudtype" name="isudtype" value="I">
+		<input type="button" value="jsp 보내기" id="jspBtn" onclick="formTestCheck()"/>
+		<input type="reset" value="취소"/>
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

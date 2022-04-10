@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FOMR TAG</title>
+	<script type="text/javascript">
+		
+		alert("자바스크립트 블럭 시작 >>> : ");
+		
+		function checkAction() {
+			alert(">>");
+			
+			// <form id="getDate"
+			// window.document.getElementById("getDate") ==> $("#getDate")
+			var getDataForm_1 = window.document.getElementById("getData");
+			alert("getDataForm_1 >>> : " + getDataForm_1);
+			
+			var mname = document.getElementById("mname");			
+			alert("mname >>> : " + mname);
+			
+			var mname_value = document.getElementById("mname").value;			
+			alert("mname_value >>> : " + mname_value);
+			
+			// mname_value = "서민정";
+			// alert("mname_value >>> : " + mname_value);			
+			// document.getElementById("mname").value = "aaa";
+			
+			var maddr = document.getElementById("maddr");
+			alert("maddr >>> : " + maddr);	
+			
+			var maddr_value = document.getElementById("maddr").value;			
+			alert("mname_value >>> : " + mname_value);
+			
+			// mname_value = "서울";
+			// alert("mname_value >>> : " + mname_value);			
+			// document.getElementById("maddr").value = "bbb";			
+		
+			// window.document.getData.submit();
+			getDataForm_1.action="/firstWeb/getData_jsp/getData_1.jsp";
+			getDataForm_1.method="GET";
+			getDataForm_1.enctype="application/x-www-form-urlencoded";
+			getDataForm_1.submit();
+		}		
+	</script>
+</head>
+<body>
+
+
+<form 	name="getData" id="getData" >
+
+이름 : <input type="text" name="mname" id="mname" size="5" maxlength="15" value="111"><br>
+주소 : <input type="text" name="maddr" id="maddr" size="20" maxlength="15" value="222"><br>
+
+ <!-- 
+ 이름 : <input type="text" name="mname" id="mname" size="5" maxlength="15"><br>
+주소 : <input type="text" name="maddr" id="maddr" size="20" maxlength="15"><br>
+-->
+
+<input type="button" value="전송" onclick="checkAction()">
+<input type="reset" value="다시">
+</form>		 
+<form></form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
