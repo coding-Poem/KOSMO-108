@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>박스모델</title>  
+<!-- 
+	----------------------------------------------------
+	box-sizing  박스의 크기를 어떤 것을 기준으로 계산할지를 정하는 속성입니다.
+	----------------------------------------------------
+	기본값 : content-box
+	상속 : No
+	애니메이션 : No
+	버전 : CSS Level 3
+
+	box-sizing: content-box | border-box | initial | inherit			
+	content-box : 콘텐트 영역을 기준으로 크기를 정합니다.
+	border-box : 테두리를 기준으로 크기를 정합니다.
+	initial : 기본값으로 설정합니다.
+	inherit : 부모 요소의 속성값을 상속받습니다.
+ -->
+<style>
+	div {
+		margin-bottom:20px;
+	}
+	.box1 {
+		width:200px;
+		height:100px;
+		padding:20px;
+		border:10px solid #ccc;
+	}
+	.box2 {
+		box-sizing: border-box;
+		width:200px;
+		height:100px;
+		padding:20px;
+		border:10px solid #00f;
+	}
+</style>
+</head>
+<body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+</body>
+</html>

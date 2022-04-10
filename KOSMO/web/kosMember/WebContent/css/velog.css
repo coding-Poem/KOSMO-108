@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+body{
+		background-color:black;
+	}
+	
+	div{
+		font-size:40px;
+		font-family:Verdana;
+		color:#20C997;
+		background-color:white;
+		text-align:center;
+		border-style:dotted;
+		border-color:red;
+		margin:100px;
+	}
+
+	.cssposting{
+		color:red;
+	}

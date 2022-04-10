@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+<html lang="ko">
+<head>
+  	<meta charset="UTF-8">
+  	<title>CSS display 속성</title>
+	<!-- 
+	
+		배치 방법을 결정하는 display 속성
+		-------------------------------
+		display 속성은 웹 문서의 내비게이션을 만들면서 		
+		메뉴 항목을 가로로 배치할 때, 이미지를 표 형태로 배치할 때 많이 사용한다.
+		
+		block	인라인 레벨 요소를 블록 레벨 요소로 만듬
+		inline	블록 레벨 요소를 인라인 레벨 요소로 만듬
+		inline-block	인라인, 블록 레벨 요소의 속성을 모두 가짐, 마진과 패딩을 지정할 수 있음
+		none	해당 요소를 화면에 표시하지 않는다.
+		
+		왼쪽이나 오른쪽에 배치하는 float 속성
+		---------------------------------
+		left
+		right
+		none
+		
+		float 속성을 해제하는 clear 속성
+		---------------------------------
+		left
+		right
+		none  
+	-->
+	 
+  	<style>
+	    * {
+	      box-sizing: border-box;
+	    }
+	    nav ul {
+	    	/* ul 블릿 bullets 없애기 */
+	      	list-style:none;      
+	    }
+	    nav ul li {
+	      	display:inline-block;      
+	      	padding:20px;
+	      	margin:0 20px;
+	      	border:1px solid #222222;
+	    }
+  	</style>
+    
+</head>
+<body>
+   <nav>
+     <ul>
+      <li>menu 1</li>
+      <li>menu 2</li>
+      <li>menu 3</li>
+      <li>menu 4</li>
+     </ul>
+   </nav>
+</body>
+</html>

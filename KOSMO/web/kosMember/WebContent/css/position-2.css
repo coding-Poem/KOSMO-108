@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+}  
+#contents {
+	/*
+		repeat : 가로 방향, 세로 방향으로 반복합니다.
+		repeat-x : 가로 방향으로 반복합니다.
+		repeat-y : 세로 방향으로 반복합니다.
+		no-repeat : 반복하지 않습니다.
+		initial : 기본값으로 설정합니다.
+		inherit : 부모 요소의 속성값을 상속받습니다.
+	*/
+	background:url("/kosMember_YYS/img/img_css/bg.jpg") no-repeat;
+	/* 
+		cover : 지정한 요소를 다 덮도록 배경이미지를 확대/축소
+	*/
+	background-size:cover;
+	width:800px;
+	height:500px;
+	margin:0 auto;
+}
+h1 { 
+	color:#fff; 
+	font-size:120px;
+	text-shadow: 2px 3px 0 #000;      
+}

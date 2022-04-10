@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Selector</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		 		
+		function numPad(s){
+			
+			let sV = s + ""; // s는 number + "" : 문자열 
+			console.log("sV >>> : " + sV + " :: " + typeof(sV) + " :: " +  sV.length);
+			if (1 == sV.length){
+				sV = '0' + sV;
+			}			
+			console.log("sV >>> : " + sV);			
+			return sV;
+		}
+		
+		// setInterval(function(){}, second);
+		// setInterval(function(){}, 1000); 1초 한번씩 실행하시오 
+		var time = setInterval(function(){
+		
+			
+			
+			var now = new Date();
+			var hr = now.getHours();
+			var min = now.getMinutes();
+			var sec = now.getSeconds();		
+			
+			$("span").eq(0).text(numPad(hr));
+			$("span").eq(1).text(numPad(min));
+			$("span").eq(2).text(numPad(sec));
+			
+		}, 1000);
+		
+		$("li").eq(0).on("click", function(){
+			$(".box1").hide();
+		});
+		$("li").eq(1).on("click", function(){
+			$(".box1").show();
+		});
+		
+		$("li").eq(2).on("click", function(){
+			$(".box1").fadeOut(2000);
+		});
+		$("li").eq(3).on("click", function(){
+			$(".box1").fadeIn(2000);
+		});
+		$("li").eq(4).on("click", function(){
+			alert("444");
+			// while(true){
+			//	
+			// }
+		});
+		
+		
+	});
+</script>
+<style type="text/css">	
+	p {
+		font: bold 100px arial;
+		margin: 50px auto;
+		text-align: left;
+	}		
+	
+	ul li {
+		font-size:30px; 
+		margin-left: 50px;
+	}
+	
+	div {
+		width: 400px;
+		height: 400px;
+		margin: 50px;
+		float: left;
+		font-size: 40px;
+		color: #fff;
+	}
+	
+	.box1 { background: blue; }
+	.box2 { background: red; }
+</style>
+</head>
+<body>	
+.setInterval()
+<hr>
+<p>
+	<span>00</span>:<span>00</span>:<span>00</span>
+</p><br>
+.hide(), .show(), .fadeOut(), fadeIn()
+<hr>
+<ul>
+	<li>box1 hide</li>
+	<li>box1 show</li>
+	<li>box2 fadeOut</li>
+	<li>box2 fadeIn</li>
+	<li>box2 loop</li>
+</ul>
+
+<div class="box1">box1</div>
+<div class="box2">box2</div>
+</body>
+</html>

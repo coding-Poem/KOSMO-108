@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>문서의 동적 구성</title>
+		<script type="text/javascript">
+			function createDIV(){
+				var obj = document.getElementById("parent_body");
+				alert("obj >>> : "  +obj);
+				//obj >>> : [object HTMLBodyElement]
+				console.log("obj >>> : "  +obj);
+				var newDIV = document.createElement("div");
+				alert("newDIV >>> : " + newDIV);
+				console.log("newDIV >>> : "  +newDIV);
+				//<div></div>
+
+				newDIV.innerHTML="body엘레멘트를 부모로 하여 새로 생성된DIV입니다";
+				//<div>"body엘레멘트를 부모로 하여 새로 생성된DIV입니다";</div>
+				newDIV.setAttribute("id","myDiv");
+				//<div id="myDiv">~</div>
+				newDIV.style.backgroundColor="yellow";
+				//<div id="myDiv" style="backgroundcolor:yellow;">~</div>
+				newDIV.onclick = function(){
+					var p = this.parentElement; // 부모 HTML태그 요소
+					p.removeChild(this); //자기 자신을 부모로부터 제거
+				}//인자 자체가 될 때랑 vs 인자로 쓰일 때 
+				obj.appendChild(newDIV); 
+			}
+			
+			/*
+				정리
+				1. document.createElement("태그이름");으로 태그 설정
+				2. attr 추가
+				3. 대상 부모 id 가져오기
+				4. 새로 만든 자식을 부모에 append{obj.appendChild(newDIV);}
+				5. <a href="javascript:createDIV2()"> Rhwdkwnrl
+				6. cf) append / href 따로임.
+			*/
+			function createDIV2(){
+				var obj = document.getElementById("parent_p");
+				alert("obj >>> : "  +obj);
+				//obj >>> : [HTMLParagraphElement]
+				var newDIV = document.createElement("div");
+				alert("newDIV >>> : " + newDIV);
+				console.log("newDIV >>> : "  +newDIV);
+				newDIV.innerHTML="p엘레멘트를 부모로 하여 새로 생성된DIV입니다";
+				newDIV.setAttribute("id","myDiv2");
+				newDIV.style.backgroundColor="lime";
+				newDIV.onclick = function(){
+					var p = this.parentElement; // 부모 HTML태그 요소
+					p.removeChild(this); //자기 자신을 부모로부터 제거
+				}
+				
+				obj.appendChild(newDIV);
+			}
+		</script>
+		<style type="text/css">
+			.inputclass{
+				width:300px;
+			}
+			#inputid{
+				height:300px;
+			}
+			
+		</style>
+	</head>
+	<body id="parent_body">
+		<input type="text" class="inputclass" name="inputname" id="inputid" placeholder="아무거나 쳐 보세요"> 
+		<h3>DIV 객체를 동적으로 생성, 삽입, 삭제하는 예제</h3>
+		<hr>
+		<p>
+			DOM 트리에 동적으로 객체를 삽입할 수 있습니다.<br>
+			createElement(), appendChile(), removeChile() 메소드를<br>
+			이용하여 새로운 객체를 생성, 삽입, 삭제하는 예제입니다.<br>
+		</p>
+		<p id="parent_p" style="border:1px solid red">
+			<a href="javascript:createDIV()">body-DIV 생성</a><br><br>
+			<a href="javascript:createDIV2()">body-p-DIV 생성</a>
+		</p>
+		
+	
+		
+		
+	</body>
+</html>
