@@ -59,20 +59,19 @@
 
 |일자|강의노트|
 |---|---|
-|2022-03-18|web|
-|2022-03-21|웹_tomcat|
-|2022-03-22|web_2|
-|2022-03-23|강의노트|
-|2022-03-24|강의노트|
-|2022-03-25|강의노트|
-|2022-03-27|jQuery|
-|2022-03-28|jQuery|
-|2022-03-30|member|
-|2022-04-01|KOS_MEMBER|
-|2022-04-01|만우절|
-|2022-04-04|log_찍기|
-|2022-04-05|CSS|
-|2022-04-08|JSP|
+|2022-03-18|[web](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-18web.md)|
+|2022-03-21|[웹_tomcat](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-21%EC%9B%B9tomcat.md)|
+|2022-03-23|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-23%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
+|2022-03-24|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-24%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
+|2022-03-25|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-25%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
+|2022-03-27|[jQuery](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-27jQuery.md)|
+|2022-03-28|[jQuery](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-28jQuery.md)|
+|2022-03-30|[member](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-30member.md)|
+|2022-04-01|[KOS_MEMBER](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-01KOS_MEMBER.md)|
+|2022-04-04|[log_찍기](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-01log%EC%B0%8D%EA%B8%B0.md)|
+|2022-04-01|[만우절](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-01%EB%A7%8C%EC%9A%B0%EC%A0%88.md)|
+|2022-04-05|[CSS](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-05CSS.md)|
+|2022-04-08|[JSP](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-08jsp.md)|
 
 
 
