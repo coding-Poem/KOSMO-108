@@ -44,16 +44,16 @@
 
 |일자|강의노트|
 |---|---|
-|2022-03-02|방화벽|
-|2022-03-03|자바기초_오라클|
-|2022-03-04|강의노트|
-|2022-03-07|dao|
-|2022-03-08|강의노트|
-|2022-03-10|isud|
-|2022-03-11|dao패턴|
-|2022-03-14|검색|
-|2022-03-16|T6_ISUD|
-|2022-03-17|개발방법론|
+|2022-03-02|[방화벽](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-02%EB%B0%A9%ED%99%94%EB%B2%BD.md)|
+|2022-03-03|[자바기초_오라클](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-03%EC%9E%90%EB%B0%94%EA%B8%B0%EC%B4%88_%EC%98%A4%EB%9D%BC%ED%81%B4.md)|
+|2022-03-04|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-04%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
+|2022-03-07|[dao](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-07dao.md)|
+|2022-03-08|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-08%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
+|2022-03-10|[isud](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-10isud.md)|
+|2022-03-11|[dao패턴](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-11dao%ED%8C%A8%ED%84%B4.md)|
+|2022-03-14|[검색](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-14%EA%B2%80%EC%83%89.md)|
+|2022-03-16|[T6_ISUD](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-16T6_ISUD.md)|
+|2022-03-17|[개발방법론](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-17%EA%B0%9C%EB%B0%9C%EB%B0%A9%EB%B2%95%EB%A1%A0.md)|
 
 #### WEB(HTML, CSS, JS, jQuery)
 
