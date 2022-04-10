@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	p.dotted {
+        border-style: dotted;        
+        border-width: 10px;
+        border-color: red;
+    }            
+    p.dashed {
+        border-style: dashed;
+        border-width: thick thin;
+    }
+    p.solid {
+        border-style: solid;
+        border-width: thick thin thin;
+    }
+    p.double {
+        border-style: double;
+        border-width: 10px 5px 5px 10px;
+    }
+    p.groove {
+        border-style: groove;
+        border-width: 10px;
+        border-color: yellow;
+    }
+    p.ridge {
+        border-style: ridge;
+        border-width: 10px;
+        border-color: yellow;
+    }
+    p.inset {
+        border-style: inset;
+        border-width: 10px;
+        border-color: yellow;
+    }
+    p.outset {
+        border-style: outset;
+        border-width: 10px;
+        border-color: yellow;
+    }
+
+    p.none {border-style: none;}
+
+    p.hidden {border-style: hidden;}
+
+    p.mix {border-style: dotted dashed solid double;}    
+
+
+    #round {border-radius: 25px;}    
+
+    #circle {border-radius: 80%;}
+    div {
+        width:200px;
+        height:150px;
+    }
+
+    #round1 {
+        border:2px solid blue;
+        border-top-left-radius:20px;  /* 왼쪽 위 꼭짓점만 둥글게 */
+        border-top-right-radius:20px;  /* 오른쪽 위 꼭짓점만 둥글제 */
+    } 
+
+</style>
+</head>
+<body>
+	<h2>The border-style 속성</h2>
+	<p class="dotted">A dotted border. 테두리를 점선으로 표시</p>
+	<p class="dashed">A dashed border. 테두리를 짧은 직선으로 표시</p>
+	<p class="solid">A solid border. 테두리를 실선으로 표시</p>
+	<p class="double">A double border. 테두리를 이중선으로 표시, 두 선 사이의 간격이 border-width</p>
+	<p class="groove">A groove border. 테두리를 홈이 파인 듯 입체 느낌</p>
+	<p class="ridge">A ridge border. 테두리를 창에서 튀어나온 것처럼 표시</p>
+	<p class="inset">An inset border. 표에서 boder-collapse:seperate일 경우 전체 박스 테두리가 창에 박혀 있는 것처럼 표시</p>
+	<p class="outset">An outset border. 표에서 vorder-collapse:seperate일 경우 전체 박스 테두리가 창에서  튀어나온 것처럼 표시</p>
+	<p class="none">No border. 테두리가 없음. 기본값</p>
+	<p class="hidden">A hidden border. 테두리를 감춤. 표에서 border-collapse일 경우 다른 테두리도 표시하지 않음</p>
+	<p class="mix">A mixed border.</p>
+	
+	<img src="/KosMember/image/img_css/cat.jpg">
+	<!-- \KosMember\WebContent\image\img_css -->
+	<img id="round" src="/KosMember/image/img_css/cat.jpg"><br>
+	
+	<img src="/KosMember/image/img_css/photo.jpg">
+	
+	<img id="circle" src="/KosMember/image/img_css/photo.jpg"><br>
+  	
+  	<div id="round1"></div>
+</body>
+</html>

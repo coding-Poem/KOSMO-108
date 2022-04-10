@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>박스모델</title>
+<style type="text/css">
+/* CSS 실험실 */
+	body{ 
+		background: ghostwhite;
+		padding:100px;
+		}
+	span{ background: deepskyblue;}
+	img{
+		border:2px solid red;
+		padding:20px;
+	}
+	div.box{
+		background:yellow;
+		border-style:solid;
+		border-with:30px;
+		width:250px;
+		height:100px;
+		margin:40px;
+		padding:20px;
+	}
+
+	div.box1{
+		background:red;
+		border-style:solid;
+		border-color:#ffff00;
+		border-width:5px;
+		width:250px;
+		height:100px;
+		margin:5px;
+		padding:5px;
+	}
+</style>
+</head>
+<body>
+<img src="/kosMember/image/img_css/boxModel.png">
+<img src="/kosMember/image/img_css/boxModel_1.png">
+<!-- \KosMember\WebContent\image\img_css\boxModel_1.png -->
+<div class="box">
+	<span>
+		div(Division) box<br>
+		div는 웹페이지에서 논리적 구분을 정의하는 태그이다.
+	</span>
+</div>
+
+<div class="box1">
+	<span>
+		top right bottom left
+	</span>
+</div>
+
+
+<!-- div class="box1" 실험실 
+copy selector :: body > div.box1
+copy js path :: document.querySelector("body > div.box1")
+copy style ::     background: red;
+    border-style: solid;
+    border-color: blue;
+    border-width: 5px;
+    width: 250px;
+    height: 100px;
+    margin: 5px;
+    padding: 5px;
+copy Xpath :: /html/body/div[2]
+copy full Xpath :: /html/body/div[2]
+-->
+</body>
+</html>

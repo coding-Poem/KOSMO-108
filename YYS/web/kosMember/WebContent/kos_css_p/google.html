@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<title>Google</title>
+<meta name="viweport" content="width=device-width, iitail-scale=1">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style type="text/css">
+	html{
+		-webkit-locale: "ko";
+    	min-width: 400px;
+    	height: 100%;
+    	margin: 0;
+    	padding: 0;
+	}
+	
+	body{
+		background: #fff;
+    	font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	color: #202124;
+    	min-width: 400px;
+    	height: 100%;
+    	margin: 0;
+    	padding: 0;
+    	text-align:center;
+	}
+
+	button {
+    	font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	color: #202124;
+    	text-align:center;
+	}
+	
+	input{
+		font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	color: #202124;
+    	text-align:center;
+    	border-radius: 9px;
+    	border-color: red;
+    	border-style: dotted;
+	}
+	
+	#container{
+		box-sizing:border-box;
+		min-width: 400px;
+    	height: 100%;
+    	margin: 0px;
+    	padding: 0px;
+    	border-color: green;
+    	border-style: dotted;
+	}
+	
+	div{
+		padding:30px;
+		margin:30px;
+	}
+		
+	img{
+		border:2px;
+		box-sizing:border-box;
+		border-color: red;
+    	border-style: dotted;
+	}
+		
+	form{
+		padding:20px;
+		margin:5px;
+		box-sizing:border-box;
+		border-color: cyan;
+    	border-style: dotted;  	
+	}
+				
+	/* Google정보  스토어   Gmail 이미지*/	
+	.inf{
+	    font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	color: #202124;
+    	flex-shrink: 0;
+    	box-sizing: border-box;
+    	height: 60px;
+    	display: flex;
+    	align-items: center;
+    	padding: 6px;
+    	border-color: red;
+    	border-style: dotted;
+	}
+		
+	/*
+	Google 정보 style
+	    font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	text-decoration: none;
+    	display: inline-block;
+    	padding: 5px;
+    	margin: 0 5px;
+    	color: #202124;
+    	margin-left: 15px;
+	*/
+	
+	
+
+	/*
+	스토어 정보 style
+	    font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	text-decoration: none;
+    	display: inline-block;
+    	padding: 5px;
+    	margin: 0 5px;
+    	color: #202124;
+	*/
+		
+	/*
+	Gmail, 이미지
+	    font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	color: #202124;
+    	display: inline-block;
+    	flex-grow: 1;
+	*/
+	
+
+	
+	/* Google 로고 사진을 담는 박스
+	.gle{
+		font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	color: #202124;
+    	flex-shrink: 0;
+    	box-sizing: border-box;
+    	max-height: 290px;
+    	height: calc(100% - 560px);
+    	min-height: 92px;
+    	display: flex;
+    	flex-direction: column;
+    	align-items: center;
+	}
+	*/
+		
+	.gle{
+		font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	color: #202124;
+    	height: 100%;
+    	margin-top: auto;
+    	max-height: 92px;
+    	position: relative;	
+    	flex-direction: column;
+    	align-items: center;
+    }
+    
+	/*
+	font-size: 14px;
+    font-family: Apple SD Gothic Neo,arial,sans-serif;
+    color: #202124;
+    height: 100%;
+    margin-top: auto;
+    max-height: 92px;
+    position: relative;
+	*/
+	
+	/* 검색창과 Google검색, I'm Feeling Lucky가 있는 곳 */
+	/* Google 제공 서비스 : English */
+	.dfm{
+		font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	color: #202124;
+   	 	flex-shrink: 0;
+   	 	box-sizing: border-box;
+    	max-height: 160px;
+    	padding: 20px;
+		border-color: black;
+    	border-style: dotted;
+	}
+	
+    /* Google 검색, I'm Feeling Lucky  아래 칸 */
+    .o3j99{
+    	    font-size: 14px;
+    		font-family: Apple SD Gothic Neo,arial,sans-serif;
+    		color: #202124;
+    		flex-shrink: 0;
+    		box-sizing: border-box;
+    		flex-grow: 1;
+    }
+    
+	/* 대한 민국 광고, 비즈니스, 검색의 원리가 있는 곳 */
+	.exp{
+		font-size: 14px;
+    	font-family: Apple SD Gothic Neo,arial,sans-serif;
+    	color: #202124;
+    	flex-shrink: 0;
+    	box-sizing: border-box;
+    	background: #f2f2f2;
+		background: #f2f2f2;
+		border-color: blue;
+    	border-style: dotted;
+	}
+</style>
+
+
+<script type="text/javascript">
+// https://www.google.co.kr/search?q=
+	function checkAction(){
+		var sch="https://www.google.co.kr/search?q=";
+		console.log("sch >>> : "+sch);
+		var txt=window.document.forms[0].elements[0].value;
+		console.log("txt >>> : "+txt);
+		
+		sch=sch.concat(txt);
+		console.log("sch >>> : "+sch);
+		
+		location.href=sch;
+		}
+		
+	$(document).ready(function(){
+		$("#lbtn").click(function(){
+			location.href="https://www.google.com/doodles"	
+		});	
+	});
+</script>
+</head>
+<body>
+
+<div id="container">
+<!--  Google정보  스토어   Gmail 이미지 -->
+    <div class="inf">
+    		<a class="MV3Tnb" href="https://about.google/?fg=1&amp;utm_source=google-KR&amp;utm_medium=referral&amp;utm_campaign=hp-header" ping="/url?sa=t&amp;rct=j&amp;source=webhp&amp;url=https://about.google/%3Ffg%3D1%26utm_source%3Dgoogle-KR%26utm_medium%3Dreferral%26utm_campaign%3Dhp-header&amp;ved=0ahUKEwjo9u6Xp_32AhUyGaYKHWe1AUkQkNQCCAI">Google 정보</a>
+    		<a class="MV3Tnb" href="https://store.google.com/KR?utm_source=hp_header&amp;utm_medium=google_ooo&amp;utm_campaign=GS100042&amp;hl=ko-KR" ping="/url?sa=t&amp;rct=j&amp;source=webhp&amp;url=https://store.google.com/KR%3Futm_source%3Dhp_header%26utm_medium%3Dgoogle_ooo%26utm_campaign%3DGS100042%26hl%3Dko-KR&amp;ved=0ahUKEwjo9u6Xp_32AhUyGaYKHWe1AUkQpMwCCAM">스토어</a>
+    		<a class="gb_d" data-pid="23" href="https://mail.google.com/mail/&amp;ogbl" target="_top">Gmail</a>
+    		<a class="gb_d" data-pid="23" href="https://www.google.co.kr/imghp?hl=ko&amp;ogbl" target="_top">이미지</a>
+    </div>
+    
+    <!-- Google 로고 사진을 담는 박스 --> 
+    <div class="gle">
+    <img src="/kosMember_YYS/img/googlelogo_color_272x92dp.png" width="272" height="92"> 
+    </div>
+    
+    <!-- 검색창과 Google검색, I'm Feeling Lucky, Google 제공 서비스 : English가 있는 곳 -->
+    <div class=dfm>
+    <form name="fm" id="fm" >
+    	<input type="text" id="tt" name="tt" ><br>
+    	<input type="button" id="gbtn" value="Google 검색" onclick="checkAction()">
+    	<input type="button" id="lbtn" value="I'm Feeling Lucky">
+    	<br>
+    	<br>
+    	<br>
+    	Google 제공 서비스:  <a href="https://www.google.co.kr/setprefs?sig=0_FrESr3S1IPTDgo01A-rJ3dNciW0%3D&amp;hl=en&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwj2vK6loP_2AhVdilYBHQ-pCCsQ2ZgBCBI">English</a>
+    </form>
+    </div>
+    
+    <!--  Google 검색, I'm Feeling Lucky  아래 칸 -->
+    <div class="o3j99"></div>
+    
+    <!-- 대한 민국 광고, 비즈니스, 검색의 원리가 있는 곳 -->
+    <div class="exp">
+    <p style="text-align:left" >대한민국<p>
+    <hr>
+    <a class="pHiOh" href="https://www.google.co.kr/intl/ko_kr/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&amp;utm_source=google.com&amp;utm_medium=referral&amp;utm_campaign=google_hpafooter&amp;fg=1" ping="/url?sa=t&amp;rct=j&amp;source=webhp&amp;url=https://www.google.co.kr/intl/ko_kr/ads/%3Fsubid%3Dww-ww-et-g-awa-a-g_hpafoot1_1!o2%26utm_source%3Dgoogle.com%26utm_medium%3Dreferral%26utm_campaign%3Dgoogle_hpafooter%26fg%3D1&amp;ved=0ahUKEwjxwdPdov32AhVJfXAKHZdGCKwQkdQCCBE">광고</a>
+    <a class="pHiOh" href="https://www.google.co.kr/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&amp;utm_source=google.com&amp;utm_medium=referral&amp;utm_campaign=google_hpbfooter&amp;fg=1" ping="/url?sa=t&amp;rct=j&amp;source=webhp&amp;url=https://www.google.co.kr/services/%3Fsubid%3Dww-ww-et-g-awa-a-g_hpbfoot1_1!o2%26utm_source%3Dgoogle.com%26utm_medium%3Dreferral%26utm_campaign%3Dgoogle_hpbfooter%26fg%3D1&amp;ved=0ahUKEwjxwdPdov32AhVJfXAKHZdGCKwQktQCCBI">비즈니스</a>
+    <a class="pHiOh" href="https://google.com/search/howsearchworks/?fg=1"> 검색의 원리 </a>
+    </div>
+</div>
+</body>
+</html>
