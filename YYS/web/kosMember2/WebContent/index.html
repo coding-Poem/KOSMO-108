@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- ################  head ################ -->
+<meta charset="UTF-8">
+<title>회원 관리 연습</title>
+<!-- CDN -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- date picker -->
+<link rel="stylesheet" href="/kosMember_YYS2/calendar_datepicker/jquery-ui-1.12.1/jquery-ui.min.css">
+<script src="/kosMember_YYS2/calendar_datepicker/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<script src="/kosMember_YYS2/calendar_datepicker/jquery-ui-1.12.1/datepicker-ko.js"></script>
+<script type="text/javascript">
+// javascript area
+		// $(document).ready(function(){});
+		$(document).ready(function(){
+			// 날짜  datepicker 
+			// $("#fromdate").datepicker({{}});
+			// <input type="text" id="fromdate" name="fromdate"
+			$("#fromdate").datepicker(
+					{
+						showOn:"button",
+						buttonImage:"/kosMember_YYS2/calendar_datepicker/images/calendar.gif",
+						buttonImageOnly: false,
+						buttonText:"Select date",
+						onClose:function( selectedDate ){
+							// 시작일(fromdate) date가 닫힐 떄
+							// 종료일(todate)의 선택할 수 있는 최소 날짜(mindate)를 선택할 시작길로 지정
+							$("#todate").datepicker("option","minDate",selectedDate);
+							}
+					}
+				); // end of $("#fromdate").datepicker( 
+			
+			
+		// 날짜 datepicker
+		// $("#todate").datepicker({{}});
+		// <input type="text" id="fromdate" name="todate"
+		$("#todate").datepicker(
+				{
+				    	showOn:"button",
+				    	buttonImage: "/kosMember_YYS2/calendar_datepicker/images/calendar.gif",
+				    	buttonImageOnly:false,
+				    	buttonText:"Select date",
+				    	onClose:function( selectedDate ){
+				    	// 종료일(todate) datepicker가 닫힐 때
+				    	// 시작일(fromdate)의 선택할 수 있는 최대 날짜(maxDate)를 선택한 종료일로 지정
+				    	$("#fromdate").datepicker("option", "maxDate", selectedDate );
+						}
+				}
+			); // end of $("#todate").datepicker(
+									
+						
+		// <input type="button" id="search_btn" name="search_btn" value="검섹" />
+		// $("#search_btn").click(function(){});
+		$("#search_btn").click(function(){
+			console.log("검색버튼 클릭! >>> 전체조회 조건검색 컨트롤러로 이동 ");
+			alert("검색버튼 클릭! >>> 전체조회 조건검색 컨트롤러로 이동 ");
+			
+			// <form name="searchForm" id="searchForm">
+			// $("#searchForm").attr({}).submit();
+			$("#searchForm").attr(
+					{
+						"action":"/kosMember_YYS2/kosmem/memSelectAll.jsp",
+						// /kosMember_YYS2/kosmem/memSelectAll.jsp
+						"method":"GET"
+					}
+				).submit();
+			});	// end of $("#search_btn").click(function(){});		
+		
+		// 회원번호 수정 삭제
+		/* <input type="button" id="mnumSearch_btn" value="검색" /> */
+		// $("#mnumSearch_btn").click(function(){});
+		$("#mnumSearch_btn").click(function(){
+			// <form name="mnumSearch_form" id="mnumSearch_form">
+			// $("#mnumSearch_form").attr({}).submit();
+			$("#mnumSearch_form").attr(
+					{
+						"action":"/kosMember_YYS2/kosmem/memSelect.jsp",
+						// /kosMember_YYS2/kosmem/memSelect.jsp
+						"method":"GET",
+						"enctype":"application/x-www-form-urlencoded"
+					}
+				).submit();	
+			}); // end of  $("#mnumSearch_btn").click(function(){});
+		}); // end of $(document).ready(function(){});
+</script>
+</head>
+<body>
+<!-- ################  body ################ -->
+	<h3>JSP MODEL 1 ARCHITECTURE</h3>
+	<hr>
+	<!--  IPv4 주소 . . . . . . . . . : 192.168.219.100 -->
+	<!--  Index.html :: PROPERTIES :: LOCATION ::
+		 relative path ::/kosMember_YYS2/index.html -->
+	<!-- <a href="http:/192.168.219.100::8088/kosMember_YYS2/kosmem/mem.html">회원가입</a> -->
+	<a href="/kosMember_YYS2/kosmem/mem.html">회원가입</a>
+	<!-- http://localhost:8088/kosMember_YYS2/kosmem/mem.html -->
+	<a href="#">회원 검색</a>
+	
+	<!-- ############### 0 :: form 태그 시작  ############### -->
+	<form name="searchForm" id="searchForm">
+	<table>
+	<tr>
+	<td>
+	<select id="searchFilter" name="searchFilter" style="width:100px:height:21px;">
+		<option value="01" selected>전체</option>
+		<option value="02">회원번호</option>
+		<option value="03">이름</option>
+		<option value="04">아이디</option>
+	</select>
+	<!-- 0 :: input 태그 -->
+	<input type="text" id="keyword" name="keyword" placeholder="검색어 입력" />
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<!-- 1 :: input 태그 :: type="text"-->
+	<input type="text" id="fromdate" name="fromdate" placeholder="시작일" style="width:100px;height:20px;" />
+	
+	~
+	<!-- 2 :: input 태그  :: type="text" -->
+	<input type="text" id="fromdate" name="todate" placeholder="종료일" style="width:100px;height:20px;" />
+	</td>
+	<td>
+	<!-- 3 :: input 태그 :: type="button" -->
+	<input type="button" id="search_btn" name="search_btn" value="검섹" >
+	<!-- 4 :: input 태그 -->
+	<input type="reset" value="다시" />
+	</td>
+	</tr>
+	</table>
+	</form>
+	<br>
+	<!--############### 1 :: form 태그 시작 ############### -->
+	<a href="#">회원정보 수정 삭제</a>
+	<form name="mnumSearch_form" id="mnumSearch_form">
+		회원번호 <input type="text" name="mnum" id="mnum"/>
+			  <input type="button" id="mnumSearch_btn" value="검색" />
+	</form>
+	<br>
+</body>
+</html>

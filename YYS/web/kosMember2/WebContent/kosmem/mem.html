@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- ################  head ################ -->
+<meta charset="UTF-8">
+<title>회원 가입 폼</title>
+<!--  디바이스에 최적화된 크기로 출력됨 -->
+<meta name="viweport" content="width=device-width, iitail-scale=1" />
+<!-- jQUery CDN 불러오기 -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- 다음 주소록 OPEN API CDN 불러오기 -->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+<script type="text/javascript">
+	console.log("javascript 영역 진입 >>> : ");
+	// jQuery 시작 :: $(document).ready(function(){})
+	$(document).ready(function(){
+		alert("jQuery ready >>> : ");
+		// 아이디 중복체크
+		// <input type="button" name="midCheck" id="midCheck" value="아이디중복확인"/>
+		// $("#midCheck").click(function(){});
+		$("#midCheck").click(function(){
+			alert("midCheck >>> : Ajax 배워서 할 예정임 ㅋ ");
+			console.log("idCheck >>> : ");
+			// <input type="text" name="mid" id="mid" placeholder="아이디체크"/>
+			let midVal=$("#mid").val();
+			if(midVal==''){
+				alert("중복 체크할 아이디를 입력하세요.");
+				$("mid").focus();
+				return false;
+			}
+		});
+		
+		// 비밀번호 체크
+		// <input type="button" name="mpwCheck" id="mpwCheck" value="비밀번호확인"/>
+		// $("#mpwCheck").click(function(){})
+		$("#mpwCheck").click(function(){
+			console.log("mpwCheck 함수 진입");
+			// <input type="text" name="mpw" id="mpw" style="width:100px"/><br>
+		    // <input type="text" name="mpw_r" id="mpw_r" placeholder="비밀번호 확인" style="width:100px" />
+			var pw=$("#mpw").val();
+			var pw_r=$("#mpw_r").val();
+			alert(pw+" : "+pw_r);
+			if(pw==pw_r){
+				alert("비밀번호가 같습니다.");
+				$("#mpw_r").val('');
+				$("#mhp").focus();
+				// .focus( handler )
+				// Type: Function( Event eventObject )
+				// A function to execute each time the event is triggered.
+				// Description: Bind an event handler to the "focus" JavaScript event, 
+				// or trigger that event on an element.
+				return true;
+			}else{
+				alert("비밀번호가 다릅니다.");
+				$("#mpw").val('');
+				$("#mpw_r").val('');
+				$("#mpw").focus();
+				return false;
+			}
+		}) // end of $("#mpwCheck").click(function(){})
+		
+		// 핸드폰
+		
+		// 이메일
+		// <select name="memail2" id="memail2">
+		// $("#memail2").change(function(){})
+		$("#memail2").change(function(){
+			// 
+			$("#memail2 option:selected").each(function(){
+				if($(this).val()=='1'){
+					//<input type="text" name="memail" id="memail" style="width:100px"/>
+					// @ <input type="text" name="memail" id="memail" style="width:100px" placeholder="직접입력"/>
+					var aa=$("#memail1").val();
+					// alert("aa >>> : aa");
+					$("#memail1").val(''); // 값 초기화
+					$("#memail1").attr("readonly",false); // 활성화
+					}else{ // 직접입력이 아닐경우
+						$("#memail1").val($(this).text()); // 선택값 입력
+						$("#memail1").attr("readonly", true); // 비활성화
+					}
+			}); // end of $("#memail2 option:selected").each(function(){})
+		}) // end of $("#memail2").change(function(){})
+		
+		
+		// 우편변호
+		// <input type="button" name="mzone_btn" id="mzone_btn" value="우편번호 찾기"><br>
+		// $("#mzone_btn").click(function(){});
+		$("#mzone_btn").click(function(){
+			console.log("mzone_btn >>> : ");
+			// new daum.Postcode({}).open();
+			new daum.Postcode({
+				oncomplete: function(data){
+					/*
+					<input type="text" name="mzone" id="mzone" placeholder="우편번호" style="width:70px" maxlength="6">
+					<input type="button" name="mzone_btn" id="mzone_btn" value="우편번호 찾기"><br>
+		            <input type="text" name="mroad" id="mroad" placeholder="도로명주소" style="width:250px"><br>
+		            <input type="text" name="mroaddetail" id="mroaddetail" placeholder="도로명주소  상세주소" styple="width:250px"><br>
+		            <input type="text" name="mjibun" id="mjibun" placeholder="지번주소" style="width:250px">
+					*/
+					$("#mzone").val(data.zonecode); // 5자리 새우편번호 사용
+					$("#mroad").val(data.roadAddress); // 도로명 주소
+					$("#mjibun").val(data.jibunAddress); // 지번주소
+				}
+			}).open();
+		}); // end of $("#mzone_btn").click(function(){});
+		
+		// memForm 태그에 바인딩 된 데이터 jsp로 보내기
+		// <input type="button" value="jsp_보내기" id="memInsertBtn" />
+		// $("#memInsertBtn").click(function(){});
+		$("#memInsertBtn").click(function(){
+			alert("mzone_btn >>> : ");
+			console.log("mzone_btn >>> : ");
+			// $("#memForm").attr({}).submit();
+			$("#memForm").attr({
+				"action":"/kosMember_YYS2/kosmem/memInsert.jsp",
+				//http://localhost:8088/kosMember_YYS2/kosmem/memInsert.jsp
+				"method":"GET",
+				"enctype":""
+			}).submit();
+		});
+	}) // end of $(document).ready(function(){})
+</script>
+<style type="text/css">
+	div {
+			margin: 50px 0px 0px 100px;
+		}	
+</style>
+</head>
+<body>
+<!-- ################  body ################ -->
+<!-- ################  div 시작 ################ -->
+<div>
+<h3>회원 가입</h3>
+<hr>
+<!--  **form 시작** -->
+<form name="memForm" id="memForm">
+<!-- **table 시작** -->
+<table>
+<tr>
+	<td colspan="2">회원 가입</td>
+</tr>
+<!--  tr : 회원번호 -->
+<tr>
+	<td>회원번호</td>
+	<td><input type="text" name="mnum" id="mnum" readonly /></td>
+</tr>
+<!--  tr : 이름 -->
+<tr>
+	<td>이름</td>
+	<td><input type="text" name="mname" id="mname" /></td>
+</tr>
+<!--  tr : 아이디 -->
+<tr>
+	<td>아이디</td>
+	<td>
+		<input type="text" name="mid" id="mid" placeholder="아이디체크"/>
+		<input type="button" name="midCheck" id="midCheck" value="아이디중복확인"/>	
+	</td>
+</tr>
+<!--  tr : 패스워드 -->
+<tr>
+	<td>패스워드</td>
+	<td>
+		<input type="text" name="mpw" id="mpw" style="width:100px"/><br>
+		<input type="text" name="mpw_r" id="mpw_r" placeholder="비밀번호 확인" style="width:100px" />
+		<input type="button" name="mpwCheck" id="mpwCheck" value="비밀번호확인"/>
+	</td>
+</tr>
+<!--  tr : 핸드폰 -->
+<tr>
+	<td>핸드폰</td>
+	<td>
+		<select name="mhp" id="mhp" style="width:50px;">
+		    <option value="010">010</option>
+		    <option value="011">011</option>
+		    <option value="016">016</option>
+		    <option value="017">017</option>
+		</select>
+		-<input type="text" name="mhp1" id="mhp1" maxlength="4" style="width:50px;"/>
+		-<input type="text" name="mhp2" id="mhp2" maxlength="4" style="width:50px;" />
+	</td>
+</tr>
+<!--  tr : 이메일 -->
+<tr>
+	<td>이메일</td>
+	<td>
+		<input type="text" name="memail" id="memail" style="width:100px"/>
+		@ <input type="text" name="memail1" id="memail1" style="width:100px" placeholder="직접입력"/>
+		<select name="memail2" id="memail2">
+			<option value="1" selected>직접입력</option>
+			<option value="naver.com">naver.com</option>
+			<option value="gmail.com">gmail.com</option>
+			<option value="daum.net">daum.net</option>
+		</select>
+	</td>
+</tr>
+<!--  tr : 성별 -->
+<tr>
+	<td>성별</td>
+	<td>
+	<!-- input type : radio -->
+		<input type="radio" name="mgender" value="01" checked="checked" />여자
+		<input type="radio" name="mgender" value="02" />남자
+	</td>
+</tr>
+<!-- tr : 취미 -->
+<tr>
+	<td>취미</td>
+	<td>
+	<!-- input type : checkbox -->
+		<input type="checkbox" name="mhobby" value="01" />독서
+		<input type="checkbox" name="mhobby" value="02" />운동
+		<input type="checkbox" name="mhobby" value="03" />음악감상
+		<input type="checkbox" name="mhobby" value="04" />여행
+	</td>
+</tr>
+<!--  tr : 주소 -->
+<tr>
+	<td>주소</td>
+	<td>
+		<input type="text" name="mzone" id="mzone" placeholder="우편번호" style="width:70px" maxlength="6">
+		<input type="button" name="mzone_btn" id="mzone_btn" value="우편번호 찾기"><br>
+		<input type="text" name="mroad" id="mroad" placeholder="도로명주소" style="width:250px"><br>
+		<input type="text" name="mroaddetail" id="mroaddetail" placeholder="도로명주소  상세주소" style="width:250px"><br>
+		<input type="text" name="mjibun" id="mjibun" placeholder="지번주소" style="width:250px">
+	</td>
+</tr>
+<!--  tr : 소개글 -->
+<tr>
+	<td>소개글</td>
+	<td>
+		<textarea name="mmsg" id="mmsg" rows="5" cols="50"></textarea>
+	</td>
+</tr>
+<!-- tr -->
+<tr>
+	<td colspan="2">
+		<input type="hidden" id="isudtype" name="isudtype" value="I" >
+		<input type="button" value="jsp_보내기" id="memInsertBtn" />
+		<input type="reset" value="취소"/>
+	</td>
+</tr>
+</table>
+<!-- **table 끝** -->
+</form>
+<!--  **form 끝** -->
+</div>
+<!-- ################  div 끝 ################ -->
+</body>
+</html>
