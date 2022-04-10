@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>KOSMO 스터디원 모집 공고</title>
+<style>
+	#container{
+		width:1000px;
+		margin:1px auto;
+		padding:10px;
+		}
+</style>
+<link rel="stylesheet" href="firstWeb/css/register.css">
+</head>
+<body>
+	<div id="container">
+		<h1>KOSMO 스터디 신청서</h1>
+		<img src="/firstWeb/images/kosmo.jpg">
+	<form name="memForm" id="memForm"
+		  method="GET"
+		  action="/firstWeb/jspp/htmlp5.jsp">
+	<fieldset>
+	
+	
+	<legend>사용자 정보</legend>
+	<ul>
+		<li>
+			<label for="name">이름</label>
+			<input type="text" name="name" id="name"
+			autofocus placeholder="4자 ~ 10자 사이, 공백없이" required>
+		</li>
+		<li>
+			<label for="umail">이메일</label>
+			<input type="email" name="umail" id="umail" required>
+		</li>
+		<li>
+			<label for="path">가입경로</label>
+			<select name="path" id="path">
+				<option value="지인추천">지인추천</option>
+				<option value="카카오톡공지">카카오톡공지</option>
+				<option value="기타">기타</option>
+			</select>
+		</li>
+		<li>
+			<label for="memo">메모</label>
+			<textarea name="memo" cols="40" rows="4" placeholder="앞으로의 각오"></textarea>
+		</li>
+	</ul>
+	</fieldset>
+	<fieldset>
+		<legend>스터디 관련 소식 및 공지</legend>
+		<input type="radio" name="mailing" id="mailing_y" value="mailing_yes">
+		<label for="mailint_y">메일 수신</label>
+		<input type="radio" name="mailing" id="mailing_n" value="mailing_no" checked>
+		<label for="mailing_n">메일 수신 안 함</label>
+	</fieldset>
+	<div id="buttons">
+		<input type="submit" value="가입하기">
+		<input type="reset" value="취소">
+	</div>
+	</form>
+</div>
+</body>
+</html>

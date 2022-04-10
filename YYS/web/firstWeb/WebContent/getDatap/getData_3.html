@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FORM TAG</title>
+<script type="text/javascript">
+	alert("alert >> 자바스크립트 블럭 시작");
+	// alert >> 자바스크립트 블럭 시작
+	console.log("크롬 개발자도구 콘솔창 >> 자바스크립트 블럭 시작");
+	// 크롬 개발자도구 콘솔창 >> 자바스크립트 블럭 시작
+	
+	function checkAction(){
+		alert("alert >> js :: checkAction() 함수 시작 >>> ");
+		// alert >> js :: checkAction() 함수 시작 >>> 
+		console.log("크롬 개발자 도구 콘솔창 >> js :: checkAction() 함수 시작 >>> ");
+		// 크롬 개발자 도구 콘솔창 >> js :: checkAction() 함수 시작 >>> 
+		
+		
+		// **1번째 방법 name으로 찾아오기**
+		// DOM TREE : form name="getData"
+		/*
+		// window.document :  title 이름이 FORM TAG인 문서의 body 영역
+		var getDataForm = window.document.getData;
+		alert("alert >> js  :: getDataForm >>> : "+getDataForm);
+		// alert >> js  :: getDataForm >>> : [object HTMLFormElement]
+		console.log("크롬 개발자도구 콘솔창 >> getDataForm >>> : "+getDataForm);
+		// 크롬 개발자도구 콘솔창 >> getDataForm >>> : [object HTMLFormElement]
+		alert("alert >> typeof(getDataForm) >>> : "+typeof(getDataForm));
+		// alert >> typeof(getDataForm) >>> : object	
+		*/
+		
+		/*
+		// body 태그에 form name 오타내기
+		// DOM TREE : form name="getDataa"
+		// window.document :  title 이름이 FORM TAG인 문서의 body 영역
+		var getDataForm = window.document.getData;
+		alert("alert >> js  :: getDataForm >>> : "+getDataForm);
+		// alert >> js  :: getDataForm >>> : undefined
+		console.log("크롬 개발자도구 콘솔창 >> getDataForm >>> : "+getDataForm);
+		// 크롬 개발자도구 콘솔창 >> getDataForm >>> : undefined
+		
+		var s="";
+		var n=null;
+		var x;
+		console.log("s : >>> "+s);
+		// s : >>> 
+		console.log("n : >>> "+n);
+		// n : >>> null
+		console.log("x : >>> "+x);
+		// x : >>> undefined
+		
+		console.log("typeof(s) : >>> "+typeof(s));
+		// typeof(s) : >>> string
+		console.log("typeof(n) : >>> "+typeof(n));
+		// typeof(n) : >>> object
+		console.log("typeof(x) : >>> "+typeof(x));
+		// typeof(x) : >>> undefined
+		
+		
+		alert("alert >> typeof(getDataForm) >>> : "+typeof(getDataForm));
+		// alert >> typeof(getDataForm) >>> : undefined
+		*/
+		
+		// **2번째 방법 FORM TAG의 id로 찾아오기**
+		// <form name="getData" id="getDate">
+		// window.document.getElementById("getDate") ==> $("#getDate")
+		var getDataForm_1=window.document.getElementById("getDate");
+		alert("alert :: getDateForm_1 >>> : "+getDataForm_1);
+		// alert :: getDateForm_1 >>> : [object HTMLFormElement]
+		
+		// **3번째 방법 FORM 배열로 찾아오기**
+		var getDataForm_2=window.document.forms[0] // <form name="getData" id="getDate">
+		var form_2=window.document.forms[1] // <form name="getData1" id="getDate1">
+		alert("alert :: window.document.forms[0] >>> : "+getDataForm_2);
+		// // alert :: getDateForm_2 >>> : [object HTMLFormElement]
+		alert("alert :: window.document.forms[1] >>> : "+form_2);
+		// alert :: window.document.forms[1] >>> : [object HTMLFormElement]
+		
+		var gF2=window.document.forms[0][0]
+		alert("alert :: window.document.forms[0][0] >>> : "+gF2);
+		// alert :: window.document.forms[0][0] >>> : [object HTMLInputElement]
+		
+		var gF21=window.document.forms[0][0][0]
+		alert("alert : window.document.forms[0][0][0] >>> : "+gF21);
+		// alert : window.document.forms[0][0][0] >>> : undefined 없당
+		
+		// var gF2v=window.document.forms[0][0].value
+		
+	}
+</script>
+</head>
+<body>
+	
+	<form name="getData" id="getDate">
+	<!-- <form name="getDataa" id="getData"> -->
+	이름 : <input type="text" name="mname" id="mname"><br>
+	주소 : <input type="text" name="maddr" id="maddr"><br>
+	
+	<input type="submit" value="전송" onclick="checkAction()"><br>
+	<input type="reset" value="다시"><br>
+	
+	</form>
+	
+	<form name="getData1" id="getDate1">
+	<!-- <form name="getDataa" id="getData"> -->
+	성별: <input type="text" name="mname1" id="mname1"><br>
+	실거주지 : <input type="text" name="maddr1" id="maddr1"><br>	
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리 테스트</title>
+<!--  CDN -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- 버전? -->
+<script type="text/javascript">
+	// $("test").css("color", "red");
+	// 이렇게 치면 웹에서 나오지 않는다.
+	
+	/*
+	$(document).ready(function(){
+		// function()은 익명함수이다.
+		$("#test").css("color", "red");
+	});
+	// $(document).ready(function() 이 안에서 
+	// $("#test").css("color", "red"); 를 실행하니, 빨간색으로 잘 나온다.
+	*/
+	
+	$(function(){
+		$("#test").css("color", "red");
+	})
+	// $(document).ready(function() 이렇게 치지 않고,
+	// $(function() 이렇게 블락 밖을 만들어줘도 실행이 된다.
+</script>
+
+</head>
+<body>
+	<p id="test">내용</p>
+</body>
+</html>

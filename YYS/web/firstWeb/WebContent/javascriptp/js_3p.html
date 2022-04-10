@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Variable</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var h="http://localhost:8088/firstWeb/jsp/html5_5.jsp?uid=박건원&umail=parkgw%40gmail.com&pwd1=1234&mailing=mailing_no";
+		// 변수라는 것만 선언해주면
+		// javascript가 알아서 데이터 유형을 나눔
+		
+		var encodeURI = encodeURI(h);
+		// URI 인코딩
+		console.log("encodeURI >>> : "+encodeURI);
+		// encodeURI >>> : http://localhost:8088/firstWeb/jsp/html5_5.jsp?
+		// uid=%EB%B0%95%EA%B1%B4%EC%9B%90&umail=parkgw%2540gmail.com
+		// &pwd1=1234&mailing=mailing_no
+		
+		var encodeURIComponent = encodeURIComponent(h);
+		console.log("encodeURIComponent >>> : "+encodeURIComponent);
+		// encodeURIComponent >>> : http%3A%2F%2Flocalhost%3A8088%2FfirstWeb%2Fjsp%2Fhtml5_5.jsp
+		// %3Fuid%3D%EB%B0%95%EA%B1%B4%EC%9B%90%26umail%3Dparkgw%2540gmail.com%26pwd1%3D1234%26mailing%3Dmailing_no
+		
+		var decodeURIComponent=decodeURIComponent(encodeURIComponent);
+		console.log("decodeURIComponent >>> : "+decodeURIComponent);
+		// decodeURIComponent >>> : http://localhost:8088/firstWeb/jsp/html5_5.jsp?
+		// uid=박건원&umail=parkgw%40gmail.com&pwd1=1234&mailing=mailing_no
+		
+		var escape=escape(h);
+		console.log("escape >>> : "+escape);
+		// escape >>> : http%3A//localhost%3A8088/firstWeb/jsp/html5_5.jsp
+		// %3Fuid%3D%uBC15%uAC74%uC6D0%26umail%3Dparkgw%2540gmail.com%26pwd1%3D1234%26mailing%3Dmailing_no
+		
+		var unescape=unescape(escape);
+		console.log("unescape >>> : "+unescape);
+		// unescape >>> : http://localhost:8088/firstWeb/jsp/html5_5.jsp?
+		// uid=박건원&umail=parkgw%40gmail.com&pwd1=1234&mailing=mailing_no
+		
+		var parseInt=parseInt("1234");
+		console.log("typeof(parseInt) >>> : "+typeof(parseInt));
+		// typeof(parseInt) >>> : number
+		console.log("parseInt >>> : "+parseInt);
+		// parseInt >>> : 1234
+		
+		var parseFloat=parseFloat("1234.123");
+		console.log("typeof(parseFloat) >>> : "+typeof(parseFloat));
+		// typeof(parseFloat) >>> : number
+		console.log("parseFloat >>> : "+parseFloat);
+		// parseFloat >>> : 1234.123
+		
+		var isNaN=isNaN("난문자");
+		console.log("typeof(isNaN) >>> : "+typeof(isNaN));
+		// typeof(isNaN) >>> : boolean
+		console.log("isNaN >>> : "+isNaN);
+		// isNaN >>> : true
+	</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>function</title>
+	<script type="text/javascript">
+	// 함수 선언
+	function fun_1(){
+		return 1+2;
+	}
+	var f_1=fun_1();
+	console.log("f_1 >>> : "+f_1);
+	// f_1 >>> : 3
+	// 개발자도구 Console에 나옴.
+
+	function fun_2(a,b){
+		return a+b;
+	}
+	
+	var f_2=fun_2(1,2);
+	console.log("f_2 >>> : "+f_2);
+	// f_2 >>> : 3
+	// 개발자도구 Console에 나옴.
+	
+	// 익명 함수
+	// 함수이름이 없음
+	var f_3 = function(a,b){
+		return a+b;
+	}
+	document.write("f_3(1,2) >>> : "+f_3(1,2));
+	// 개발자 도구 말고 화면에 f_3(1,2) >>> : 3 이렇게 나옴
+	
+	// 즉시 실행 함수
+	(function () {console.log("즉시 실행 함수")}());
+	// 즉시 실행 함수
+	
+	
+	// 화살표 함수
+	// function() 조차 없음
+	var hi=() => {return "안녕하세요 화살표 함수";}
+	
+	let say=()=>alert("hi!!");
+	// 알럿으로 localhost:8088 내용 : hi!! 이렇게 나옴
+	// 가장 먼저 알럿으로 나옴
+	say();
+	
+	// function, return 없음
+	let d=n=>n*2;
+	alert("d(3) >>> : "+d(3));
+	// 알럿으로 localhost:8088 내용 : 6 이렇게 나옴
+	// 두 번째로 나옴
+	/*
+		let d=function(n){
+			return n*2;
+		}
+	*/
+	
+	// function, return은 없고 매개변수만 있음.
+	var sum=(a,b) =>a+b;
+	/*
+		var sum=function(a,b){
+			return a+b;
+		}
+	*/
+	alert("sum(1, 2) >>> : "+sum(1,2)); 
+	// 알럿으로 localhost:8088 내용 : sum(1,2) >>> : 3 이렇게 나옴
+	// 익명함수에 1,2 인수가 들어가서 return이 a+b로 되는데
+	// 이 결과를 sum이라는 변수에 대입
+	// 따라서 3이 출력됨
+	// 세 번째로 나옴
+	</script>
+</head>
+<body>
+	<p id="name">강민</p>
+	<script>
+		document.getElementById('name').innerHTML="강감찬 20대손";
+		// 화면에 강민이 아니라 강감찬으로 표기되어서 나옴
+	</script>
+</body>
+</html>

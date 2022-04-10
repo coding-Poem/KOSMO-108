@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>setTimeout</title>
+	<script type="text/javascript">
+		var i=0;
+		setTimeout("console.log(++i);",8000); // 3000 -> 3초
+		// 콘솔창에서 시간을 세준다.
+		var auto=setInterval("console.log(i++);", 1000); // 1000 -> 1초
+	</script>
+</head>
+<body>
+	<button onclick="clearInterval(auto)">정지버튼</button>
+	<!-- 정지 버튼을 만든다. -->
+</body>
+</html>

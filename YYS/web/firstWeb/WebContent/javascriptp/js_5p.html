@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>window</title>
+	<script type="text/javascript">
+		var userAgent=navigator.userAgent;
+		console.log("userAgent >>> : \n"+userAgent);
+		// 콘솔창에 뜸.
+		// userAgent >>> : 
+		// Mozilla/5.0 (Windows NT 10.0; Win64; x64) 
+		// AppleWebKit/537.36 (KHTML, like Gecko) 
+		// Chrome/99.0.4844.82 Safari/537.36
+
+		document.write("userAgent >>> : <br>"+userAgent+"<br>");
+		// 화면에 뜸
+		// userAgent >>> :
+		// Mozilla/5.0 (Linux; Android 6.0; 
+		// Nexus 5 Build/MRA58N) AppleWebKit/537.36 
+		// (KHTML, like Gecko) Chrome/99.0.4844.82 
+		// Mobile Safari/537.36
+		document.write("Mozilla/5.0 >>> : "+"기본 플랫폼<br>");
+		// Mozilla/5.0 >>> : 기본 플랫폼
+		document.write("(Windows NT 10.0; Win64; x64) >>> : "+"운영체제정보<br>");
+		// (Windows NT 10.0; Win64; x64) >>> : 운영체제정보
+		document.write("AppleWebKit/537.36 (KHTML, like Gecko) >>> : "+"사용중인 브라우저<br>");
+		// AppleWebKit/537.36 (KHTML, like Gecko) >>> : 사용중인 브라우저
+		document.write("Chrome/99.0.4844.82 >>> : "+"사용중인 브라우저 이름, 자동 업데이트 다운로드된다.<br>");
+		// Chrome/99.0.4844.82 >>> : 사용중인 브라우저 이름, 자동 업데이트 다운로드된다.
+		document.write("Safari/537.36 >>> : "+"같은 엔진을 사용 중이며 호환 가능한 다른 브라우저<br>");
+		// Safari/537.36 >>> : 같은 엔진을 사용 중이며 호환 가능한 다른 브라우저
+		
+		
+		document.write("현재 브라우저 코드명 >>> : "+navigator.appCodeName+"<br>");
+		// Mozilla
+		document.write("현재 브라우저 이름 >>> : "+navigator.appName+"<br>");
+		// Netscape
+		document.write("현재 브라우저 버전 정보 >>> : "+navigator.appVersion+"<br>");
+		// 5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) 
+		// Chrome/99.0.4844.82 Mobile Safari/537.36
+		document.write("현재 브라우저가 사용하는 언어 >>> : "+navigator.language+"<br>");
+		// ko-KR
+		document.write("현재 브라우저의 엔진 이름 >>> : "+navigator.language+"<br>");
+		// ko-KR
+		document.write("현재 컴퓨터의 운영체제 정보 >>> : "+navigator.platform+"<br>");
+		// Win32
+		document.write("온라인 상태여부 인터넷 정상연결 true >>> : "+navigator.onLine+"<br>");
+		// true
+	</script>	
+</head>
+<body>
+
+</body>
+</html>

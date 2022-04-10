@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리 테스트</title>
+<!-- CDN -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!--  *! jQuery v1.11.1 -->
+<script type="text/javascript">
+	window.jQuery(document).ready(function(){
+		alert("window.jQuery(document) 블럭");
+	});
+	// 정상적으로 잘 실행됨
+	
+	jQuery(document).ready(function(){
+		alert("jQuery(document) 블럭");
+	});
+	// 정상적으로 잘 실행 됨
+	
+	window.$(document).ready(function(){
+		alert("window.$(document) 블럭");
+	});
+	// 정상적으로 잘 실행 됨
+	
+	// 가장 많이 하는 실수  jQuery를 jquery로 쓰는 것
+	// jQuery 오타
+	jquery(document).ready(function(){
+		alert("jquery(document) 블럭");
+	});
+	// 개발자 도구에도 에러가 안 나오고 실행이 안 됨.
+</script>
+</head>
+<body>
+
+
+</body>
+</html>

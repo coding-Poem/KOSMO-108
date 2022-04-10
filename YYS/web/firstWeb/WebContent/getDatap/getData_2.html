@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FOMR TAG</title>
+<script type="text/javascript">
+
+	function getData_2(f){
+		// DOM TREE : **form**
+		alert("f >>> : " + f);
+		// alert 출력 결과 :: f >>> : [object HTMLFormElement] 
+		
+		// DOM TREE : **input** : name=mname
+		var mname = f.mname;
+		alert("mname >>> : " + mname);
+		// alert 출력결과 :: mname >>> : [object HTMLInputElement]
+		console.log("mname >>> : " + mname);
+		// console 출력결과 :: mname >>> : [object HTMLInputElement]
+		
+		// form :: input 태그 :: input type="text" <== 입력값 : 바이
+		var mname_value = mname.value;
+		alert("mname_value >>> : " + mname_value);
+		// alert 출력 결과 :: mname_value >>> : 바이
+		console.log("mname_value >>> : " + mname_value);
+		// console 출력 결과 :: mname_value >>> : 바이
+		
+		// DOM TREE : **input** : name=maddr 
+		var maddr = f.maddr;
+		alert("maddr >>> : " + maddr);
+		// alert 출력 결과 ::  maddr >>> : [object HTMLInputElement]
+		console.log("maddr >>> : " + maddr);
+		// console 출력 결과 :: maddr >>> : [object HTMLInputElement]
+		
+		// form :: input 태그 :: input type="text" <== 입력값 : 부산
+		var maddr_value = maddr.value;
+		alert("maddr_value >>> : " + maddr_value);
+		// alert 출력 결과 :: maddr_value >>> : 부산
+		console.log("maddr_value >>> : " + maddr_value);
+		// console 출력 결과 :: maddr_value >>> : 부산
+		
+		// form 속성 
+		f.action = "/firstWeb/getDatap_jsp/getData_1.jsp";
+		alert("f.action >>> : " + f.action);
+		// alert 출력 결과 :: 
+		// f.action >>> : http://localhost:8088/firstWeb/getDatap_jsp/getData_1.jsp
+		console.log("f.action >>> : " + f.action);
+		// console 출력 결과 :: 
+		// f.action >>> : http://localhost:8088/firstWeb/getDatap_jsp/getData_1.jsp
+		
+		
+		f.method = "GET";
+		alert("f.method >>> : " + f.method);
+		// alert 출력 결과 :: f.method >>> : get
+		
+		console.log("f.method >>> : " + f.method);
+		// console 출력 결과 :: f.method >>> : get
+		
+		f.enctype = "application/x-www-form-urlencoded";
+		alert("f.enctype >>> : " + f.enctype);
+		// alert 출력 결과 :: f.enctype >>> : application/x-www-form-urlencoded
+		console.log("f.enctype >>> : " + f.enctype);
+		// console 출력 결과 :: f.enctype >>> : application/x-www-form-urlencoded 
+		
+		f.submit();
+		
+	}
+</script>
+</head>
+<body>
+
+<form name="getData" id="getDate" >
+이름 : <input type="text" name="mname" id="mname"><br>
+주소 : <input type="text" name="maddr" id="maddr"><br>
+
+<input type="submit" value="전송" onclick="getData_2(this.form)">
+<input type="reset" value="다시">
+
+</form>		 
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Java Script 연습</title>
+	<script type="text/javascript">
+		window.alert("자바스크립트 연습 시작");
+	</script>
+	<style type="text/css">
+		*{
+			margin:30;
+			width:500;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		window.document.write("자바스크립트 변수 연습 시작");
+	 	
+		// 자바스크립트에서 변수는 var로 통일한다.
+		// 자바와는 다르게 변수를 따로 선언해주지 않아도, 알아서 변수 타입을 지정해준다.
+		var i=2000;
+		console.log("i >>> : "+i);
+		console.log("typeof(i) >>> : "+typeof(i));
+		var s="a";
+		console.log("s >>> : "+s);
+		console.log("typeof(s) >>> : "+typeof(s));
+		var c='a';
+		console.log("c >>> : "+c);
+		console.log("typeof(c) >>> : "+typeof(c));
+		// 자바에서는 싱글 쿼테이션은 char
+		// 더블 쿼테이션은 String 이였으나
+		// 자바스크립트에서는 둘 다 String으로 나온다.
+		console.log("자바스크립트의 객체 : 객체 리터럴로 객체 생성하기");
+		var card={suit:"하트",rank:"A"};
+		var card1={"suit":"하트", "rank":"A"};
+		console.log("typeof(card) >>> : "+typeof(card));
+		console.log("typeof(card1) >>> : "+typeof(card1));
+		console.log("card의 suit 키의 값 >> : "+card.suit);
+		console.log("card1의 suit 키의 값 >> : "+card1.suit);
+		console.log("card의 rank 키의 값 >> : "+card.rank);
+		console.log("card1의 rank 키의 값 >> : "+card1.rank);
+	</script>
+	<br>
+	<hr>
+	<br>
+	<script type="text/javascript">
+		window.document.write("자바스크립트 함수 연습 시작");
+		function add(a, b){
+			return a+b;
+		}
+		function minus(a,b){
+			return a-b;
+		}
+		function multiply(a, b){
+			return a*b;
+		}
+		function devide(a,b){
+			return a/b;
+		}
+		
+		document.write("두 수의 합 (10, 5) >>> : "+add(10, 5)+"<br>");
+		document.write("두 수의 차 (10, 5) >>> : "+minus(10, 5)+"<br>");
+		document.write("두 수의 곱 (10, 5) >>> : "+multiply(10, 5)+"<br>");
+		document.write("두 수의 나눗셈 (10, 5) >>> : "+devide(10,5)+"<br>");
+	</script>
+	<br>
+	<hr>
+	<br>
+	<script type="text/javascript">
+		window.document.write("자바스크립트의 다양한 함수들");
+		document.write("익명 함수는 함수의 이름이 없다."+"<br>");
+		// 익명 함수
+		var vadd=function(a,b){
+			return a+b;
+		}
+		document.write("익명 함수 더하기 (10, 5) >>> : "+vadd(10, 5)+"<br>");
+		document.write("즉시 실행 함수는 함수의 결과로 변수로 할당하지 않고 바로 실행한다."+"<br>");
+		// 즉시 실행 함수
+		(function(){console.log("즉시 실행 함수")})
+		
+		document.write("화살표 함수는 호출 하면 바로 return 값이 호출 된다."+"<br>");
+		var hi = () => {return "저는 화살표 함수 입니다.";}
+		document.write("화살표 함수 호출  >>> hi() >>> : "+hi()+"<br>");
+		
+		document.write("let은 함수 블럭에서만 사용이 가능하다. "+"<br>");
+		let say=()=>alert("hi!!");
+		say();
+		
+		// 함수 줄여서 쓰기
+		var add=(a,b)=>a+b;
+		var minus=(a,b)=>a-b;
+		var multiply=(a,b)=>a*b;
+		var devide=(a,b)=>a/b;
+		
+		document.write("add(10,5) >>> : "+add(10,5)+"<br>");
+		document.write("minus(10,5) >>> : "+minus(10,5)+"<br>");
+		document.write("multiply(10,5) >>> : "+multiply(10,5)+"<br>");
+		document.write("devide(10,5) >>> : "+devide(10,5));
+	</script>
+</body>
+</html>

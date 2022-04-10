@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TEST_T6 테이블</title>
+<!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+<link rel="stylesheet" href="/firstWeb/calendar_datepicker/jquery-ui-1.12.1/jquery-ui.min.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/firstWeb/calendar_datepicker/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+<script src="/firstWeb/calendar_datepicker/jquery-ui-1.12.1/datepicker-ko.js"></script>
+<script type="text/javascript">
+	console.log("스크립트 블럭에 진입 성공");
+	
+	// $(document).ready(function(){})
+	$(document).ready(function(){
+		console.log("$(document).ready(function(){}) 진입 ");
+		// 이름 조회
+		$("#t2name_btn").click(function(){
+		// <input type="button" id="t2name_btn" value="이름검색" />
+		// <input type="text" name="t2" id="t2" />
+		// 버튼을 클릭하면 실행
+		console.log("t2name_btn 버튼 클릭 성공 >>> : ");
+		// <form name="form_t2_name" id="form_t2_name">이름 검색
+		// <input type="text" name="t2" id="t2" />
+		var t2_2=document.form_t2_name.t2;
+		console.log("jsp 파일로 보낼 변수 t2 >>> : "+t2_2.value);
+		
+			// $("#form_t2_name").attr({}).submit();
+			$("#form_t2_name").attr(
+				{
+					"action":"/firstWeb/test_t6p/t6selectName.jsp",
+					"method":"GET"
+					// action은 t6selectName.jsp로 가고
+					// 방식은 GET방식
+				}
+			).submit();
+		}); // $("#t2name_btn").click(function()
+		
+		/*
+		날짜 검색 첫 번째 방법
+		// $("t2date_btn").click(function(){})
+		$("#t2date_btn").click(function(){
+			// <input type="button" id="t2date_btn" value="날짜검색" />
+			alert("t2date_btn 버튼 클릭 성공 >>> : ");
+			// $("#form_t2_date").attr({}).submit();
+			$("#form_t2_date").attr(
+			// <form name="form_t2_date" id="form_t2_date">
+					{
+						"action":"/firstWeb/test_t6p/t6selectDate.jsp",
+						"method":"GET"
+					}
+				).submit();
+		}) // end of $("#t2date_btn").click(function()
+		*/
+		
+		// 날짜 검색 두 번 째 방법 datepicker 활용하기
+		// $("#fromdate").datepicker({});
+		//  <input type="text" name="fromdate" id="fromdate"/>
+		$("#fromdate").datepicker(
+				{
+					showOn: "button",
+			        buttonImage: "/firstWeb/calendar_datepicker/images/calendar.gif",
+				    buttonImageOnly: false,
+					buttonText: "Select date",				
+					onClose: function( selectedDate ) {    
+					// 시작일(fromdate) datepicker가 닫힐때
+					// 종료일(todate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+					$("#todate").datepicker( "option", "minDate", selectedDate );
+					}
+				}
+		); // end of $("#fromdate").datepicker
+		
+		// $("#todate").datepicker({})
+		$("#todate").datepicker(
+				{
+					showOn: "button",
+			        buttonImage: "/firstWeb/calendar_datepicker/images/calendar.gif",
+				    buttonImageOnly: false,
+					buttonText: "Select date",
+					onClose: function( selectedDate ) {
+						// 종료일(todate) datepicker가 닫힐때
+						// 시작일(fromdate)의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정 
+						$("#fromdate").datepicker( "option", "maxDate", selectedDate );
+					}
+				}		
+		); // end of $("#todate").datepicker({})
+		
+		// 날짜 검색
+		// <input type="button" id="t5date_btn" value="날짜검색" />
+		// $("#t5date_btn").click(funtion(){})
+		$("#t5date_btn").click(function(){
+			console.log("t5 date_btn 버튼 클릭 성공 >>> : ");
+			var fd=document.form_t5_date.fromdate;
+			var td=document.form_t5_date.todate;
+			console.log("jsp 파일로 보낼 변수 fromdate >>> : "+fd.value);
+			console.log("jsp 파일로 보낼 변수 todate >>> : "+td.value);
+			// <form name="form_t5_date" id="form_t5_date">
+			// $("#form_t5_date").attr({}).submit();
+			$("#form_t5_date").attr(
+					{
+						"action":"/firstWeb/test_t6p/t6selectDate.jsp",
+						"method":"GET"
+					}
+				).submit();	
+		}); // end of $("#t5date_btn").click(funtion(){})
+		
+		// 입력
+		// $("#t6insert_btn").click(funtion(){});
+		$("#t6insert_btn").click(function(){
+			// <input type="button" id="t6insert_btn" value="입력"/>
+			console.log("t6insert_btn 버튼 클릭 성공 >>> : ");
+			
+			var n=document.form_t6_insert.t2;
+			var a=document.form_t6_insert.t3;
+			console.log("jsp 파일로 보낼 변수 :: 이름 >>> : "+n.value);
+			console.log("jsp 파일로 보낼 변수 :: 나이 >>> : "+a.value);
+			// $("#form_t2_insert").attr({}).submit();
+			$("#form_t6_insert").attr(
+			// <form name="form_t6_insert" id="form_t6_insert">
+					{
+						"action":"/firstWeb/test_t6p/t6Insert.jsp",
+						"method":"GET"
+					}
+			  ).submit();
+		}); // $("#t6insert_btn").click(function()
+		
+		// 수정
+		// $("#t6update_btn").click(function(){});
+		$("#t6update_btn").click(function(){
+		// <input type="button" id="t6update_btn" value="검색">
+			console.log("t6update_btn 버튼 클릭 성공 >>> : ");
+			var nu=document.form_t6_update.t1
+			console.log("jsp 파일로 보낼 변수 :: 회원번호 >>> : "+nu.value);
+			// $("#form_t6_update").attr({}).submit();
+			$("#form_t6_update").attr(
+			// <form name="form_t6_update" id="form_t6_update">
+					{
+						"action":"/firstWeb/test_t6p/t6Update.jsp",
+						"method":"GET"
+					}
+			).submit();
+		});
+		
+		// 삭제
+		// $("#t6delete_btn").click(function(){});
+		$("#t6delete_btn").click(function(){
+		// <input type="button" id="t6delete_btn" value="검색">
+			console.log("t6delete_btn 버튼 클릭 성공 >>> : ");
+			var nd=document.form_t6_delete.t1
+			console.log("jsp 파일로 보낼 변수 :: 회원번호 >>> : "+nd.value);
+			// $("#form_t6_update").attr({}).submit();
+			$("#form_t6_delete").attr(
+			// <form name="form_t6_delete" id="form_t6_delete">
+					{
+						"action":"/firstWeb/test_t6p/t6Update.jsp",
+						"method":"GET"
+					}
+			).submit();
+		});
+		
+	}); // end of $(document).ready(function(){})
+</script>
+
+</head>
+<body>
+<h3>TEST_T6 테이블</h3>
+<hr>
+<!-- SELECT -->
+<a href="/firstWeb/test_t6p/t6SelectAll.jsp">전체 조회</a>
+<br>
+
+<form name="form_t2_name" id="form_t2_name">
+이름 검색<input type="text" name="t2" id="t2" />
+	   <input type="button" id="t2name_btn" value="이름검색" />
+</form>
+<br>
+
+<form name="form_t5_date" id="form_t5_date">
+	날짜 검색 <input type="text" name="fromdate" id="fromdate" style="width:100px;height:20px;font-size:15px;"/>~
+		  <input type="text" name="todate" id="todate" style="width:100px;height:20px;font-size:15px;"/>
+		  <input type="button" id="t5date_btn" value="날짜검색" />
+</form>
+<br>
+
+<!--  INSERT -->
+<!--  <a href="/firstWeb/test_t6p/t6Insert.jsp">데이터 입력</a> -->
+<a href="#">데이터 입력</a>
+<form name="form_t6_insert" id="form_t6_insert">
+	이름 <input type="text" name="t2" id="t2"><br>
+	나이 <input type="text" name="t3" id="t3"><br>
+	<input type="button" id="t6insert_btn" value="입력"/>
+</form>
+<br>
+
+<!--  UPDATE -->
+<!--  <a href="/firstWet/test_t6p/t6Update.html">데이터 수정</a> -->
+<ol>
+	<p>회원 번호 규칙</p>
+	<li>T620220329000n</li>
+</ol>
+<a href="#">데이터 수정</a>
+<form name="form_t6_update" id="form_t6_update">
+	회원번호 <input type="text" name="t1" id="t1">
+		   <input type="button" id="t6update_btn" value="검색">
+</form>
+<br>
+
+<!--  DELETE -->
+<!--  <a href="/firstWet/test_t6p/t6Delete.jsp">데이터 삭제</a> -->
+<a href="#">데이터 삭제</a>
+<form name="form_t6_delete" id="form_t6_delete">
+	회원번호 <input type="text" name="t1" id="t1">
+		   <input type="button" id="t6delete_btn" value="검색">
+</form>
+</body>
+</html>

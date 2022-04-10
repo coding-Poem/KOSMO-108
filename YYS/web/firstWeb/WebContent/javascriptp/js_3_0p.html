@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Variable</title>
+	<script type="text/javascript">
+		// var
+		// 데이터 타입은 존재하나, 따로 표기하지는 않는다.
+		var i=2000;
+		console.log("typeof(i) >>> : "+typeof(i));
+		// typeof(i) >>> : number
+		console.log("i >>> : "+i);
+		// i >>> : 2000
+
+		var s= "a";
+		console.log("typeof(s) >>> : "+typeof(s));
+		// typeof(s) >>> : string
+		console.log("s >>> : "+s);
+		// s >>> : a
+		
+		var isEmpty=true;
+		console.log("typeof(isEmpty) >>> : "+typeof(isEmpty));
+		// typeof(isEmpty) >>> : boolean
+		
+		var u;
+		console.log("typeof(u) >>> : "+typeof(u));
+		// typeof(u) >>> : undefined
+		console.log("n >>> : "+n);
+		// n >>> : undefined
+		
+		var n=null;
+		console.log("typeof(n) >>> : "+typeof(n));
+		// typeof(n) >>> : object
+		console.log("n >>> : "+n);
+		// n >>> : null
+		
+		var card={suit:"하트", rank:"A"};
+		var card1={"suit":"하트", "rank":"A"};
+		console.log("typeof(card) >>> : "+typeof(card));
+		// typeof(card) >>> : object
+		console.log("typeof(card1) >>> : "+typeof(card1));
+		// typeof(card1) >>> : object
+		console.log("card.suit >>> : "+card.suit);
+		// card.suit >>> : 하트
+		console.log("card1.rank >>> : "+card1.rank);
+		// card1.rank >>> : A
+		
+		var evens=[2,4,6,8];
+		console.log("typeof(evens) >>> : "+typeof(evens));
+		// typeof(evens) >>> : object
+		console.log("evens[0] >>> : "+evens[0]);
+		// evens[0] >>> : 2
+		console.log("evens.length >>> : "+evens.length);
+		// evens.length >>> : 4
+		for (let i=0; i<evens.length; i++){
+			console.log("evens["+i+"] >>> : "+evens[i]);
+		}
+		/*
+		 * evens[0] >>> : 2
+		 * evens[1] >>> : 4
+		 * evens[2] >>> : 6
+		 * evens[3] >>> : 8
+		 *
+		*/
+	</script>
+	</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FORM TEST</title>
+</head>
+<body>
+	<h2>FORM TEST GET 방식</h2>
+	<hr>
+	<form method="GET" action="#">
+	<!-- method="GET"은 HEADER 부분에 표시된다. -->
+	<!-- 웹 브라우저 주소 표시줄에 사용자가 입력한 내용이 표시됨. -->
+	<!-- 아이디에 velog 입력 -->
+	<!-- 비밀번호에 1234 입력 -->
+	<!-- http://localhost:8088/firstWeb/html/
+	     fromGetTestp.html?id=velog&pw=1234# -->
+	<!-- 개발자 도구에서 Payload에 보면 Query String Parameters라고 적혀있다. -->
+	<!-- 헤더의 쿼리string으로 들어간다. -->
+	<!-- id<key> : 입력값<value> -->
+	<!-- GET은 256~4096byte 서버로 전송가능 -->
+		아이디 : <input type="text" name="id"><br>
+		비밀번호 : <input type="text"name="pw"><br>
+		<input type="submit" value="GET방식"><br>
+		
+	<!-- 아이디에 벨로그 
+	 	  비밀번호에 그로벨 입력 -->
+	<!-- http://localhost:8088/firstWeb/html/
+		 fromGetTestp.html?
+		 id=%EB%B2%A8%EB%A1%9C%EA%B7%B8
+		 &
+		 pw=%EA%B7%B8%EB%A1%9C%EB%B2%A8# -->
+	
+	<!-- %~~%은 EBCDIC(확장 이진화 십진법 교환 부호)로
+		 표기되어 나타난 것이다. -->
+		 
+	<!-- form method="GET"은 개발자 도구에서
+		 General에 Requset URL에 입력한
+		  아이디와 비밀번호가  적혀있다.  -->
+	 	  
+	</form>
+	<!-- 가장 마지막에 열려있는 웹 브라우저에서 열린다. -->
+</body>
+</html>

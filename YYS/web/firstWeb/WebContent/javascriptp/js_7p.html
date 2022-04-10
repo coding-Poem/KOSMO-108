@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HISTORY LOCATION</title>
+</head>
+<body>
+	<h3>history & location</h3>
+	<hr>
+	<script>
+		var userName=window.prompt("당신의 영문 이름은 ?? ","");
+		var upperName=userName.toUpperCase();
+		console.log("upperName >>> : "+upperName);
+		
+		var bool= "PGW" == upperName;
+		console.log("PGW == upperName >>> : "+bool);
+		if("PGW"==upperName){
+			//  JAVA와는 다르게 문자열에 equals를 쓰지 않고
+			//  상등 연산자를 쓴다.
+			alert("안녕하세요 박건원 님 >>> 구글로 초대합니다.");
+			location.href="http://www.google.com";
+		}else{
+			alert("박건원님이 아니네용 >>> : ");
+			history.go(-1);
+		}
+	</script>
+	
+</body>
+</html>

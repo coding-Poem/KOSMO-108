@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TEST_T6 INSERT</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	alert("스크립트 블럭(insert) 진입 성공 >>> : ");
+	
+	// $(document).ready(function(){})
+	$(document).ready(function(){
+		alert("jQuery ready() 함수 진입 성공 >>> : ");
+		// $("#t2iname_btn").click(function(){})
+		$("#t2insert_btn").click(function(){
+			// <input type="button" id="t2insert_btn" value="입력하기">
+			alert("t2insert_btn 버튼 클릭 성공 >>> : ");
+			// $("#form_t2_insert").attr({}).submit();
+			$("#form_t2_insert").attr(
+				// <form name="form_t2_insert" id="form_t2_insert" name="form_t2_insert">	
+				{
+					"action":"/firstWeb/test_t6p/t6Insert.jsp",
+					"method":"GET"
+				}
+			).submit();
+			
+		}); // end of $("#t2iname_btn").click(function()
+		
+	}); // end of $(document).ready(function()
+</script>
+</head>
+<body>
+	<h3>TEST_T6 INSERT</h3>
+	<hr>
+	<form name="form_t2_insert" id="form_t2_insert" name="form_t2_insert">
+		회원이름<input type="text" name="mname" id="mname"  placeholder="이름을 입력해주세요.">
+		<!-- t2 입력 -->
+		<hr>
+		회원나이<input type="text" name="mage" id="mage" placeholder="나이를 입력해주세요">
+		<!-- t3 입력-->
+		<hr>
+		<input type="button" id="t2insert_btn" value="입력하기">
+	</form>
+</body>
+</html>

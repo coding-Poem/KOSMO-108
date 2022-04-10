@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FORM TEST</title>
+</head>
+<body>
+<h2>FORM TEST POST방식</h2>
+<hr>
+
+<form method="POST" action="#">
+	<!-- 입력한 내용의 길이에 제한을 받지 않음  -->
+	<!-- 웹 브라우저 주소 표시줄에 내용 표시 되지 않음 -->
+	<!-- 아이디에 velog 입력 -->
+	<!-- 비밀번호에 1234 입력 -->
+	<!-- http://localhost:8088
+	 	 /firstWeb/html/fromPostTestp.html# -->
+
+	<!-- 클라이언트가 요청한 정보가 http 프로토콜 요청 정보가
+		 요청 body 부분에 담아서 전송된다. -->
+	<!-- id<key> : 입력값 <value> -->
+	<!-- 개발자 도구에서 Payload를 보면
+	Form Data라고 작성되어 있다. -->
+
+	아이디 : <input type="text" name="id"><br>
+	비밀번호 : <input type="text" name="pw"><br>
+	<!-- 개발자도구에 Payload에 view source
+		 id=velog&pw=1234 -->
+	<!-- 개발자도구에 Payload에 view parsed
+		 id=velog
+		 pw=1234 -->
+	
+	<input type="submit" value="POST방식"><br>
+</form>
+</body>
+</html>

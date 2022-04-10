@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FORM TAG</title>
+
+<!-- 이름 : <input type="text" name="mname" id="mname"><br>
+주소 : <input type="text" name="maddr" id="maddr"><br> 
+<form name="getData" id="getDate"  -->
+
+<!-- 이름 : 하이 주소 : 서울 입력 -->
+<script type="text/javascript">
+	function getData_1(f){
+		alert("f는  getData_1 함수의 매개변수이다.");
+		// f는  getData_1 함수의 매개변수이다.
+		console.log("f는 getData_1 함수의 매개변수이다.")
+		// f는 getData_1 함수의 매개변수이다.	
+		
+		// DORM TREE : **form** id=getData name=getData
+		alert("f >>> : "+f);
+		// alert 출력결과 :: f >>> : [object HTMLFormElement]
+		console.log("f >>> : "+f);
+		// console 출력결과 :: f >>> : [object HTMLFormElement]
+		
+		// DOM TREE : **input** name=mname 
+		var m_name=f.mname;
+		alert("f.mname >>> : "+mname);
+		// alert 출력결과 :: f.mname >>> : [object HTMLInputElement]
+		console.log("f.name >>> : "+mname);
+		// console 출력결과 :: f.name >>> : [object HTMLInputElement]
+		
+		// DOM TREE : **input** name=maddr
+		var m_addr=f.maddr;
+		alert("f.maddr >>> : "+m_addr);
+		// alert 출력결과 :: f.maddr >>> : [object HTMLInputElement]
+		console.log("f.maddr >>> : "+m_addr);
+		// console 출력결과 :: f.maddr >>> : [object HTMLInputElement]
+		
+		// input태그 : mname : input type="text" 입력값 : 하이
+		var mname_value=mname.value;
+		alert("mname.value >>> : "+mname_value);
+		// alert 출력결과 :: mname.value >>> : 하이 <== 입력값이 나오게 된다.
+		console.log("mname.value >>> : "+mname_value);
+		// console 출력결과 :: mname.value >>> : 하이
+		
+		// input태그 : maddr : input type="text" 입력값 : 서울
+		var maddr_value = maddr.value;
+		alert("maddr.value >>> : "+maddr_value);
+		// alert 출력결과 :: maddr.value >>> : 서울
+		console.log("maddr.value >>> : "+maddr_value);
+		// console 출력결과 :: maddr.value >>> : 서울
+		
+		
+		// form 속성
+		// jsp 주소 : http://localhost:8088/firstWeb/getDatap_jsp/getData_1.jsp
+		f.action="/firstWeb/getDatap_jsp/getData_1.jsp";
+		alert("f.action >>> : "+f.action);
+		// alert 출력 결과 :: f.action >>> : http://localhost:8088/firstWeb/getDatap_jsp/getData_1.jsp
+		// /firstWeb/getData/getData_1.html?mname=%ED%95%98%EC%9D%B4&maddr=%EC%84%9C%EC%9A%B8#
+		// 주소 표시줄에는 앱시딕 코드로 나온다.
+		console.log("f.action >>> : "+f.action);
+		// console 출력 결과 :: f.action >>> : http://localhost:8088/firstWeb/getDatap_jsp/getData_1.jsp
+		// 주소 표시줄
+		// http://localhost:8088/firstWeb/getData/getData_1.html
+		// ?mname=%ED%95%98%EC%9D%B4&maddr=%EC%84%9C%EC%9A%B8#
+		// 앱시딕 코드로 전달한다.
+		
+		
+		// form method="GET"
+		f.method="GET";
+		alert("f.method >>> : "+f.method);
+		// f.method >>> : get
+		console.log("f.method >>> : "+f.method);
+		// f.method >>> : get
+		
+		// form enctype="application/x-www-form-urlencoded"
+		f.enctype="application/x-www-form-urlencoded";
+		alert("f.enctype >>> : "+f.enctype);
+		// alert 출력 결과 ::  f.enctype >>> : application/x-www-form-urlencoded
+		console.log("f.enctype >>> : "+f.enctype);
+		// f.enctype >>> : application/x-www-form-urlencoded
+		
+		f.submit();
+	}
+
+</script>
+</head>
+<body>
+		<!-- 폼 :서버(웹서버)로 데이터를 전송하는 유일한 태그 -->
+		<!--  
+			http://localhost:8088/firstWEb/jsp/getData.html#https://www.naver.com
+		-->		
+		<!-- 서버(웹서버)로 데이터를 전송하는 유일한 태그,요소 -->	
+		<!-- 
+			form태그에 이름지정(text), 
+			기능지정(URL:서버어디로 갈지, #=>주석 못가게함), 
+			방식지정(get,post :무슨방식인지), 
+			인코딩방식 (	application/x-www-form-urlencoded, <-- default
+						multipart/form-data, <-- file upload
+						text/plain)
+		-->
+		<!-- 
+			application/x-www-form-urlencoded
+				: Default Content Type(form 태그에서 생략 가능)
+				: [RFC1837]에 기술된  reserved characters를 규칙에 따라  Escape 해야 한다.
+				: query String  형태로 서버에 데이터를 전송한다. 
+				: query String : key&value형태
+								:url?key=value&key=value& .....
+				: url?name=진성희&addr=마포구+상수동    (+:띄어쓰기)
+				: EBCDIC...?????나중에 배움
+				: 2byte(8bit이상) : 한글==>이상하게 나옴   EBCDIC으로 나와서 뭐 나중에 추가해서 써야함
+				: 1byte(7bit) : 영문자와 숫자, 기호 ==>잘나옴
+				
+			method
+				: key&value가 body로 가면 post방식 header로 가면 get방식이다.
+				
+				: POST : 데이터를 reqeust 프로토콜 body 에 데이터를 넣어서 서버에 전송
+					http://localhost:8088/testWeb/jsp/getData.jsp
+					:데이터 노출안됨
+				: GET : 데이터를 reqeust 프로토콜 header 에 데이터를 넣어서 서버에 전송,	key&value 형식이다.
+					http://localhost:8088/testWeb/jsp/getData.jsp?name=aaa&addr=aaa
+					:데이터가 노출된다=> 특별한 경우 아니면 사용 금지
+				
+			action 
+				: url : 폼태그에 있는 데이터를 보내는 최종 목적지 	
+						JSP,Servlet,PHP,.NET ..etc...
+				: context:웹서버에 있는 파일절대경로를 톰켓에서 상대경로를 바꿔줌=>셋팅해서 사용해야한다.
+							
+		 -->
+
+<!-- 
+	http://localhost:8088/firstWeb/getData_jsp/getData_1.jsp
+	<script>
+		location.href="http://localhost:8088/firstWeb/getData_jsp/getData_1.jsp?mname=%EB%B0%95%EA%B1%B4%EC%9B%90&maddr=111";
+	</script>
+
+ --> 
+
+
+
+<form name="getData" id="getDate" 
+		action="#"
+		method="GET"
+		enctype="application/x-www-form-urlencoded"
+>
+<!-- <form  action="http://localhost:8088/firstWeb/getData_jsp/getData_1.jsp" > 이렇게 하면 
+	바로 form의 정보가 이동하게 된다. -->
+이름 : <input type="text" name="mname" id="mname"><br>
+주소 : <input type="text" name="maddr" id="maddr"><br>
+<!-- 
+	이벤트함수
+	submit :전송버튼  :서버로 보냄 ,폼태그에 있는 속성 action을 봄
+	reset : 초기화버튼
+	태그, 이름, 배열(형제요소임으로)로 찾을 수 있다.
+-->	
+<input type="submit" value="전송" onclick="getData_1(this.form)">
+<input type="reset" value="다시" >
+
+</form>		 
+</body>
+</html>

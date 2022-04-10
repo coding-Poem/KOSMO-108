@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS 실험실</title>
+
+<script type="text/javascript">
+	var global_var=10;
+	function test(f){
+		console.log("test 함수 시작 >>> ");
+		var local_var=3;
+		console.log("test 함수 안 local_var >>> : "+local_var);
+		// test 함수 안 local_var >>> : 3
+		console.log("test 함수 안 global_var >>> : "+global_var);
+		// test 함수 안 global_var >>> : 10
+		
+		// 첫 번째 실험 : 아무 문제없이 잘 나온다.
+		// var tid=f.tid;
+		// console.log("tid >>> : "+tid);
+		// tid >>> : [object HTMLInputElement]
+		// console.log("tid.value >>> : "+tid.value);
+		// tid.value >>> : test
+		
+		// 두 번째 실험 : 이렇게 해도 아무 문제없이 jsp에서 잘 나온다.
+		// tid=0;
+		// tid.value=0;
+		
+		// 세 번째 실험  : 이렇게 해도 아무 문제없이 jsp에서  잘 나온다.
+		// f.tid=0;
+		
+		// 네 번째 실험 : 이렇게 해도 아무 문제 없이 jsp에서 잘 나온다.
+		// f.tid=null;
+		
+		// 다섯 번째 실험
+		// var f.tid=f.tid;
+		// Uncaught SyntaxError: Unexpected token '.'
+		
+		// 여섯 번째 실험
+		// f=null;
+		// Uncaught TypeError: Cannot set properties of null (setting 'action')
+
+		f.action="/firstWeb/jspp/js_Experimen.jsp";
+		f.method="GET";
+		// 결론 자바스크립트에서 무슨 변수를 써도 form 태그로 데이터 보내는데는
+		// 아무런 지장이 없다.
+		
+		f.submit();
+	}
+	// console.log("test 함수 밖  local_var >>> : "+local_var);
+	// js_Experimen.jsp:13 Uncaught ReferenceError: local_var is not defined
+	// 함수안에서 생성된 변수는 바깥으로 나갈 수가 없다.
+	console.log("test 함수 밖 global_var >>> : "+global_var);
+	// 함수 안 global_var 보다 더 먼저 출력 된다 .
+	// test 함수 밖 global_var >>> : 10
+</script>
+</head>
+<body>
+<h3>윤요섭의 자바스크립트 실험실에 오신 것을 환영합니다.</h3>
+<br>
+<hr>
+<br>
+<form name="tid" id="tid" method="GET">
+	자바스크립트 실험 시작 :	<input type="text" name="tid" id="tid" placeholder="시작하고 싶으면 tid를 입력" ><br> 
+					<input type="button" value="실험시작" onclick="test(this.form)"><br>
+</form>
+
+</body>
+</html>
