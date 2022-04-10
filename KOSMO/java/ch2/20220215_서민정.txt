@@ -1,0 +1,124 @@
+
+1. Controller 클래스를 소스에 있는 @Controller 콘트롤러 어노테이션을 보고 찾는다. 
+
+2. Controller 클래스에서 CommentService mCommentService; 찾을 때
+		@Resource(name="com.example.demo.board.service.CommentService")
+		CommentService mCommentService;
+	
+	
+		@Service("com.example.demo.board.service.CommentService")
+		public class CommentService
+
+3. Service 클래스에서 CommentMapper mCommentMapper; 찾을 때
+		@Resource(name="com.example.demo.board.mapper.CommentMapper")
+		CommentMapper mCommentMapper;
+
+		@Repository("com.example.demo.comment.mapper.CommentMapper")
+		public interface CommentMapper
+
+
+
+
+
+Controller 클래스
+======================================================================
+
+package com.example.demo.board.controller;
+ 
+import java.util.List;
+ 
+import javax.annotation.Resource;
+ 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+ 
+import com.example.demo.board.domain.CommentVO;
+import com.example.demo.board.service.CommentService;
+ 
+@Controller
+@RequestMapping("/comment")
+public class CommentController {
+ 
+ 	+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    @Resource(name="com.example.demo.board.service.CommentService")
+    CommentService mCommentService;
+    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    @RequestMapping("/list") //댓글 리스트
+    @ResponseBody
+    private List<CommentVO> mCommentServiceList(Model model) throws Exception{
+        
+        return mCommentService.commentListService();
+    }
+
+}
+======================================================================
+
+
+Service 클래스
+======================================================================
+package com.example.demo.board.service;
+ 
+import java.util.List;
+ 
+import javax.annotation.Resource;
+ 
+import org.springframework.stereotype.Service;
+ 
+import com.example.demo.board.domain.CommentVO;
+import com.example.demo.board.mapper.CommentMapper;
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+@Service("com.example.demo.board.service.CommentService")
+public class CommentService {
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+ 	+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    @Resource(name="com.example.demo.board.mapper.CommentMapper")
+    CommentMapper mCommentMapper;
+    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    public List<CommentVO> commentListService() throws Exception{
+        
+        return mCommentMapper.commentList();
+    }
+}
+======================================================================
+
+Mapper 또는 DAO 클래스 
+======================================================================
+package com.example.demo.board.mapper;
+ 
+import java.util.List;
+ 
+import org.springframework.stereotype.Repository;
+ 
+import com.example.demo.board.domain.CommentVO;
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@Repository("com.example.demo.comment.mapper.CommentMapper")
+public interface CommentMapper {
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	// 댓글 개수
+    public int commentCount() throws Exception;
+ 
+    // 댓글 목록
+    public List<CommentVO> commentList() throws Exception;
+ 
+    // 댓글 작성
+    public int commentInsert(CommentVO comment) throws Exception;
+    
+    // 댓글 수정
+    public int commentUpdate(CommentVO comment) throws Exception;
+ 
+    // 댓글 삭제
+    public int commentDelete(int cno) throws Exception;
+ 
+}
+
+======================================================================
