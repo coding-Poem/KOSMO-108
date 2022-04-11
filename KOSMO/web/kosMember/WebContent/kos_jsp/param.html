@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파라미터 테스트</title>
+<!-- 
+	jQuery CDN 을 사용해서 /kos_jsp/param_A.jsp 파일 을 만들어서
+ 	jQuery click 함수를 이용해서 form 태그에 있는 데이터 전송하기
+ 	click 이벤트는 버튼에 하기  
+ -->
+<!-- 1. jQuery CDN -->
+<!-- jQuery CDN 불러오기  -------------------------------------------->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- 2. script 블럭 만들기  -->
+<script type="text/javascript">
+	alert("스크립트 블럭 ");
+	
+	// 3. jQuery는  HTML 다 만들어져서 사용해야 한다.
+	//    HTML DOM Tree 가 만들어져야 한다. 
+	//    CSS 셀렉터 가지고 내가 사용하고자 하는 엘리머트를 선택할 수 있다. 
+	//    jQuery 는 ready() 함수 블럭에서 코드를 작성한다. 
+	//    jQuery ready() 함수를 HTML 문서가 다 로딩 된 다음에 불려지는 함수 이다. 
+	$(document).ready(function(){
+		alert("jQuery ready() 함수 블럭 ");
+		
+		// 4. 버튼에 이벤트 클릭 이벤트 주기 
+		$("#mid_btn").click(function(){
+			
+			// 5. 폼태그 찾기 
+			// http://localhost:8088/kosMember/kos_jsp/param_A.jsp
+			$("#paramForm").attr({
+				"action":"/kosMember/kos_jsp/param_A.jsp",
+				"method":"GET"
+			}).submit();
+			
+			// $("#id").attr().submit(); 함수 체이닝 기법
+		});
+	});
+
+</script>
+
+</head>
+<body>
+<h3>파라미터 테스트</h3>
+<hr>
+<form name="paramForm" id="paramForm">
+	<input type="text" class="mid" name="mid" id="mid" /><br>
+	<input type="text" class="mpw" name="mpw" id="mpw" /><br>
+	<input type="button" id="mid_btn" value="보내기" /><br>
+</form>
+</body>
+</html>
