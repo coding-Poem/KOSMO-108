@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원 가입 폼</title>
+
+<!-- jQuery CDN 불러오기  -------------------------------------------->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- 다음 주소록 OPEN API CDN 불러오기  ----------------------------------->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		alert("ready >>> : ");
+		
+		/*====== memForm 태그 START ==========================================*/
+		// memForm 태그에 바인딩 된 데이터 jsp 로 보내기 
+		$("#memInsertBtn").click(function(){
+			alert("mzone_btn >>> : ");
+			console.log("mzone_btn >>> : ");
+			
+				
+			//############################################# jQuery 버전 START
+			
+			// id 값 : 
+				
+			// mname				
+			var mname = $('#mname');
+			console.log("mname >>> : " + mname);
+			// JSON : 자바스크립트에 있는 JSON을 처리하는 객체 
+			// stringify() : 오브젝트를 JSON 데이터로 변경하는 함수 
+			// parse() : JSON 데이터를 자바스크립트 객체로 변경하는 함수 
+			console.log("JSON.stringify(mname) >>> : " + JSON.stringify(mname));
+			
+			var mname_val = $('#mname').val();
+			console.log("mname_val >>> : " + mname_val);
+			console.log("JSON.stringify(mname_val) >>> : " + JSON.stringify(mname_val));
+			
+			// mhp
+			var mhp = $('#mhp');
+			var mhp_val = $('#mhp').val();
+			var mhp_length = $('#mhp').length();
+			var mhp_option = $("#mhp option:selected")
+			var mhp_option_val = $("#mhp option:selected").val();
+			var mhp_option_text = $("#mhp option:selected").text();
+			
+			// mgender
+			var mgender = $('#mgender');
+			var mgender_val = $('#mgender').val();
+			var mgender_length = $('#mgender').length();
+			var mgender_checked = $("#mgender:checked")
+			var mgender_checked_val = $("#mgender:checked").val();
+			var mgender_id_01 = $("input:radio[id='mgedner']:input[value='01']").val();
+			var mgender_id_02 = $("input:radio[id='mgedner']:input[value='02']").val();
+			
+			// mhobby
+			
+			/*
+			$("#memForm")
+			.attr({
+					"action":"#",
+				    "method":"GET",
+				    "enctype":"application/x-www-form-urlencoded"
+			       })
+			.submit();	
+			*/
+		}); 
+	});
+	
+</script>
+
+<style type="text/css">
+	/*====== div START ==========================================*/
+	div {
+			margin: 50px 0px 0px 100px;
+		}	
+	/*====== div END ==========================================*/		
+</style>
+
+</head>
+<body>
+<div>
+<h3>회원 가입</h3>
+<hr>
+<form name="memForm" id="memForm">
+<table border="1">
+<tr>
+	<td colspan="2">회원 가입</td>	
+</tr>
+<tr>
+	<td>회원번호</td>
+	<td><input type="text" class="mnum" name="mnum"  id="mnum" readonly /></td>
+</tr>
+<tr>
+	<td>이름</td>
+	<td><input type="text" class="mname" name="mname" id="mname" /></td>
+</tr>
+<tr>
+	<td>아이디</td>
+	<td>	
+		<input type="text" class="mid" name="mid" id="mid" placeholder="아이디체크" />
+		<input type="button" class="midCheck" name="midCheck" id="midCheck" value="아이디중복확인" />
+	</td>
+</tr>
+<tr>
+	<td>패스워드</td>
+	<td>
+		<input type="text" class="mpw" name="mpw" id="mpw" style="width:100px"/><br>
+		<input type="text" class="mpw_r" name="mpw_r" id="mpw_r" placeholder="비밀번호확인" style="width:100px"/>
+		<input type="button"  class="mpwCheck"  name="mpwCheck" id="mpwCheck" value="비밀번호확인">
+	</td>
+</tr>
+<tr>
+	<td>핸드폰</td>
+	<td>
+		<select class="mhp" name="mhp" id="mhp" style="width:50px;">
+        	<option value="010">010</option>
+        	<option value="011">011</option>
+        	<option value="016">016</option>
+        	<option value="017">017</option>		        	
+         </select>
+         - <input type="text" class="mhp1" name="mhp1" id="mhp1" maxlength="4" style="width:50px;"/>
+         - <input type="text" class="mhp2" name="mhp2" id="mhp2" maxlength="4" style="width:50px;"/>
+	</td>
+</tr>
+<tr>
+	<td>이메일</td>
+	<td>		
+		<input type="text" class="memail" name="memail"  id="memail" style="width:100px"/>
+		@ <input type="text" class="memail1" name="memail1" id="memail1" style="width:100px" placeholder="직접입력" />
+		<select class="memail2"  name="memail2" id="memail2">
+        	 <option value="1" selected>직접입력</option>
+       		 <option value="naver.com">naver.com</option>	       	   
+      		 <option value="gmail.com">gmail.com</option>
+      		 <option value="daum.net">daum.net</option>	       	   
+         </select>
+	</td>
+</tr>
+<tr>
+	<td>성별</td>
+	<td> 
+		<input type="radio" class="mgender" name="mgender" value="01" checked="checked" />여자
+		<input type="radio" class="mgender" name="mgender" value="02" /> 남자
+	</td>
+</tr>
+<tr>
+	<td>취미</td>
+	<td> 
+		<input type="checkbox" class="mhobby" name="mhobby" value="01" />독서		      
+		<input type="checkbox" class="mhobby" name="mhobby" value="02" />운동
+		<input type="checkbox" class="mhobby" name="mhobby" value="03" />음악감상
+		<input type="checkbox" class="mhobby" name="mhobby" value="04" />여행
+	</td>
+</tr>
+<tr>
+	<td>주소</td>
+ 	<td>
+ 		<input type="text" class="mzone" name="mzone" id="mzone" placeholder="우편번호" style="width:70px" maxlength="6" >
+ 		<input type="button" class="mzone_btn" name="mzone_btn" id="mzone_btn" value="우편번호 찾기"><br>	 	
+ 		<input type="text" class="mroad" name="mroad" id="mroad" placeholder="도로명주소" style="width:250px"><br>	 	
+ 		<input type="text" class="mroaddetail" name="mroaddetail" id="mroaddetail" placeholder="도로명주소 상세주소" style="width:250px"><br>	 	
+ 		<input type="text" class="mjibun" name="mjibun" id="mjibun" placeholder="지번주소" style="width:250px">
+ 	</td>
+</tr>
+<tr>
+	<td>소개글</td>
+	<td>
+		<textarea class="mmsg" name="mmsg" id="mmsg" rows="5" cols="50"></textarea>
+	</td>
+</tr>
+<tr>
+	<td colspan="2"> 		
+		<input type="hidden" id="ISUD_TYPE" name="ISUD_TYPE" value="I">		
+		<input type="button" value="jsp_보내기" id="memInsertBtn" />	
+		<input type="reset" value="취소" />
+	</td>				
+</tr>
+</table>				 		        		     
+</form>	
+</div>		
+</body>
+</html>
+
