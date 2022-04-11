@@ -34,3 +34,17 @@
 ### ✔ kosMember_YYS
 
 - kosMember_YYS에서 개인적으로 css와 jsp 파일로 연습했을 때, 파일이 있습니다.
+
+## demo
+
+### ✔ google
+
+- google 홈페이지 따라하기 연습한 소스가 있습니다.
+
+### ✔ mbtiBingo
+
+- mbtiBingo를 만들었을 때 파일이 있습니다.
+
+### ✔ whackamoleGame
+
+- 두더지잡기 게임 만들기 연습을 했을 때 파일이 있습니다.
