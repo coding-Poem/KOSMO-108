@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파라미터 테스트</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- jQuery CDN 을 사용해서  param_A.jsp 파일을 만들어서 jQuery click 함수를 이용해서 전송하기-->
+<!-- kos_jsp/Param_A.jsp -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log("jQuery ready 함수 진입 >>> : ");
+		$("#mid_btn").click(function(){
+			console.log("mid_btn 클릭 >>> : ");
+			$("#paramForm").attr({
+				"action":"/kosMember_YYS/kos_jsp_p/param_A.jsp",
+					// /kosMember_YYS/kos_jsp/param_A.jsp
+				"method":"GET"
+			}).submit();
+		});
+	});
+
+</script>
+
+
+<style type="text/css">
+h3, form{
+	height:100px;
+	margin:10px auto;
+	text-align:center;
+	font-size:25px;
+}
+
+input{
+	height:20px;
+	width:150px;
+	margin:5px;
+}
+
+body{
+	background-color:#ffffcc;
+}
+
+#mid_btn{
+	height:20px;
+	width:150px;
+	margin:5px;
+    background-color: #c30f42;
+}
+
+</style>
+</head>
+<body>
+<h3>파라미터 테스트</h3>
+
+<div>
+<center><img src="https://www.ikosmo.co.kr/images/common/logo_center_v2.jpg"><center>
+
+<form name="paramForm" id="paramForm">
+아이디     :<input type="text" class="mid" name="mid" id="mid"><br>
+비밀번호 :<input type="text" class="mpw" name="mpw" id="mpw"><br>
+<input type="button" id="mid_btn" value="보내기"/>
+</div>
+
+</form>
+</body>
+</html>
