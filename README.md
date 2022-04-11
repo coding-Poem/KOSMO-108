@@ -1,4 +1,4 @@
-## KOSMO 
+# KOSMO 
 
 > **강의 예제 파일 모음입니다.**
 
@@ -15,7 +15,7 @@
 - 수업때 사용한 firstWeb 프로젝트의 파일과 kosMember (수업기준 context) 안에 있는 파일 모음입니다.
 
 
-## YYS
+# YYS
 
 > **강의 예제 기반으로 연습하려고 만든 파일 모음입니다.**
 
@@ -35,7 +35,7 @@
 
 - kosMember_YYS에서 개인적으로 css와 jsp 파일로 연습했을 때, 파일이 있습니다.
 
-## demo
+# demo
 
 ### ✔ google
 
