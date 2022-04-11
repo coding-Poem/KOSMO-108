@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>두더지게임 시작</title>
+<style type="text/css">
+	body{
+		 text-align:"center";
+		 background-image:url("https://cdn.pixabay.com/photo/2016/11/29/02/31/grass-1866870__340.jpg");
+	}
+	
+	div{
+		 text-align:center; 
+		 margin:50px;
+		 font-size:30px;
+	}
+	
+	img{
+		height:155px;
+		width:150px;
+		margin:50px;
+	}
+	div{
+		box-sizing:border-box;
+		margin:50px auto;
+	}
+		
+	tr, td{
+		text-align:center;
+	 	width:90px;
+	 	height:25px;
+		margin:1px auto;
+	}
+	
+	
+	table{
+		height:550px;
+		weight:350px;
+		margin:1px auto;
+	}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var aList=["#t1","#t2","#t3","#t4","#t5","#t6","#t7","#t8","#t9"];
+		var cnt=0;
+		
+		// 게임 시작 : 1
+		$(".btn1").click(function(){	
+			let rand1=Math.floor(Math.random()*9);
+			console.log(aList[rand1]);
+		
+			let v=aList[rand1];
+			
+			$(v).attr({
+				"src":"https://littledeep.com/wp-content/uploads/2020/12/illustration-mole-png-1024x853.png"
+			});
+		
+			$(v).click(function(){
+				$(v).attr({
+					"src":"https://www.emojiall.com/images/60/skype/1f7e4.png"
+					});
+				});
+		});
+	});
+</script>		
+</head>
+
+<body>
+	<div>
+		<table border="3">
+			<!--  tr1 -->
+			<tr>
+				<td><img id="t1" src="https://www.emojiall.com/images/60/skype/1f7e4.png"></td>
+				<td><img id="t2" src="https://www.emojiall.com/images/60/skype/1f7e4.png"></td>
+				<td><img id="t3" src="https://www.emojiall.com/images/60/skype/1f7e4.png"></td>
+			</tr>
+			<!--  tr2 -->
+			<tr>
+				<td><img id="t4" src="https://www.emojiall.com/images/60/skype/1f7e4.png"></td>
+				<td><img id="t5" src="https://www.emojiall.com/images/60/skype/1f7e4.png"></td>
+				<td><img id="t6" src="https://www.emojiall.com/images/60/skype/1f7e4.png"></td>
+
+			</tr>
+			<!--  tr3 -->
+			<tr>
+				<td><img id="t7" src="https://www.emojiall.com/images/60/skype/1f7e4.png"></td>
+				<td><img id="t8" src="https://www.emojiall.com/images/60/skype/1f7e4.png"></td>
+				<td><img id="t9" src="https://www.emojiall.com/images/60/skype/1f7e4.png"></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<center><button class="btn1" style="text-align:center; height:50px; width:200px;">게임시작</button></center>
+	</div>
+</body>
+</html>
