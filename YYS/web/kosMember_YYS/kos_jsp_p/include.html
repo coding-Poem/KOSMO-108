@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/kosMember_YYS/css/yysColor.css">
+<title>INCLUDE TEST</title>
+<!-- jQuery CDN 불러오기  -------------------------------------------->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log("jQuery ready 함수 진입 >>> : ");
+		$("#mid_btn").click(function(){
+			console.log("보내기 버튼 클릭 >>> : ");
+			$("#includeForm").attr({
+				"action":"/kosMember_YYS/kos_jsp_p/include_A.jsp",
+				// include_A.jsp로 가기
+				"method":"GET"
+			}).submit();
+		});
+	});
+
+</script>
+</head>
+<body>
+<h3>인쿨르드 테스트</h3>
+<hr>
+<form name="includeForm" id="includeForm">
+<!-- 실제 입력 값 : 1111 -->
+<input type="text" class="mid" name="mid" id="mid" /><br>
+<!-- 실제 입력 값 : 2222 -->
+<input type="text" class="mpw" name="mpw" id="mpw" /><br>
+<input type="button" id="mid_btn" value="보내기" >
+</form>
+</body>
+</html>
