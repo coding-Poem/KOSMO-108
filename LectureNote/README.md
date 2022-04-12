@@ -73,6 +73,7 @@
 |2022-04-05|[CSS](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-05CSS.md)|
 |2022-04-08|[JSP](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-08jsp.md)|
 |2022-04-11|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-11%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
+|2022-04-12|[페이지이동]()|
 
 ### 📃 참고하기 좋은 사이트
 
