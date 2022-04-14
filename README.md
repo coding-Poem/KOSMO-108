@@ -16,3 +16,5 @@
 |박건원|[SavoryP](https://github.com/SavoryP)|스터디원|
 |강민|[gordenKang](https://github.com/gordenKang)|스터디원|
 |박성훈|[MintLizz](https://github.com/MintLizz)|스터디원|
+|성연제|[Yeonja2](https://github.com/Yeonja2)|스터디원|
+|김별|[Byeol](https://github.com/bbbbkim)|스터디원|
