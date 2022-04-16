@@ -23,6 +23,11 @@
 
 - firstProject(첫 프로젝트)와 yysProject(TEST_T6 연습 했던 프로젝트) 파일이 있습니다.
 
+### miniproject
+
+- 스터디에서 지정한 미니 과제를 한 것을 올린 공간입니다.
+
+
 ### sql
 
 - 혼자서 sql 쿼리문 연습했던 파일이 있습니다.
