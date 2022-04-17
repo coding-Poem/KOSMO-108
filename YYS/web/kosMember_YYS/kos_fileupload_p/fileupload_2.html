@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FileUpload</title>
+</head>
+<body>
+<div class="wrap" style="align:center;">
+	<h3>FILE UPLOAD</h3>
+	<hr>
+<!--  POST : BODY로 가세요. enctype은 multipart/form-data -->
+<!-- 
+application/x-www-form-urlencoded
+
+	&으로 분리되고, "=" 기호로 값과 키를 연결하는 key-value tuple로 인코딩되는 값입니다. 
+	영어 알파벳이 아닌 문자들은 percent encoded 으로 인코딩됩니다. 
+	content type은 바이너리 데이터에 사용하기에는 적절치 않습니다. 
+
+multipart/form-data
+	파일이나 이미지를 서버로 전송할 때 주로 사용
+  
+text/plain
+	공백 문자(space)는 “+” 기호로 변환,
+	나머지 문자는 모두 인코딩되지 않음
+ -->
+
+<form name="fileUploadForm"
+	  action="/kosMember_YYS2/kos_fileupload_p/fileupload_2.jsp"
+	  method="POST"
+	  enctype="multipart/form-data">
+<!--  text -->
+이름:<input id="i1" type="text" name="name"/><br>
+<!--  file -->
+파일1: <input id="i2" type="file" name="fileName1"/><br>
+<input id="i3" type="submit" class="btn" value="전송">
+</form>
+</div>
+</body>
+</html>
