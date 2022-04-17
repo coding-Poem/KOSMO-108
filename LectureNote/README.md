@@ -61,7 +61,7 @@
 |---|---|
 |2022-03-18|[web](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-18web.md)|
 |2022-03-21|[웹_tomcat](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-21%EC%9B%B9tomcat.md)|
-|2022-03-22|[web_2]()|
+|2022-03-22|[web_2](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-22web_2.md)|
 |2022-03-23|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-23%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
 |2022-03-24|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-24%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
 |2022-03-25|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-03-25%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
