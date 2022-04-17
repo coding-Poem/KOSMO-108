@@ -1,7 +1,0 @@
-해당 파일은 
-
-CodingPoem.html : form태그 --(jQuery)-->CodingPoem.jsp
-
-CodingPoem.jsp :  include액션버블태그 --(<jsp:param name value>)-->Resut.jsp(request.getParameter)
-
-방식으로 데이터를 옮겼습니다.
