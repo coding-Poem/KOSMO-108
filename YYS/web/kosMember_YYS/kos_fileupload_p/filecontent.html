@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FILE UPLOAD</title>
+<!--  jQuery CDN -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log("jQuery ready  >>> ");
+		$("#btn1").click(function(){
+			console.log("btn success >>> ");
+			$(".fcls").attr({
+				"action":"/kosMember_YYS2/kos_fileupload_p/filecontent.jsp", 
+				"method":"GET",
+				"enctype":"application/x-www-form-urlencoded"
+			}).submit();
+		});
+		
+		$("#btn2").click(function(){
+			console.log("btn success >>> ");
+			$(".fcls").attr({
+				"action":"/kosMember_YYS2/kos_fileupload_p/filecontent.jsp", 
+				"method":"POST",
+				"enctype":"multipart/form-data"
+			}).submit();
+		});
+		
+	});
+</script>
+</head>
+<body>
+<h3>FILE UPLOAD</h3>
+<hr>
+<form class="fcls" name="fcls" id="fcls">
+	<input type="text" class="i1" name="i1" id="i1"><br>
+	<input type="file" class="f1" name="f1" id="f1"><br>
+	<input type="button" id="btn1" value="GET방식으로 보내기"><br>
+	<input type="button" id="btn2" value="POST방식으로 보내기 ">
+</form>
+</body>
+</html>
