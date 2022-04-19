@@ -99,3 +99,5 @@ Standard Ed. 8](https://docs.oracle.com/javase/8/docs/api/)**
 > **[Animation about TCP/IP protocol](https://www.youtube.com/watch?v=7Zf203Vmbig)**
 
 > **[Servlets.com](http://servlets.com/)**
+
+> **[MavenRepository](https://mvnrepository.com/artifact/javax.mail/mail/1.4.7)**
