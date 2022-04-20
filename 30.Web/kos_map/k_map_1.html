@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>KakaoMap 지도 서비스 해슴!</title>
+		<style type = "text/css">
+			
+			/*
+				#map {
+					width : 500px;
+					height : 400px;
+					margin : 100px auto;
+					border : 1px solid red;
+				}
+			*/
+		</style>
+	</head>
+	<body>
+		<h3>KakaoMap 지도 서비스 해슴!</h3>
+		<hr>
+		
+		<!-- 지도를 표시할 div 라고 함 -->
+		<div id = "map" style = "width:100%; height:500px;"></div>
+		
+		<!-- // : http, https 둘다 허용됨  -->
+		<script type = "text/javascript" src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=0c7dee1646df3aa7bfe33b55e434c008"></script>
+		
+		<script>
+			
+			// 클릭한 위치의 위도는 37.481739 이고, 경도는 126.898316 입니다
+			var mapContainer = document.getElementById('map');
+				mapOption = {
+						
+						center : new kakao.maps.LatLng(37.481739, 126.898316), // 지도의 중심좌표
+					       // center: new kakao.maps.LatLng(37.478853, 126.879367), // 지도의 중심좌표
+					       // 자기집 위치 찾아서 
+						
+						level : 3 // 지도의 확대 레벨
+				};
+				
+				// 지도를 표시할 div와  지도 옵션으로  지도를 생성한다고 함
+				var map = new kakao.maps.Map(mapContainer,mapOption);
+		</script>
+	</body>
+</html>

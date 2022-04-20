@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<div id = "map" style = "width:100%; height : 500px;"></div>
+		<p><em>지도를 클릭해보새오</em></p>
+		<p id = "result"></p>
+		
+		<script type = "text/javascript" src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=0c7dee1646df3aa7bfe33b55e434c008"></script>
+		
+		
+		<script>
+			var mapContainer = document.getElementById('map');
+			mapOption = {
+					
+					center : new kakao.maps.LatLng(37.481739, 126.898316), // 지도의 중심좌표
+				       // center: new kakao.maps.LatLng(37.481739, 126.898316), // 지도의 중심좌표
+				       // 자기집 위치 찾아서 
+					
+					level : 3 // 지도의 확대 레벨
+			};
+				
+			
+			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성한다.
+			
+			// 지도에 클릭 이벤트를 등록함
+			// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출함
+			kakao.maps.event.addListener(map, "click", function(mouseEvent){
+				
+				// 클릭한 위도, 경도 정보를 가져옴
+				var latlng = mouseEvent.latLng;
+				
+				var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+				message += '경도는 ' + latlng.getLng() + ' 입니다';
+				    
+				var resultDiv = document.getElementById('result'); 
+				resultDiv.innerHTML = message;
+				 
+			});
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>지도 정보 얻어오기 해슴!</title>
+	</head>
+	<body>
+		<p style = "margin-top:-12px">
+			<em class = "link">
+				<a href="https://apis.map.kakao.com/web/documentation/#MapTypeId"></a>
+			</em>
+		</p>
+		<div id = "map" style = "width:100%; height:500px;"></div>
+		<p> 개발자 도구를 통해 직접 확인해 보세요. </p>
+		
+		<script type = "text/javascript" src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=0c7dee1646df3aa7bfe33b55e434c008"></script>
+		
+		<script>
+		var mapContainer = document.getElementById('map'); // 지도를 표시할 div라고 함
+			mapOption = {
+					
+					center : new kakao.maps.LatLng(37.481739, 126.898316), // 지도의 중심좌표, 내가 선택한 좌표임
+				    // center: new kakao.maps.LatLng(37.481739, 126.898316), // 지도의 중심좌표
+				    
+					
+					level : 3 // 지도의 확대 레벨
+			};
+		
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+		
+		alert("	map 은 ?	>>> : " + map);
+		console.log("	map 은 ?	>>> : " + map);
+		
+		var mapTypeControl = new kakao.maps.MapTypeControl();
+		
+		alert("	mapTypeControl 은 ?	>>> : " + mapTypeControl);
+		console.log("	mapTypeControl 은 ?	>>> : " + mapTypeControl);
+		
+		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TORIGHT);
+		
+		function getInfo() {
+			
+			var center = map.getCenter();
+			
+			var level = map.getLevel();
+			
+			var mapTypeId = map.getMapTypeId();
+			
+			var bounds = map.getBounds();
+			
+			var swLatLng = bounds.getSouthWest(); 
+			
+			var neLatLng = bounds.getNorthEast(); 
+			
+			var boundsStr = bounds.toString();
+			
+			var message = "지도의 중심좌표는 위도 " + center.getLat() + ',<br>';
+			message += '경도는 ' + center.getLng() + ' 이고 <br>';
+		    message += '지도 레벨은 ?  ' + level + ' 임 <br> <br>';
+		    message += '지도 타입은 ? ' + mapTypeId + ' 이고 <br> ';
+		    message += '지도의 남서쪽 좌표는 ? ' + swLatLng.getLat() + ', ' + swLatLng.getLng() + ' 이고 <br>';
+		    message += '북동쪽 좌표는 ? ' + neLatLng.getLat() + ', ' + neLatLng.getLng() + ' 임';
+			
+		   	alert( "메세지는 ?	>>> : " + message);
+		   	
+		   	console.log(" 메세지는 ?	>>> : " + message);
+		    
+		}
+		
+		getInfo();
+
+		</script>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

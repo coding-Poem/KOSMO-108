@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>지도 타입 한번 바꿔보기!</title>
+	</head>
+	<body>
+		<div id = "map" style = "width:100%; height:500px;"></div>
+		<p>
+		<button onclick = "setOverlayMapTypeId('traffic')">이시각 교통상황</button>
+		<button onclick = "setOverlayMapTypeId('roadview')">로드뷰로 도로정보 보기</button>
+		<button onclick = "setOverlayMapTypeId('terrain')">지형정보 보기</button>
+		<button onclick = "setOverlayMapTypeId('use_district')">지적편집도 보기</button>
+		</p>
+		
+		<script type = "text/javascript" src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=0c7dee1646df3aa7bfe33b55e434c008"></script>
+		
+		<script>
+		var mapContainer = document.getElementById('map'); // 지도를 표시할 div라고 함
+			mapOption = {
+					
+					center : new kakao.maps.LatLng(37.481739, 126.898316), // 지도의 중심좌표, 내가 선택한 좌표임
+				    // center: new kakao.maps.LatLng(37.481739, 126.898316), // 지도의 중심좌표
+				    
+					
+					level : 3 // 지도의 확대 레벨
+			};
+		
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+		
+		var currentTypeId;
+		
+		function setOverlayMapTypeId(maptype) {
+			
+			var changeMaptype;
+			
+			// === : 타입이랑 value 값이 동일하면 === 3개를 사용한다.
+			if (maptype === 'traffic') {
+				
+				changeMaptype = kakao.maps.MapTypeId.TRAFFIC;     
+		        
+		    } else if (maptype === 'roadview') {        
+		        
+		        changeMaptype = kakao.maps.MapTypeId.ROADVIEW;    
+
+		    } else if (maptype === 'terrain') {
+		        
+		        changeMaptype = kakao.maps.MapTypeId.TERRAIN;    
+
+		    } else if (maptype === 'use_district') {
+		        
+		        changeMaptype = kakao.maps.MapTypeId.USE_DISTRICT;           
+		    }
+		    
+		    if (currentTypeId) {
+		        map.removeOverlayMapTypeId(currentTypeId);    
+		    }
+		    
+		    map.addOverlayMapTypeId(changeMaptype);
+		    
+		    currentTypeId = changeMaptype;
+		    
+		    console.log("	currentTypeId 는 ?	>>> : " + currentTypeId);
+		}
+		</script>
+	</body>
+</html>

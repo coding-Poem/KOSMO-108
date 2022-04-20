@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>KAKAO MAP 5 해슴!</title>
+	</head>
+	<body>
+		<div id = "map" style = "width:100%; height : 500px;"></div>
+		<p><em>지도를 클릭해보새오</em></p>
+		<p id = "result"></p>
+		
+		<!--  
+			이거는 내가 카카오 개발자 사이트에서 앱 어플리케이션에 만든 PSHMap 에 자바 스크립트로 받은 카카오맵 코드다.
+			이 코드는 유일하기 때문에 다른 사람꺼 등록하면 안돼!!!!	
+		 -->
+		<script type = "text/javascript" src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=0c7dee1646df3aa7bfe33b55e434c008"></script>
+		
+		
+		<script>
+		
+			var mapContainer = document.getElementById('map'); // 지도를 표시할 div라고 함
+			mapOption = {
+					
+					center : new kakao.maps.LatLng(37.481739, 126.898316), // 지도의 중심좌표, 내가 선택한 좌표임
+				    // center: new kakao.maps.LatLng(37.481739, 126.898316), // 지도의 중심좌표
+				    
+					
+					level : 3 // 지도의 확대 레벨
+			};
+				
+			var map = new kakao.maps.Map(mapContainer, mapOption);
+			
+			// 지도를 클릭한 위치에 표출할 마커라고 함
+			// 다음 얘들은 파란색 마커임
+			var marker = new kakao.maps.Marker({
+				
+				// 지도 중심좌표에 마커를 생성함
+				position : map.getCenter()
+				
+			});
+			
+			marker.setMap(map);
+			
+			// 지도에 클릭 이벤트를 등록함
+			// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출함
+			kakao.maps.event.addListener(map, "click", function(mouseEvent){
+			
+				 // 클릭한 위도, 경도 정보를 가져옴
+				var latlng = mouseEvent.latLng;
+				
+				// 마커 위치를 클릭한 위치로 이동시킴
+				marker.setPosition(latlng);
+				
+				var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+				message += '경도는 ' + latlng.getLng() + ' 입니다';
+				    
+				var resultDiv = document.getElementById('result'); 
+				resultDiv.innerHTML = message;
+			
+			});
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
