@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		// var year="2020";
+		// alert(year)
+		function leapYear(year){
+			if ((year%4==0)&&(year%100!=0)||(year%400==0)){
+				// 4로나누어지는데 100으로 안 나누어 지면 윤년
+				// 혹은 400으로 나누어지면 윤년
+				return "0";	
+			}else{
+				return "1";
+			}
+		} // function leapYear(year))
+			
+		// 생년월일
+		$("#mbirth").on("input", function(){
+			var m=$("#mbirth");
+			console.log("m.maxlength >>> : "+m.maxlength);
+			if (m.val().length > m.maxlength){
+				// m.maxlength == maxlength == 4???
+				m.value=m.value.slice(0, m.maxlength);
+				// 배열????? 첫 자리부터 4자리까지 잘라라??
+				console.log("m.value >>> : "+m.value);
+			}
+		});
+	
+		// 월
+		$("#mbirth1").append("<option value=''>월---</option>");
+		for(var i=1; i<=12; i++){
+			if (i<10){i='0'+i;}
+			$("#mbirth2").append("<option value='"+i+"'>")
+		}
+	});
+</script>
+</head>
+<body>
+<form name="memForm" id="memForm">
+
+<input type="text" name="mbirth" id=mbirth placeholder="년(4자)" maxlength="4" style="width:50px"/>
+<select name="mbirth1" id="mbirth1"></select>
+<select name="mbirth2" id="mbirth2"></select><br>
+
+</form>
+</body>
+</html>

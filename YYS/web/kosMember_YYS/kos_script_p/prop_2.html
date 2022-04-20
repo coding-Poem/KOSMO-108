@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		// 성별 
+		var gen='01'
+		console.log("gen >>> : "+gen);
+		
+		if('01'==gen){
+			$(".mgender:input[value='01']").prop('checked', true);
+			// document.getElementsByName("mgender")[0].checked=true;
+		}
+		if('02'==gen){
+			$(".mgender:input[value='02']").prop('checked', true);
+			// document.getElementsByName("mgender")[1].checked=true;
+		}
+		
+		// 이메일 
+		var email='abc@gmail.com';
+		var emails=email.split('@');
+		//<input type="text" name="memail"  id="memail" style="width:100px"  />
+		$("#memail").val(emails[0]);
+		// <input type="text" name="memail1" id="memail1" style="width:100px"
+		$("#memail").val(emails[1]);
+		
+		// 취미
+		var hobs='01,02,04';
+		console.log("hobs >>> : "+hobs);
+		var hob=hobs.split(',');
+		console.log("hob.length >>> : "+hob.length);
+		for (var m=0; m<hob.length; m++){
+			var hobValue=hob[m];
+			console.log("hobValue >>> : "+hobValue);
+			if ('01'==hobValue){
+				$(".mhobby:input[value='01']").prop('checked',true);
+			}
+			if ('02'==hobValue){
+				$(".mhobby:input[value='02']").prop('checked',true);
+			}
+			if ('03'==hobValue){
+				$(".mhobby:input[value='03']").prop('checked',true);
+			}
+			if ('04'==hobValue){
+				$(".mhobby:input[value='04']").prop('checked',true);
+			}
+			if ('05'==hobValue){
+				$(".mhobby:input[value='05']").prop('checked',true);
+			}
+		}
+	});
+</script>
+</head>
+<body>
+<!-- <body onload="compCheck();">  -->
+<hr>
+<div>
+<form name="memUpdateForm" id="memUpdateForm">
+<table border="1">
+<script>
+/*
+function compCheck(){
+	console.log("compCheck >>> 진입 >>> :");
+	
+	// 성별 
+	var gen="01";
+	console.log("gen >>> : "+gen);
+	if('01'==gen){
+		/*
+		<input type="radio" class="mgender" name="mgender" id="mgender" value="01" checked /> 여자
+      	<input type="radio" class="mgender" name="mgender" id="mgender" value="02" /> 남자
+		/
+		document.getElementsByName("mgender")[0].checked=true;
+	}
+	if('02'==gen){
+		document.getElementsByName("mgender")[1].checked=true;
+	}
+	
+	// 이메일
+	var email='abc@gmail.com';
+	var emails=email.split('@');
+	//<input type="text" name="memail"  id="memail" style="width:100px"  />
+	document.getElementById("memail").value=emails[0];
+	// <input type="text" name="memail1" id="memail1" style="width:100px"
+	document.getElementById("memail").value=emails[1];
+	
+	//  취미
+	// value 1~5까지 있다.
+	// var hobs='<%= mhobby %>';
+	var hobs=['01','02','03','04','05'];
+	console.log("hobs >>> : "+hobs.length);
+	
+	
+	for(m=0; m<hobs.length; m++){
+		var hobValue=hobs[m];
+		console.log("hobValue의 "+m+"번째 >>> : "+hobValue);
+		/*
+		hobValue의 0번째 >>> : 01
+		hobValue의 1번째 >>> : 02
+		hobValue의 2번째 >>> : 03
+		hobValue의 3번째 >>> : 04
+		hobValue의 4번째 >>> : 05
+		/
+		
+		// 배열의 인덱스는 0부터 시작된다
+		if('01'==hobValue){
+			document.getElementsByName("mhobby")[0].checked=true;
+		}
+		if('02'==hobValue){
+			document.getElementsByName("mhobby")[1].checked=true;
+		}
+		if('03'==hobValue){
+			document.getElementsByName("mhobby")[2].checked=true;
+		}
+		if('04'==hobValue){
+			document.getElementsByName("mhobby")[3].checked=true;
+		}
+		if('05'==hobValue){
+			document.getElementsByName("mhobby")[4].checked=true;
+		}
+	}
+}
+*/
+</script>
+<tr>	
+	<td colspan="3" align="center">						
+		<font size="4" style="color:blue;">회원정보 수정 && 삭제</font> 	
+	</td>				
+</tr>
+<tr>
+	<td>성별</td>
+	<td> 
+		<input type="radio" class="mgender" name="mgender" id="mgender" value="01" checked /> 여자
+      	<input type="radio" class="mgender" name="mgender" id="mgender" value="02" /> 남자
+    </td>
+</tr>
+<tr>
+	<td>이메일</td>
+	<td  colspan="2">		
+		<input type="text" name="memail"  id="memail" style="width:100px"  />
+		@ <input type="text" name="memail1" id="memail1" style="width:100px" 
+			placeholder="직접입력" />
+		<select name="memail2" id="memail2">
+        	 <option value="1" selected>직접입력</option>
+       		 <option value="naver.com">naver.com</option>	       	   
+      		 <option value="gmail.com">gmail.com</option>
+      		 <option value="daum.net">daum.net</option>	       	   
+         </select>
+	</td>
+</tr>
+<tr>
+	<td>취미</td>
+	<td   colspan="2"> 
+		<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="01" />알고리즘		      
+        <input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="02" />코딩
+        <input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="03" />분석설계<br>
+        <input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="04" />데이터베이스
+        <input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="05" />스크립트
+    </td>
+</tr>	 
+<tr>
+	<td colspan="3" align="center">		
+	<input type="button" value="수정" id='U' />
+	<input type="button" value="삭제"  id='D' />
+    <input type="reset" value="취소" />
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="입력"  id='I' />
+	<input type="button" value="목록"  id='SALL' />
+</td>	
+<tr>			
+</table>
+</form>
+</div>
+</body>
+</html>

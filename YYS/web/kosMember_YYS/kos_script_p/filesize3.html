@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>FILE SIZE</title>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#i1").click(function(){
+			$(".ft").attr({
+				"action":"/kosMember_YYS2/kos_script_p/filesize3.jsp",
+				"method":"POST",
+				"enctype":"multipart/form-data"				
+			}).submit();
+		});			
+			
+		$("#i2").click(function(){
+			$(".ft").attr({
+				"action":"/kosMember_YYS2/kos_script_p/filesize3.jsp",
+				"method":"POST",
+				"enctype":"multipart/form-data"				
+			}).submit();
+		});
+			
+		$("#i3").click(function(){
+			$(".ft").attr({
+				"action":"/kosMember_YYS2/kos_script_p/filesize3.jsp",
+				"method":"POST",
+				"enctype":"multipart/form-data"				
+			}).submit();
+		});
+			
+		$("#i4").click(function(){
+			$(".ft").attr({
+					"action":"/kosMember_YYS2/kos_script_p/filesize3.jsp",
+					"method":"POST",
+					"enctype":"multipart/form-data"				
+			}).submit();
+		});
+	});
+</script>
+<style type="text/css">
+    .parent {
+      position: relative;
+      box-shadow:20px 20px 10px grey;
+      background-color:#ffe6ff;
+    }
+    
+    .child {
+      position: absolute; 
+      left: 50%; 
+      top: 50%; 
+      transform: translate(-50%, -50%);
+    }
+ </style>
+</head>
+<body>
+<h3>FILE SIZE : Thumbnail image: 썸네일 이미지</h3>
+<hr>
+<div class="parent">
+	<div class="chidren">
+		<form class="ft" id="ft" name="ft">
+			 
+			<h3>장바구니 담기</h3>
+			<hr>
+			
+			<p>경매에 참여할 사진을 업로드해주세요!!!</p>
+			<input type="file" id="file1" class="file1" name="file1"/>
+			<hr>
+			 
+			<p>경매에 참여할 아이템 이미지를 클릭해주세요.!!!</p>
+			<img id="i1" name="i1" src="/kosMember_YYS2/image/1_1_1.JPG" alt="1_1_1.jpg가 안 나와요" width=300px height=700px>
+			<img id="i2" name="i2" src="/kosMember_YYS2/image/1_1_2.JPG" alt="1_1_2.jpg가 안 나와요" width=300px height=700px>
+			<img id="i3" name="i3" src="/kosMember_YYS2/image/1_1_3.JPG" alt="1_1_3.jpg가 안 나와요" width=300px height=700px>
+			<img id="i4" name="i4" src="/kosMember_YYS2/image/1_1_4.JPG" alt="1_1_4.jpg가 안 나와요" width=300px height=700px>
+		</form>
+	</div>
+</div>
+</body>
+</html>

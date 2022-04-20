@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>FILE SIZE</title>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn").click(function(){
+			$(".ft").attr({
+				"action":"/kosMember_YYS2/kos_script_p/filesize2.jsp",
+				"method":"POST",
+				"enctype":"multipart/form-data"				
+			}).submit();	
+		});
+	});
+</script>
+</head>
+<body>
+<h3>FILE SIZE : Thumbnail image: 썸네일 이미지</h3>
+<hr>
+<form class="ft" id="ft" name="ft">
+이름 : <input type="text" name="name" /><br>
+파일1 : <input type="file" name="fileName1"/><br>
+<input type="submit" id="btn" value="전송">
+</form>
+
+</body>
+</html>

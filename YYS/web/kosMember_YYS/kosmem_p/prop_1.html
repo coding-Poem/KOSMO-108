@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+ 	$(document).ready(function(){
+ 		// 성별
+ 		/*
+ 		<input type="radio" class="mgender" name="mgender" id="mgender" value="01" checked /> 여자
+ 		<input type="radio" class="mgender" name="mgender" id="mgender" value="02" /> 남자
+ 		*/
+ 		var gen="01"
+ 		console.log("gen >>> : "+gen);
+ 		// gen >>> : 01
+ 		if("01"==gen){
+ 			$(".mgender:input[value='01']").prop('checked', true);
+ 		}
+ 		if('02'==gen){
+ 			$(".mgender:input[value='02']").prop('checked', true);
+ 			
+ 		}
+ 		
+ 		// 이메일
+ 		/*
+ 		<input type="text" name="memail"  id="memail" style="width:100px"  />
+		@ <input type="text" name="memail1" id="memail1" style="width:100px" 
+			placeholder="직접입력" />
+ 		*/
+ 		var email='abc@gmail.com';
+ 		var emails=email.split('@');
+ 		$("#memail").val(emails[0]);
+ 		// 이메일 첫 번째 칸을 abc로 세팅
+ 		$("#memail1").val(emails[1]);
+ 		// 이메일  두 번째 칸을 gmail.com 으로 세팅
+ 		
+ 		// 취미
+ 		/*
+ 			<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="01" />알고리즘		      
+      	    <input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="02" />코딩
+        	<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="03" />분석설계<br>
+        	<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="04" />데이터베이스
+        	<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="05" />스크립트
+ 		*/
+ 		var hobs='01,02,04';
+ 		console.log("hobs >>> : "+hobs);
+ 		// hobs >>> : 01,02,04
+ 		
+ 		var hob=hobs.split(',');
+ 		for (var m=0; m<hob.length; m++){
+ 			// 1, 2, 4번 칸을 체크해라.
+ 			var hobValue=hob[m];
+ 			console.log("hobValue >>> : "+hobValue);
+ 			/*
+ 			hobValue >>> : 01
+ 			hobValue >>> : 02
+ 			hobValue >>> : 04
+ 			*/
+ 			if('01'==hobValue){
+ 				$(".mhobby:input[value='01']").prop('checked', true);
+ 			}
+ 			if('02'==hobValue){
+ 				$(".mhobby:input[value='02']").prop('checked', true);
+ 			}
+ 			if('03'==hobValue){
+ 				$(".mhobby:input[value='03']").prop('checked', true);
+ 			}
+ 			if('04'==hobValue){
+ 				$(".mhobby:input[value='04']").prop('checked', true);
+ 			}
+ 			if('05'==hobValue){
+ 				$(".mhobby:input[value='05']").prop('checked', true);
+ 			}
+ 			
+ 		}
+ 		
+ 		// 이메일 선택
+ 		/*
+ 		<select name="memail2" id="memail2">
+        	 <option value="1" selected>직접입력</option>
+       		 <option value="naver.com">naver.com</option>	       	   
+      		 <option value="gmail.com">gmail.com</option>
+      		 <option value="daum.net">daum.net</option>	       	   
+         </select>	
+ 		*/
+ 		$("#memail2").change(function(){
+ 			console.log("memail2 change 함수 진입 >>> : ");
+ 			$("#memail2 option:selected").each(function(){
+ 				/*
+ 				<input type="text" name="memail"  id="memail" style="width:100px"  />
+				@ <input type="text" name="memail1" id="memail1" style="width:100px" 
+				placeholder="직접입력" />
+ 				
+ 				*/
+ 				if($(this).val()=='1'){
+ 					// 직접 입력일 경우
+ 					var aa=$("#memail").val();
+ 					$("#memail1").val(''); // 값 초기화
+ 					$("#memail1").prop("readonly", false); // 활성화
+ 				}else{
+ 					// 직접 입력이 아닐 경우
+ 					$("#memail1").val($(this).text()); //선택값 입력
+ 					$("#memail1").prop("readonly", true); // 비활성화
+ 				}
+ 			});
+ 		});
+ 	});
+</script>
+</head>
+<body>
+<hr>
+<div>
+<form name="memUpdateForm" id="memUpdateForm">
+<table border="1">
+<tr>	
+	<td colspan="3" align="center">						
+		<font size="4" style="color:blue;">회원정보 수정 && 삭제</font> 	
+	</td>				
+</tr>
+<tr>
+	<td>성별</td>
+	<td> 
+		<input type="radio" class="mgender" name="mgender" id="mgender" value="01" checked /> 여자
+      	<input type="radio" class="mgender" name="mgender" id="mgender" value="02" /> 남자
+    </td>
+</tr>
+<tr>
+	<td>이메일</td>
+	<td  colspan="2">		
+		<input type="text" name="memail"  id="memail" style="width:100px"  />
+		@ <input type="text" name="memail1" id="memail1" style="width:100px" 
+			placeholder="직접입력" />
+		<select name="memail2" id="memail2">
+        	 <option value="1" selected>직접입력</option>
+       		 <option value="naver.com">naver.com</option>	       	   
+      		 <option value="gmail.com">gmail.com</option>
+      		 <option value="daum.net">daum.net</option>	       	   
+         </select>
+	</td>
+</tr>
+<tr>
+	<td>취미</td>
+	<td   colspan="2"> 
+		<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="01" />알고리즘		      
+        <input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="02" />코딩
+        <input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="03" />분석설계<br>
+        <input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="04" />데이터베이스
+        <input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="05" />스크립트
+    </td>
+</tr>	 
+<tr>
+	<td colspan="3" align="center">		
+	<input type="button" value="수정" id='U' />
+	<input type="button" value="삭제"  id='D' />
+    <input type="reset" value="취소" />
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="입력"  id='I' />
+	<input type="button" value="목록"  id='SALL' />
+</td>	
+<tr>			
+</table>
+</form>
+</div>
+</body>
+</html>

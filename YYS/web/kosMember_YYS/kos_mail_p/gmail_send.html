@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GMAIL SEND</title>
+<script type="text/javascript">
+	function sendMail(){
+		console.log("sendMail() 진입 >>> : ");
+		
+		/*<form name="sendMailForm" id="sendMailForm"> */
+		document.sendMailForm.action="/kosMember_YYS2/kos_mail_p/gmail_send.jsp";
+		// http://localhost:8088/kosMember_YYS2/kos_mail_p/gmail_send.jsp
+		document.sendMailForm.method="POST";
+		document.sendMailForm.enctype="application/x-www-form-urlencoded";
+		document.sendMailForm.submit();
+	}
+
+</script>
+</head>
+<body>
+<h3>Google Mail Server를 사용해서 메일 보내기</h3>
+<hr>
+<form name="sendMailForm" id="sendMailForm">
+	<table border="1">
+		<!--  제목 -->
+		<tr>
+			<td>제목: 안녕 클레오파트라 </td>
+			<td><input type="text" name="mailsubject" id="mailsubject" size="50" ></td>
+		</tr>
+		<!--  보내는 메일 -->
+		<tr>
+			<td>보내는 메일 : yoseobTest@gmail.com </td>
+			<td><input type="text" name="sendmail" id="sendmail"></td>
+		</tr>
+		<!--  비밀번호 -->
+		<tr>
+			<td>비밀번호 : qlalfqjsgh486 </td>
+			<td><input type="password" name="mailpw" id="mailpw"></td>
+		</tr>
+		<!--  받는 메일 -->
+		<tr>
+			<td>받는 메일 : yoseobTest@gmail.com </td>
+			<td><input type="text" name="resivemail" id="resivemail" size="50"></td>
+		</tr>
+		<!-- 내용 -->
+		<tr>
+			<td>내용 : 세상에서 제일 가는 포테이토 칩!! </td>
+			<td><textarea name="sendmsg" id="sendmsg" rows="5" cols="50"></textarea></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2">
+				<input type="button" value="메일보내기" onclick="sendMail();">
+				<input type="reset" value="다시">
+			</td>
+		</tr>	
+	</table>
+</form>
+</body>
+</html>

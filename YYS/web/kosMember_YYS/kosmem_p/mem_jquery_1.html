@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원 가입 폼</title>
+<!-- 디바이스에 최적화된 크기로 출력됨 --------------------------------------->
+<meta name="viweport" content="width=device-width, iitail-scale=1">
+
+<!-- jQuery CDN 불러오기  -------------------------------------------->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- 다음 주소록 OPEN API CDN 불러오기  ----------------------------------->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script type="text/javascript">
+	// 로그 마스터가 되어보도록 하자
+	/*
+	이름 : 하이
+	아이디: hi
+	비밀번호: 486
+	핸드폰: 1234-5678
+	성별: 남자
+	취미: 독서, 여행
+	*/
+ 	$(document).ready(function(){
+ 		/*
+ 			jQuery id
+ 			=========================
+ 			memForm 태그 START
+ 			var : 자바스크립트 데이터 타입 -> let, const
+			mname : 변수명  -> 값하고 같이 인식하려고 
+			= : 대입 연산자 
+			$() : jQuery 함수 
+			# : css 셀렉터에서 id 가르키는 키워드 <-- 아이디 선택, name, class, getElementById() 
+			mname : input type=text id의 속성값
+			
+			이름이 memForm 인 폼태그에 하위에 있는 
+			input type=text 태그 중 id 속성의 값이 mname 인 태그(앨리먼트, 노드(오브젝트))를 
+			jQuery 함수에서 css 셀렉터 #으로 셀렉트해서 
+			변수명이 mname 변수에 대입을 한다.
+ 		*/
+ 		
+ 		
+ 		// ##### mname #####
+ 		// <input type="text" class="mname" name="mname" id="mname" />
+ 		var mname=$("#mname");
+		console.log("mname >>> : "+mname);
+		// mname >>> : [object Object]
+		console.log("mname >>> : "+JSON.stringify(mname));
+		// mname >>> : {"0":{}....."selector":"#mname"}
+		
+ 		var mname_val=mname.val();
+ 		console.log("mname_val >>> : "+mname_val);
+ 		// mname_val >>> : 
+ 		console.log("mname_val >>> : "+JSON.stringify(mname_val));
+ 		// mname_val >>> : ""
+ 		
+ 		// ##### mhp #####
+ 		/*
+ 		<select class="mhp" name="mhp" id="mhp" style="width:50px;">
+ 			<option value="010">010000</option>
+    		<option value="011">011222</option>
+    		<option value="016">016666</option>
+    		<option value="017">017777</option>		        	
+     	</select>
+     - <input type="text" name="mhp1" id="mhp1" maxlength="4" style="width:50px;"/>
+     - <input type="text" name="mhp2" id="mhp2" maxlength="4" style="width:50px;"/>
+ 		*/
+ 		var mhp=$("#mhp");
+ 		console.log("mhp >>> : "+mhp);
+ 		// mhp >>> : [object Object]
+ 		console.log("mhp >>> : "+JSON.stringify(mhp));
+ 		// mhp >>> : {"0":{"0":{},...}, "selector":"#mhp"}
+ 		
+ 		var mhp_val=mhp.val();
+ 		console.log("mhp_val >>> : "+mhp_val);
+ 		// mhp_val >>> : 010
+ 		console.log("mhp_val >>> : "+JSON.stringify(mhp_val));
+ 		// mhp_val >>> : "010"
+ 		
+ 		var mhp_length=$("#mhp").length;
+ 		console.log("mhp_length >>> : "+mhp_length);
+ 		// mhp_length >>> : 1
+ 		console.log("mhp_length >>> : "+JSON.stringify(mhp_length));
+ 		// mhp_length >>> : 1
+ 		
+ 		/*
+ 			<option value="010">010000</option>
+    		<option value="011">011222</option>
+    		<option value="016">016666</option>
+    		<option value="017">017777</option>		        	
+     	</select>
+ 		*/
+ 		
+ 		// #mhp option:selected
+ 		var mhp_option=$("#mhp option:selected");
+ 		console.log("mhp_option >>> : "+mhp_option);
+ 		// mhp_option >>> : [object Object]
+ 		console.log("mhp_option >>> : "+JSON.stringify(mhp_option));
+ 		// mhp_option >>> : {"0":{},...}, "selector":"#mhp option:selected"}
+ 		
+ 		
+ 		// #mhp option:selected val()
+ 		var mhp_option_val=$("#mhp option:selected").val();
+ 		console.log("mhp_option_val >>> : "+mhp_option_val);
+ 		// mhp_option_val >>> : 010
+ 		console.log("mhp_option_val >>> : "+JSON.stringify(mhp_option_val));
+ 		// mhp_option_val >>> : "010"
+ 		
+ 		// #mhp option:selected text()
+ 		var mhp_option_text=$("#mhp option:selected").text();
+ 		console.log("mhp_option_text >>> : "+mhp_option_text);
+ 		// mhp_option_text >>> : 010000
+ 		console.log("mhp_option_text >>> : "+JSON.stringify(mhp_option_text));
+ 		// mhp_option_text >>> : "010000"
+ 		
+ 		// ##### mgender #####
+ 		/*
+ 		<input type="radio" class="mgender" name="mgender" id="mgender" value="01" checked="checked" />여자
+		<input type="radio" class="mgender" name="mgender" id="mgender" value="02" /> 남자
+ 		*/
+ 		var mgender=$("#mgender");
+		console.log("mgender >>> : "+mgender);
+		// mgender >>> : [object Object]
+		console.log("mgender >>> : "+JSON.stringify(mgender));
+		// mgender >>> : {"0":{},...}, ,"selector":"#mgender"}
+		
+		var mgender_val=mgender.val();
+		console.log("mgender_val >>> : "+mgender_val);
+		// mgender_val >>> : 01
+		console.log("mgender_val >>> : "+JSON.stringify(mgender_val));
+		// mgender_val >>> : "01"
+		
+		var mgender_length=mgender.length;
+		console.log("mgender_length >>> : "+mgender_length);
+		// mgender_length >>> : 1
+		console.log("mgender_length >>> : "+JSON.stringify(mgender_length));
+		// mgender_length >>> : 1
+		
+		// $("#mgender:checked").val();
+		var mgender_checked_val=$("#mgender:checked").val();
+		console.log("mgender_checked_val >>> : "+mgender_checked_val);
+		// mgender_checked_val >>> : 01
+		console.log("mgender_checked_val >>> : "+JSON.stringify(mgender_checked_val));
+		// mgender_checked_val >>> : "01"
+		
+		// $("input:radio[id='mgender']:input[value='01']").val();
+		var mgender_id_01=$("input:radio[id='mgender']:input[value='01']").val();
+		console.log("mgender_id_01 >>> : "+mgender_id_01);
+		// mgender_id_01 >>> : 01
+		console.log("mgender_id_01 >>> : "+JSON.stringify(mgender_id_01));
+		// mgender_id_01 >>> : "01"
+		
+		// $("input:radio[id='mgender']:input[value='01']").val();
+		var mgender_id_02=$("input:radio[id='mgender']:input[value='02']").val();
+		console.log("mgender_id_02 >>> : "+mgender_id_02);
+		// mgender_id_02 >>> : 02
+
+		console.log("mgender_id_02 >>> : "+JSON.stringify(mgender_id_02));
+		// mgender_id_02 >>> : "02"
+		
+		// ##### mhobby #####
+		/*
+		<td> 
+			<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="01" />독서		      
+			<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="02" />운동
+			<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="03" />음악감상
+			<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="04" />여행
+		</td>
+		*/
+		var mhobby=$("#mhobby");
+		console.log("mhobby >>> : "+mhobby);
+		// mhobby >>> : [object Object]
+		console.log("mhobby >>> : "+JSON.stringify(mhobby));
+		// mhobby >>> : {"0":{} ... ,"selector":"#mhobby"}
+		
+		var mhobby_val=mhobby.val();
+		console.log("mhobby_val >>> : "+mhobby_val);
+		// mhobby_val >>> : 01
+		
+		console.log("mhobby_val >>> : "+JSON.stringify(mhobby_val));
+		// mhobby_val >>> : "01"
+		
+		var mhobby_length=mhobby.length;
+		console.log("mhobby_length >>> : "+mhobby_length);
+		// mhobby_length >>> : 1
+		console.log("mhobby_length >>> : "+JSON.stringify(mhobby_length));
+		// mhobby_length >>> : 1
+		
+		// $("#mhobby:checked");
+		var mhobby_checked=$("#mhobby:checked");
+		console.log("mhobby_checked >>> : "+mhobby_checked);
+		// mhobby_checked >>> : [object Object]
+		console.log("mhobby_checked >>> : "+JSON.stringify(mhobby_checked));
+		// mhobby_checked >>> : {"length":0,...} ,"selector":"#mhobby:checked"}
+		
+		
+		
+ 	}); // $(document).ready(function()
+</script>
+<style type="text/css">
+	div {	
+		width: 80%;	
+		margin: 50px auto;
+		padding:5px;
+		border:1px solid red;
+		background-color: cyan;
+		display:table;
+	}
+	table {
+		width: 50%;		
+		margin: auto;		
+	}
+	h3, h4{
+		text-align: center;
+	}
+	.tt {
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+<div>
+<h3>KOSMO MEMBER</h3>
+<hr>
+<form name="memForm" id="memForm">
+<table border="1">
+<tr>
+	<td class="tt" colspan="2">
+		<font size="4" style="color:blue;">KOSMO 103기 회원가입</font> 
+		<img src="/kosMember_YYS2/image/img_mando/ase.gif" width="25" height="25" alt="image">
+	</td>	
+</tr>
+<tr>
+	<td class="tt" >회원번호</td>
+	<td><input type="text" name="mnum"  id="mnum" readonly /></td>
+</tr>
+<tr>
+	<td class="tt" >이름</td>
+	<td><input type="text" class="mname" name="mname" id="mname" /></td>
+</tr>
+<tr>
+	<td class="tt" >아이디</td>
+	<td>	
+		<input type="text" name="mid" id="mid" placeholder="아이디체크" />
+		<input type="button" name="midCheck" id="midCheck" value="아이디중복확인" />
+	</td>
+</tr>
+<tr>
+	<td class="tt" >패스워드</td>
+	<td>
+		<input type="text" name="mpw" id="mpw" style="width:100px"/><br>
+		<input type="text" name="mpw_r" id="mpw_r" placeholder="비밀번호확인" style="width:100px"/>
+		<input type="button"  name="mpwCheck" id="mpwCheck" value="비밀번호확인">
+	</td class="tt" >
+</tr>
+<tr>
+	<td class="tt" >핸드폰</td>
+	<td>
+		<select class="mhp" name="mhp" id="mhp" style="width:50px;">
+        	<option value="010">010000</option>
+        	<option value="011">011222</option>
+        	<option value="016">016666</option>
+        	<option value="017">017777</option>		        	
+         </select>
+         - <input type="text" name="mhp1" id="mhp1" maxlength="4" style="width:50px;"/>
+         - <input type="text" name="mhp2" id="mhp2" maxlength="4" style="width:50px;"/>
+	</td>
+</tr>
+<tr>
+	<td class="tt" >이메일</td>
+	<td>		
+		<input type="text" name="memail"  id="memail" style="width:100px"/>
+		@ <input type="text" name="memail1" id="memail1" style="width:100px" placeholder="직접입력" />
+		<select name="memail2" id="memail2">
+        	 <option value="1" selected>직접입력</option>
+       		 <option value="naver.com">naver.com</option>	       	   
+      		 <option value="gmail.com">gmail.com</option>
+      		 <option value="daum.net">daum.net</option>	       	   
+         </select>
+	</td>
+</tr>
+<tr>
+	<td class="tt" >성별</td>
+	<td> 
+		<input type="radio" class="mgender" name="mgender" id="mgender" value="01" checked="checked" />여자
+		<input type="radio" class="mgender" name="mgender" id="mgender" value="02" /> 남자
+	</td>
+</tr>
+<tr>
+	<td class="tt" >취미</td>
+	<td> 
+		<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="01" />독서		      
+		<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="02" />운동
+		<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="03" />음악감상
+		<input type="checkbox" class="mhobby" name="mhobby" id="mhobby" value="04" />여행
+	</td>
+</tr>
+<tr>
+	<td class="tt" >주소</td>
+ 	<td>
+ 		<input type="text" name="mzone" id="mzone" placeholder="우편번호" style="width:70px" maxlength="6" >
+ 		<input type="button" name="mzone_btn" id="mzone_btn" value="우편번호 찾기"><br>	 	
+ 		<input type="text" name="mroad" id="mroad" placeholder="도로명주소" style="width:250px"><br>	 	
+ 		<input type="text" name="mroaddetail" id="mroaddetail" placeholder="도로명주소 상세주소" style="width:250px"><br>	 	
+ 		<input type="text" name="mjibun" id="mjibun" placeholder="지번주소" style="width:250px">
+ 	</td>
+</tr>
+<tr>
+	<td class="tt" >소개글</td>
+	<td>
+		<textarea name="mmsg" id="mmsg" rows="5" cols="50"></textarea>
+	</td>
+</tr>
+<tr>
+	<td colspan="2"> 		
+		<input type="hidden" id="ISUD_TYPE" name="ISUD_TYPE" value="I">		
+		<input type="button" value="jsp_보내기" id="memInsertBtn" />	
+		<input type="reset" value="취소" />
+	</td>				
+</tr>
+</table>				 		        		     
+</form>	
+</div>		
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		$("#timeBtn").click(function(){
+			
+			var time = 180;
+			var min = "";
+			var sec = "";
+			
+			// setInterval('', 천분에일초);
+			// setInterval(function(), 1000); // 1초에 한번씩 invoke(호출) 하시ㅗㅇ 
+			var x = setInterval(function(){
+				
+					min = parseInt(time / 60);
+					sec = time % 60;
+	
+					document.getElementById("time").innerHTML = min + "분" + sec + "초"; 
+					time--;
+					
+					if (time < 0){
+						clearInterval(x)
+						document.getElementById("time").innerHTML = "시간초과";
+					}				
+			}, 1000);
+		});
+	});
+	
+</script>
+</head>
+<body>
+<button type="button" id="timeBtn">시간</button>
+<hr>
+<div id="time"></div>
+</body>
+</html>

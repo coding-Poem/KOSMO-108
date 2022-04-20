@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KOS_LOING_OK JSP</title>
+<link rel="stylesheet" type="text/css" href="/kosMember_YYS2/css/style.css">
+<!--  jQuery CDN -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log("jQuery ready 함수 준비 끝 >>>> : ");
+		$("#login_btn").click(function(){
+			console.log("login 버튼 클릭하였음 >>>> : ");
+			// LoginForm 태그 안에 있는 태그의 값들을 kos_login.jsp에서 
+			// request.getParameter 함수로
+			// 받아올 예정 
+			
+			// 종류별로 기록을 다 남겨보도록 하자.
+			const mid1 =$("#mid").val();
+			const mpw1 =$("#mpw").val();
+			console.log("input tag에 있는 아이디 이름이 mid >>> : "+mid1);
+			console.log("input tag에 있는 비밀번호 이름이 mpw >>> : "+mpw1);
+			
+			/*
+			// 클래스로 불러오는 것도 가능하다.
+			const mid2 =$(".mid").val();
+			const mpw2 =$(".mpw").val();
+			console.log("input tag에 있는 아이디 이름이 mid >>> : "+mid2);
+			console.log("input tag에 있는 비밀번호 이름이 mpw >>> : "+mpw2);
+			
+			// 디자이너들이 쓰는 방법으로 해보기
+			const mid3=$("input:text[id='mid']").val();
+			const mpw3=$("input:text[id='mpw']").val();
+			console.log("input tag에 있는 아이디 이름이 mid >>> : "+mid3);
+			console.log("input tag에 있는 비밀번호 이름이 mpw >>> : "+mpw3);
+			*/
+			
+			$("#LoginForm").attr({
+				"action":"/kosMember_YYS2/koslogin_p/kos_login.jsp",
+				"method":"GET"
+			}).submit();
+		});
+	});
+</script>
+</head>
+<body>
+
+<form name="LoginForm" id="LoginForm">
+<div class="card">
+	<img class="User_img" src="/kosMember_YYS2/image/User.png" alt="User">
+	<div class="container">
+		<h2><b>KOS_MEMBER</b></h2>
+		<input type="text" class="mid" id="mid" name="mid" placeholder="아이디" size="45">
+		<br>
+		<input type="text" class="mpw" id="mpw" name="mpw" placeholder="비밀번호" size="45">
+		<br>
+	<input class="login_btn" type="button" id="login_btn" name="login_btn" value="로그인"><br>
+	<a href="/kosMember_YYS2/kos_mail_p/pwFind.jsp" height=30px;>아이디 찾기</a>
+	<a href="/kosMember_YYS2/kos_mail_p/pwFind.jsp" height=30px;>패스워드 찾기</a>
+	</div>
+</div>
+</form>
+
+</body>
+</html>
