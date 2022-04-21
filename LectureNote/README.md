@@ -79,7 +79,7 @@
 |2022-04-14|[컨텍스트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-14%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8.md)|
 |2022-04-15|[multipart](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-15multipart.md)|
 |2022-04-18~19|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-18~19%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
-|2022-04-21|[강의노트]()|
+|2022-04-21|[강의노트](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/WEB/2022-04-21%EA%B0%95%EC%9D%98%EB%85%B8%ED%8A%B8.md)|
 
 ### 📃 참고하기 좋은 사이트
 
