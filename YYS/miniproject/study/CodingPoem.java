@@ -7,13 +7,23 @@ public class CodingPoem {
 		// 3. return 받을 배열 만들어놓기
 		ArrayList rList=new ArrayList();
 				
-		//  String 초기화
+		//  String, int 초기화
 		String s="";
 		String s1="";
+		int ln=0;
+		int ln1=0;
+		
+		
+		// 배열의 길이
+		ln=aList.size();
+		// 6
+		ln1=ln-1;
+		// 배열의 길이에서 1 빼기
+		// 5 
 		
 		for(int i=0; i<2; i++){
 			// 0부터 5까지 정수로 반환 받기
-			int r=(int)(Math.random()*6);
+			int r=(int)(Math.random()*ln);
 			
 			/* ######  i가 0일때는 수행되지 않는 지역 ####### */
 			if(i==1){
@@ -25,7 +35,7 @@ public class CodingPoem {
 				if(s.equals(s1)){
 					// 새로 대입된 s1값과 이전 값인 s가 같은 경우에만 수행되는 로직입니다.
 					System.out.println("똑같아요 ㅠㅠ  >>> : "+aList.get(r));
-					if(r==5) {
+					if(r==ln1) {
 						// 배열의 마지막 인덱스가 5이므로, r=0으로 0번째 인덱스 값을 출력시키기 
 						// 위한 로직
 						r=0;
