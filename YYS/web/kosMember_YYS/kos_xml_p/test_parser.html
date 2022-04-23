@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XML Parser</title>
+<style type="text/css"></style>
+<script type="text/javascript">
+	function parseText(){
+		console.log("parseText 함수 진입 >>> : ");
+		// parseText 함수 진입 >>> : 
+		var xmlText, xmlParser, xmlDoc;
+		
+		// xmlText 자바스크립트 변수
+		// xmlText 자바스크립트 변수에 문자열을 대입하는 것
+		// "<country><name>korea</name><captial>seoul</capital></country>"
+		xmlText="<country>"
+				+"<name>korea</name>"
+				+"<capital>seoul</capital>"
+				+"</country>"
+		console.log("xmlText >>> : "+xmlText);
+		// xmlText >>> : <country><name>korea</name><capital>seoul</capital></country>
+		
+		// 자바스크립트에서 DOMParser 객체를 인스턴스 함
+		xmlParser=new DOMParser();
+				
+		// .parseFromString() 함수에서 자바스크립트 변수에 담겨 있는 문자열을
+		// xml 파일 형식으로 파싱한다.
+		// xmlDoc 자바스크립트 변수에 xml 형식의 문서가 대입된다.
+		xmlDoc=xmlParser.parseFromString(xmlText, "text/xml");
+		/*
+		 mimeType 인자를 통해 정의한 형식에 따른 Document 또는XMLDocument (en-US) 문서를 반환한다.
+		*/
+		console.log("xmlDoc >>> : "+xmlDoc);
+		// xmlDoc >>> : [object XMLDocument]
+		
+		// 자바스크립트 함수와 xml 파서 함수를 사용해서 xml 데이터를 추출한다.
+		console.log("name :: childNodes[0].nodeValue >>> : "+xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue);
+		// name :: childNodes[0].nodeValue >>> : korea
+		console.log("capital :: childNodes[0].nodeValue >>> : "+xmlDoc.getElementsByTagName("capital")[0].childNodes[0].nodeValue);
+		// capital :: childNodes[0].nodeValue >>> : seoul
+		
+		document.getElementById("text").innerHTML=
+			xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue
+			// korea
+			+"의 수도는"+
+			xmlDoc.getElementsByTagName("capital")[0].childNodes[0].nodeValue + " 입니다.";
+			// seoul
+	}
+</script>
+</head>
+<body>
+<h3>문자열 파싱</h3>
+<hr>
+<button onclick="parseText()">파싱하기</button>
+<p id="text"></p>
+</body>
+</html>
