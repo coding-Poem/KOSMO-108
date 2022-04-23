@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<country>
+	<name>korea</name>
+	<capital>seoul</capital>
+</country>
+<!--  
+root 태그는 country이다.
+
+document.getElementById("text").innerHTML
+=> HTML에 p태그의  id가 text이다 거기에  innerHTML로 직접 쓰겠다.
+
+xmlParser= new DOMParser();
+
+자바스크립트에서 DOMParser 객체를 인스턴스 함
+
+The DOMParser 인터페이스는 
+DOM Document 문서에 맞는 XML (en-US) 
+및 HTML 소스 코드를 해석할 수 있는 기반을 제공한다 . 
+
+
+xmlDoc=xmlParser.parseFromString(xmlText, "text/xml");
+.parseFromString() 함수에서 자바스크립트 변수에 담겨 있는 문자열을
+xml 파일 형식으로 파싱한다.
+xmlDoc 자바스크립트 변수에 xml 형식의 문서가 대입된다.
+
+반환
+ mimeType 인자를 통해 정의한 형식에 따른 
+ Document 또는XMLDocument (en-US) 문서를 반환한다.
+
+인자
+이 메소드에는 2개의 인자가 제공되는데, 모두 필수값이다.
+
+xmlDoc.getElementByTagName("name")[0]
+name태그의 0번째 인덱스 (빼열) : 자기 자신
+<name></name>
+
+.chiidNodes[0]
+의 자식 노드들 중에서 0번째 인덱스 (빼열) : 자기 자신
+
+.nodeValue
+의 값
+
+>>>>>>>>>>> : koera
+
+##########################################
+xmlDoc.getElementByTagName("captal")[0]
+
+capital 태그의 0번째 인덱스 (빼열) : 자기 자신
+<capital></capital>
+
+.chiidNodes[0]
+의 자식 노드들 중에서 0번째 인덱스 (빼열) : 자기 자신
+
+.nodeValue
+의 값
+
+>>>>>>>>>>> : seoul
+-->
