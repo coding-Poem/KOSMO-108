@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+/* 윤년 로직 확인하기 누르면 윤년인지 아닌지 체크 하는 로직*/
+ function checkLeapYear(){
+	 var year=document.getElementById("year").value;
+	 console.log("year >>> : "+year);
+	 if((year%4==0)&&(year%100 !=0)||(year%400==0)){
+		 alert(year+"년은 윤년입니다.");
+		 console.log(year+"년은 윤년입니다.");
+	 }else{
+		 alert(year+"년은 윤년이 아닙니다.");
+		 console.log(year+"년은 윤년이 아닙니다.");
+	 }
+ }
+
+/* ######  jQuery   ###### */
+	$(document).ready(function(){
+		// alert(year)
+		console.log("year >>> : "+year);
+		console.log("jQuery 함수 진입 >> : ");
+		
+		function leapYear(year){
+			if((year%4==0)&&(year%100 !=0)||(year%400==0)){
+				/* 위키백과 윤년
+				  서력 기원 연수가 4로 나누어지는 해는 윤년
+				  100으로 나누어지는 해는 4로도 나누어지는데, 이 때는 평년임
+				  따라서, 4로 나눠짐과 동시에 100으로 나누어지지 않아야, 윤년이라고 할 수 있음.
+				  400으로 나누어 지는 해는 윤년이다. 400으로 나누어지는 해는
+				  4로도 나누어지고 100으로도 나누어지므로, year%400==0 혹은
+				  year%4==0 이면서 동시에 year%100!=0인 해만 윤년으로 둔다.
+				*/
+			     console.log("윤년이 맞습니다.");
+				 return "0";	
+			}else{
+				console.log("윤년이 아닙니다.");
+				return "1";
+			}
+		}
+		
+		// 생년월일
+		$("#mbirth").on("input", function(){
+			var m=$("#mbirth");
+			console.log("var m >>> : "+m);
+			console.log("m.val().length >>> : "+m.val().length);
+			console.log("m.maxlength >>> : "+m.maxlength);
+			
+			// m.maxlength가 undefined가 나와서 if문 로직이 수행되지 않는다.
+			if (m.val().length > m.maxlength){
+				alert("if문안에 들어왔습니다.");
+				console.log("if문 안에 var m >>> : "+m);
+				console.log("if문 안에 m.val() >>> : "+m.val());
+				console.log("if문에서 m.maxlength >>> : "+m.maxlength);
+				
+				m.value=m.value.slice(0, m.maxlength);
+				console.log("m.value >>> : "+m.value);
+			}
+		});
+		
+		// 월
+		$("#mbirth1").append("<option value=''>월----</option>");
+		console.log("mbirh1 append 시작");
+		for(var i=1; i<=12; i++){
+			if(i<10){i='0'+i;}
+			// i가 10보다 작으면 앞에 0을 붙이는 로직
+			$("#mbirth1").append("<option value='"+i+"'>"+i+"</option?");
+		}
+		
+		// 일
+		$("#mbirth2").append("<option value=''>일 ----- </option>");
+		console.log("mbirh2 append 시작");
+		for(var i=1; i<=31; i++){
+			if (i<10){i="0"+i;}
+			$("#mbirth2").append("<option value='"+i+"'>"+i+"</option>");
+		}
+		
+	});
+</script>
+</head>
+<body>
+<form name="memForm" id="memForm">
+<input type="text" name="year" id="year" class="year" placeholder="윤년로직 확인하기" maxlength="4" required/>
+<input type="text" name="mbirth" id=mbirth placeholder="년(4자)" maxlength="4" style="width:50px"/>
+<select name="mbirth1" id="mbirth1"></select>
+<select name="mbirth2" id="mbirth2"></select><br>
+
+<input type="button" name="btn" id="btn" class="btn" value="윤년로직 확인하기" onClick="checkLeapYear()" />
+</form>
+</body>
+</html>

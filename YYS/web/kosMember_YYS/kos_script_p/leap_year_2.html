@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log("jQuery ready 함수 진입 >>> : ");
+		var year=new Date().getFullYear();
+		console.log("year >>> : "+year);
+		// 2022
+		
+		$("#mbirth").change(function(){
+			console.log("mbirth change 함수 진입 >>> : ");
+			$("mbirth_1").empty();
+			
+			for(c=1; c<13; c++){
+				var option = $("<option value=" + "'" + c + "'" + ">"+ c +"</option>");
+				console.log(c+"번째 option 태그 >>> : "+option);
+				$("#mbirth_1").append(option);
+			}
+		});
+		$("#mbirth_1").change(function(){
+			console.log("mbirth_1 change 함수 진입 >>> : ");
+			var y=$("#mbirth").val();
+			console.log("y >>> : "+y);
+			var m=$("#mbirth_1").val();
+			console.log("m >>> : "+m);
+			
+			// getDate() 메서드는 주어진 날짜의 현지 시간 기준 일을 반환합니다.
+			var d=new Date(y, m, 0).getDate();
+			console.log("d >>> : "+d);
+			
+			$("#mbirth_2").empty();
+			
+			for(c=1; c<d+1; c++){
+				var option=$("<option value="+"'"+c+"'"+">"+c+"</option>");
+				$("#mbirth_2").append(option);
+			}
+			
+		});
+	});
+</script>
+</head>
+<body>
+<select class="mbirth" name="mbirth" id="mbirth" style="width:100px">
+	<option value="2022">2022</option>
+	<option value="2021">2021</option>
+	<option value="2020">2020</option>
+	<option value="2019">2019</option>
+	<option value="2018">2018</option>
+</select>
+
+<select class="mbirth_1" name="mbirth_1" id="mbirth_1" style="width:100px">
+</select>
+
+<select class="mbirth_2" name="mbirth_2" id="mbirth_2" style="width:100px">
+</select>
+</body>
+</html>
