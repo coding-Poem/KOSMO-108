@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원 가입 폼</title>
+
+<!-- 디바이스에 최적화된 크기로 출력됨 --------------------------------------->
+<meta name="viweport" content="width=device-width, iitail-scale=1">
+
+<!-- jQuery CDN 불러오기  -------------------------------------------->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- 다음 주소록 OPEN API CDN 불러오기  ----------------------------------->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		alert("ready >>> : ");
+		
+		
+		/*====== memForm 태그 START ==========================================*/
+		// memForm 태그에 바인딩 된 데이터 jsp 로 보내기 
+		$("#memInsertBtn").click(function(){
+			alert("mzone_btn >>> : ");
+			console.log("mzone_btn >>> : ");
+			
+			
+			
+			//############################################# 자바스크립트 버전 START
+			/*
+				자바스크립트 버전 			
+				name 값 : 엘리먼트가 여러개 인 엘리먼트 name 사용할 것 
+				var v3 = document.getElementsByName('mgender');				
+			*/		
+			
+			// name 값 : 엘리먼트가  여러개 일때 : 웹 문서에서 하나 또는 여러 개 일 적용할 때 사용
+			// var v3 = document.getElementsByName('mgender');
+			
+			//=================================================
+				
+				
+			//이게 id값에 영향을 주고 있음. 뭐지 
+			/* 	console.log("1111111111111111111111111111111111");
+			  var mhp = document.memForm.mhp;
+			console.log("mhp >>> : " + mhp);	
+				
+			var mhp_length = mhp.length;
+			console.log("mhp_length >>> : " + mhp_length);  
+				
+				 */
+			//============================================
+				console.log("22222222222222222222222222222");
+			//document.getElementsByName("mhp"); 로 받을 때
+			var mhp_name = document.getElementsByName("mhp"); 
+			console.log("mhp_name >>> : " + mhp_name);
+				//mhp_name >>> : [object NodeList]
+			var mhpname_length = mhp_name.length;
+			console.log("mhpname_length >>> : " + mhpname_length);
+				//mhpname_length >>> : 3
+			//============================================
+				console.log("3333333333333333333333333333333");
+			 //id로 mhp의 select박스 받을 때 
+			var mhp_id = document.getElementById("mhp"); 
+			console.log("mhp_id >>> : " + mhp_id);
+				//mhp_id >>> : [object HTMLSelectElement]
+			var mhpid_length = mhp.length;
+			console.log("mhpid_length >>> : " + mhpid_length);
+				//mhpid_length >>> : 4
+
+			
+			
+
+			//============================================
+				console.log("44444444444444444444444444444444444");
+			var mhp_name0 = mhp_name[0];
+			console.log("mhp_name0 >>> : " + mhp_name0); 
+			//mhp_name0 >>> : [object HTMLSelectElement]
+			var mhp_name0_length = mhp_name[0].length;
+			console.log("mhp_name0_length >>> : " + mhp_name0_length);
+			//mhp_name0_length >>> : 4
+			
+			
+			var mhp_name1 = mhp_name[1];
+			console.log("mhp_name1 >>> : " + mhp_name1); 
+			
+			var mhp_name1_length = mhp_name[1].length;
+			console.log("mhp_name1_length >>> : " + mhp_name1_length);
+			
+			
+			
+			/*
+			var mhp_name0 = document.getElementsByName("mhp")[0];
+			alert("mhp_name0 >>> : " + mhp_name0); 
+			var mhpname0_length = mhp_name0.length;
+			alert("mhpname0_length >>> : " + mhpname0_length);
+			
+			
+	         var memail = document.memForm.memail;
+	         console.log("memail >>> : " + memail);   
+
+	         
+	         var memail_id = document.getElementById("memail");
+	         console.log("memail_id >>> : " + memail_id);
+
+	         
+	         var memail_name = document.getElementsByName("memail");
+	         console.log("memail_name >>> : " + memail_name);
+
+
+	         var memailname_length = memail_name.length;
+	         console.log("memailname_length >>> : " + memailname_length);
+
+	         
+	         var memail_name0 = memail_name[0];
+	         console.log("memail_name0 >>> : " + memail_name0);
+
+			
+
+	         var memail1 = document.memForm.memail1;
+	         console.log("memail1 >>> : " + memail1);   
+
+	         
+	         var memail1_id = document.getElementById("memail1");
+	         console.log("memail1_id >>> : " + memail1_id);
+
+	         
+	         var memail1_name = document.getElementsByName("memail1");
+	         console.log("memail1_name >>> : " + memail1_name);
+
+
+	         var memail1name_length = memail1_name.length;
+	         console.log("memail1name_length >>> : " + memail1name_length);
+
+
+	         var memail1_name0 = memail1_name[0];
+	         console.log("memail1_name0 >>> : " + memail1_name0);
+
+
+	         var memail2 = document.memForm.memail2;
+	         console.log("memail2 >>> : " + memail2);   
+
+	         
+	         var memail2_length = memail2.length;
+	         console.log("memail2_length >>> : " + memail2_length);
+
+	         
+	         var memail2_id = document.getElementById("memail2");
+	         console.log("memail2_id >>> : " + memail2_id);
+
+	         
+	         var memail2id_length = memail2_id.length;
+	         console.log("memail2id_length >>> : " + memail2id_length);
+
+	         
+	         var memail2_name = document.getElementsByName("memail2");
+	         console.log("memail2_name >>> : " + memail2_name);
+
+	         var memail2name_length = memail2_name.length;
+	         console.log("memail2name_length >>> : " + memail2name_length);
+
+	         
+	         var memail2_name0 = memail2_name[0];
+	         console.log("memail2_name0 >>> : " + memail2_name0);
+	 
+	         
+	         var memail2name0_length = memail2_name[0].length;
+	         console.log("memail2name0_length >>> : " + memail2name0_length);
+
+			
+			
+			
+
+			var mgender_check = document.getElementsByName('mgender');
+			alert("mgender_check.length >>> : " + mgender_check.length);
+			alert("mgender_check[0] >>> : " + mgender_check[0]);
+			alert("mgender_check[0].value >>> : " + mgender_check[0].value);
+			alert("mgender_check[0].checked >>> : " + mgender_check[0].checked);
+			alert("mgender_check[1] >>> : " + mgender_check[1]);
+			alert("mgender_check[1].value >>> : " + mgender_check[1].value);
+			alert("mgender_check[1].checked >>> : " + mgender_check[1].checked);
+			
+			var mgender_check = document.getElementsByName('mgender');
+			for (var i=0; i < mgender_check.length; i++){
+				if(mgender_check[i].checked == true){
+					console.log("mgender_check["+i+"].value >>> : " + mgender_check[i].value);
+				}
+			}
+			
+
+			
+			var mhobby_check =document.getElementsByName('mhobby');
+			alert("mhobby_check.length >>> : " + mhobby_check.length);
+			alert("mhobby_check[0]>>> : " + mhobby_check[0]);
+			alert("mhobby_check[0].value >>> : " + mhobby_check[0].value);
+			alert("mhobby_check[0].checked >>> : " + mhobby_check[0].checked);
+			
+			alert("mhobby_check[1] >>> : " + mhobby_check[1]);
+			alert("mhobby_check[1].value >>> : " + mhobby_check[1].value);
+			alert("mhobby_check[1].checked >>> : " + mhobby_check[1].checked);
+			
+			alert("mhobby_check[2] >>> : " + mhobby_check[2]);
+			alert("mhobby_check[2].value >>> : " + mhobby_check[2].value);
+			alert("mhobby_check[2].checked >>> : " + mhobby_check[2].checked);
+			
+			alert("mhobby_check[3] >>> : " + mhobby_check[3]);
+			alert("mhobby_check[3].value >>> : " + mhobby_check[3].value);
+			alert("mhobby_check[3].checked >>> : " + mhobby_check[3].checked);
+			var mhobby_check = document.getElementsByName('mhobby');
+			for (var i=0; i < mhobby_check.length; i++){
+				if(mhobby_check[i].checked == true){
+					console.log("mhobby_check["+i+"].value >>> : " + mhobby_check[i].value);
+				}
+			}
+			
+			
+			
+			
+			
+			$("#memForm")
+			.attr({
+					"action":"/kosMember/mem_js_byname",
+				    "method":"GET",
+				    "enctype":"application/x-www-form-urlencoded"
+			       })
+			.submit();	 */
+			
+		}); // end of $("#memInsertBtn")
+		
+	});
+	
+
+	
+	
+</script>
+
+<style type="text/css">
+	/*====== div START ==========================================*/
+	div {
+			margin: 50px 0px 0px 100px;
+		}	
+	/*====== div END ==========================================*/		
+</style>
+
+</head>
+<body>
+<div>
+<h3>회원 가입</h3>
+<hr>
+<form name="memForm" id="memForm">
+<table border="1">
+<tr>
+	<td colspan="2">회원 가입</td>	
+</tr>
+<tr>
+	<td>회원번호</td>
+	<td><input type="text" name="mnum"  id="mnum" readonly /></td>
+</tr>
+<tr>
+	<td>이름</td>
+	<td><input type="text" name="mname" id="mname" /></td>
+</tr>
+<tr>
+	<td>아이디</td>
+	<td>	
+		<input type="text" name="mid" id="mid" placeholder="아이디체크" />
+		<input type="button" name="midCheck" id="midCheck" value="아이디중복확인" />
+	</td>
+</tr>
+<tr>
+	<td>패스워드</td>
+	<td>
+		<input type="text" name="mpw" id="mpw" style="width:100px"/><br>
+		<input type="text" name="mpw_r" id="mpw_r" placeholder="비밀번호확인" style="width:100px"/>
+		<input type="button"  name="mpwCheck" id="mpwCheck" value="비밀번호확인">
+	</td>
+</tr>
+<tr>
+	<td>핸드폰</td>
+	<td>	
+		<select name="mhp" id="mhp"  style="width:50px;">
+        	<option value="1">010</option>
+        	<option value="2">011</option>
+        	<option value="3">012</option>
+        	<option value="4">013</option>
+        	<option value="5">014</option>
+        	<option value="6">015</option>
+        	<option value="6">015</option>
+        	<option value="6">015</option>
+        	<option value="6">015</option>
+         </select>
+          <select  name="mhp"  style="width:50px;">
+         	<option value="5">010</option>
+        	<option value="6">011</option>
+  			<option value="7">017</option>
+         </select>
+         <select name="mhp" id="mhp000" style="width:50px;">
+         	<option value="7">010</option>
+        	<option value="8">011</option>
+         </select>  
+          <!-- <select   style="width:50px;">
+         	<option value="7">010</option>
+        	<option value="8">011</option> 
+         </select>   -->
+         - <input type="text" name="mhp1" id="mhp1" maxlength="4" style="width:50px;"/>
+         - <input type="text" name="mhp2" id="mhp2" maxlength="4" style="width:50px;"/>
+	</td>
+</tr>
+<tr>
+	<td>이메일</td>
+	<td>		
+		<input type="text" name="memail"  id="memail" style="width:100px"/>
+		<input type="text" name="memail1" id="memail1" style="width:100px" placeholder="직접입력" />
+		<select name="memail2" id="memail2">
+        	 <option value="1" selected>직접입력</option>
+       		 <option value="naver.com">naver.com</option>	       	   
+      		 <option value="gmail.com">gmail.com</option>
+      		 <option value="daum.net">daum.net</option>	       	   
+         </select>
+	</td>
+</tr>
+<tr>
+	<td>성별</td>
+	<td> 
+		<input type="radio" name="mgender" value="01" checked="checked" />여자
+		<input type="radio" name="mgender" value="02" /> 남자
+	</td>
+</tr>
+<tr>
+	<td>취미</td>
+	<td> 
+		<input type="checkbox" name="mhobby" value="01" />독서		      
+		<input type="checkbox" name="mhobby" value="02" />운동
+		<input type="checkbox" name="mhobby" value="03" />음악감상
+		<input type="checkbox" name="mhobby" value="04" />여행
+	</td>
+</tr>
+<tr>
+	<td>주소</td>
+ 	<td>
+ 		<input type="text" name="mzone" id="mzone" placeholder="우편번호" style="width:70px" maxlength="6" >
+ 		<input type="button" name="mzone_btn" id="mzone_btn" value="우편번호 찾기"><br>	 	
+ 		<input type="text" name="mroad" id="mroad" placeholder="도로명주소" style="width:250px"><br>	 	
+ 		<input type="text" name="mroaddetail" id="mroaddetail" placeholder="도로명주소 상세주소" style="width:250px"><br>	 	
+ 		<input type="text" name="mjibun" id="mjibun" placeholder="지번주소" style="width:250px">
+ 	</td>
+</tr>
+<tr>
+	<td>소개글</td>
+	<td>
+		<textarea name="mmsg" id="mmsg" rows="5" cols="50"></textarea>
+	</td>
+</tr>
+<tr>
+	<td colspan="2"> 		
+		<input type="hidden" id="ISUD_TYPE" name="ISUD_TYPE" value="I">		
+		<input type="button" value="jsp_보내기" id="memInsertBtn" />	
+		<input type="reset" value="취소" />
+	</td>				
+</tr>
+</table>				 		        		     
+</form>	
+</div>		
+</body>
+</html>
+
