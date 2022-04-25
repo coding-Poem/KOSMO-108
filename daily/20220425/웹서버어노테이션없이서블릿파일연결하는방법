@@ -1,0 +1,35 @@
+
+
+---웹 서블릿 어노테이션 없이 server.xml을 거쳐서 서블릿을 통해 데이터를 통하는 방법
+
+선행
+-------
+처음 서블릿 파일을 만들 때 웹 서블릿 어노테이션을 주석처리하고 서버 실행 시 404에러
+==> 가상경로를 찾을 수 없음 
+그러므로 아래와 같이 실행
+
+
+1. Web.xml을 아래와 같은 태그를 추가 한다.
+=========================
+  <servlet>
+  	<servlet-name>Web_xmlServlet</servlet-name>
+  	<servlet-class>a.b.c.test.servlet.Web_xmlServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Web_xmlServlet</servlet-name>
+  	<url-pattern>*.pgw</url-pattern>
+  </servlet-mapping>
+
+2. 서블렛 태그 안에 해당 이름이 올 시 a.b.c.test.servlet.~ 에 다가가라 
+   서블렛 매핑 태그는 *.pgw 로 이름을 매핑하겠다(가상경로처럼)
+
+3. 위 처럼 세팅한다음 
+	처음에 어노테이션 한 /aa 같은 것을 주석처리 하고 servlet 파일을 켜보면 
+	이름이 
+	http://localhost:8088/kosMember/*.pgw 으로 변경 되어 있다.
+
+이 다음은 웹 서블릿 어노테이션의 활용법과 같다.
+
+cf) 태그의 내용은 Deplyment Descriptor에서 확인할 수 있는 것 과 같다.
+Servlet Mapping  === <servlet-mapping>
+Servlets  === <servelet>
