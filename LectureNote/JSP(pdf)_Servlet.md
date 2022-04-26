@@ -63,7 +63,26 @@ extends ServletRequest
 
 > **javax.servlet.ServletResponse**
 
+```java
+public interface ServletResponse
+```
+
 |Modifier and Type|Method |and Description|
 |--|--|--|
 |void|setContentType(java.lang.String type)|Sets the content type of the response being sent to the client, if the response has not been committed yet.|
+
+> **javax.servlet.http.HttpServletResponse**
+
+```java
+public interface HttpServletResponse
+extends ServletResponse
+```
+
+|Modifier and Type|Method |and Description|
+|--|--|--|
+|void|setHeader(java.lang.String name, java.lang.String value)|Sets a response header with the given name and value.|
+|void|sendRedirect(java.lang.String location)|Sends a temporary redirect response to the client using the specified redirect location URL.|
+
+
+
 
