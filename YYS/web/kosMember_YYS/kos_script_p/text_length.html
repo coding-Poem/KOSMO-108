@@ -47,6 +47,7 @@
 			// var js_sel_class=document.getElementByClassName("sel");
 			// console.log("js_sel_class >>> : "+js_sel_class);
 			
+			
 			var js_sel_name=document.formTag.sel;
 			console.log("js_sel_name >>> : "+js_sel_name);
 			// js_sel_name >>> : [object HTMLSelectElement]
@@ -61,7 +62,19 @@
 			
 			// 태그 이름 출력 방법
 			// $("태그이름[name=네임이름]")
-
+			
+			
+			var js_sel_class=document.getElementsByClassName("sel")[0];
+			console.log("js_sel_class.length >>> : "+js_sel_class.length);
+			// js_sel_class.length >>> : 5
+			
+			var js_sel_name=document.getElementsByName("sel")[0];
+			console.log("js_sel_name.length >>> : "+js_sel_name.length);
+			// js_sel_name.length >>> : 5
+			
+			var js_sel_name_1=document.formTag.sel;
+			console.log("js_sel_name_1.length >>> : "+js_sel_name_1.length);
+			// js_sel_name_1.length >>> : 5
 		});
 	});
 </script>
