@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	console.log("text/javascript 영역 진입 >>> : ");
+	$(document).ready(function(){
+		console.log("jQuery ready 함수 진입 >>> : ");
+		$("#btn").on("click", function(){
+			console.log("click 함수 진입 >>> : ");
+			
+			var jq_sel_class=$('.sel');
+			console.log("jq_sel_class >>> : "+jq_sel_class);
+			// console.log("jq_sel_class >>> : "+JSON.stringify(jq_sel_class));
+			// jq_sel_class >>> : [object Object]
+			// "selector":".sel"
+			console.log("jq_sel_class.length >>> : "+jq_sel_class.length);
+			// jq_sel_class.length >>> : 1
+			console.log("jq_sel_class.children(['option']).length >>> : "+jq_sel_class.children(['option']).length);
+			// jq_sel_class.children(['option']).length >>> : 5
+			
+			var jq_sel_name=$("select[name='sel']");
+			console.log("jq_sel_name >>> : "+jq_sel_name);
+			// console.log("jq_sel_name >>> : "+JSON.stringify(jq_sel_name));
+			// jq_sel_name >>> : [object Object]
+			// "selector":"select[name='sel']"
+			console.log("jq_sel_name.length >>> : "+jq_sel_name.length);
+			// jq_sel_name.length >>> : 1
+			var jq_sel_name_length=$("select[name='sel'] option").length;
+			console.log("jq_sel_name_length >>> : "+jq_sel_name_length);
+			// jq_sel_name_length >>> : 5
+			
+			var jq_sel_id=$("#sel");
+			console.log("jq_sel_id >>> : "+jq_sel_id);
+			// console.log("sel_id >>> : "+JSON.stringify(sel_id));
+			// sel_id >>> : [object Object]
+			// "selector":"#sel"
+			console.log("jq_sel_id.length >>> : "+jq_sel_id.length);
+			// sel_id.length >>> : 1
+			var jq_sel_id_len=$("#sel option").length;
+			console.log("jq_sel_id_len >>> : "+jq_sel_id_len);
+			// jq_sel_id_len >>> : 5
+			
+			// 에러난다.
+			// var js_sel_class=document.getElementByClassName("sel");
+			// console.log("js_sel_class >>> : "+js_sel_class);
+			
+			var js_sel_name=document.formTag.sel;
+			console.log("js_sel_name >>> : "+js_sel_name);
+			// js_sel_name >>> : [object HTMLSelectElement]
+			console.log("js_sel_name.length >>> : "+js_sel_name.length);
+			// js_sel_name.length >>> : 5
+			
+			var js_sel_id=document.getElementById("sel");
+			console.log("js_sel_id >>> : "+js_sel_id);
+			// js_sel_id >>> : [object HTMLSelectElement]
+			console.log("js_sel_id.length >>> : "+js_sel_id.length);
+			// js_sel_id.length >>> : 5
+			
+			// 태그 이름 출력 방법
+			// $("태그이름[name=네임이름]")
+
+		});
+	});
+</script>
+<style type="text/css">
+	body{
+		text-align:center;
+	}
+</style>
+</head>
+<body>
+<h3>고속도로 휴게소- 인기 맛지도</h3>
+<hr>
+<img src="/kosServlet_YYS/image/다운로드.jpg" alt="no-image"><br>
+<hr>
+<form class="formTag" name="formTag" id="formTag">  
+    <select class="sel" name="sel" id="sel">
+    	<option value="01">서울</option>
+    	<option value="02">경기</option>
+    	<option value="03">충남</option>
+    	<option value="04">대전</option>
+    	<option value="05">전북</option>
+    </select>
+<input type="button" id="btn" value="맛집을 찾아서~">
+</form>
+</body>
+</html>
