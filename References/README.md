@@ -29,4 +29,4 @@ Standard Ed. 8](https://docs.oracle.com/javase/8/docs/api/)**
 
 > **[Ajax 시작하기](https://developer.mozilla.org/ko/docs/Web/Guide/AJAX/Getting_Started)**
 
-> **[w3schools :: jQuery AJAX Methods](https://www.w3schools.com/jquery/jquery_ref_ajax.asp)**
+> **[w3schools : jQuery AJAX Methods](https://www.w3schools.com/jquery/jquery_ref_ajax.asp)**
