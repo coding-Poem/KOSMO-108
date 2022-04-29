@@ -26,3 +26,5 @@ Standard Ed. 8](https://docs.oracle.com/javase/8/docs/api/)**
 > **[M mdn : JavaScript API](https://developer.mozilla.org/ko/)**
 
 > **[mybatis 3.5.9 API](https://javadoc.io/doc/org.mybatis/mybatis/latest/index.html)**
+
+> **[Ajax 시작하기](https://developer.mozilla.org/ko/docs/Web/Guide/AJAX/Getting_Started)**
