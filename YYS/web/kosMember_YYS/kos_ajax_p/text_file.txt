@@ -1,0 +1,4 @@
+Ajax는 Asynchronous JavaScript and XML의 약자입니다.
+Ajax는 동적인 대화형 웹페이지를 만듭니다.
+3. Asynchronous는 비동기 방식입니다.
+Ajax로 요청하고 응답할 때, 화면전환(리프레시)가 없다.

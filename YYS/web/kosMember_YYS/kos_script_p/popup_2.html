@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <!-- 
+ 
+자바
+클래스 참조변수 = new 클래스();
+참조변수.함수();
+String str = 참조변수.함수();
+
+자바스크립트 
+ var day = new Date();
+ var 변수명 = 함수();
+ 
+ var win = window.open(url, name, specs, replace);
+ win.close();
+ 
+ 1. win : 새로 만들어진 객체가 반환, 창 생성 실패하면 null 반환
+ 2. url : 새창에 보여질 주소, 비워두면 빈창(about:blank)이 보임
+ 3. name : 새로 열릴 창의 속성 또는 창의 이름 지정, 기본갑은 _blank
+ 		_blank 	: 새 창에 열림, 기본값
+ 		_parent : 부모 프레임에 열림
+ 		_self 	: 현재 페이지를 대체
+ 		_top 	: 로드된 프레임셋을 대체
+ 		name(임의의 이름) : 새창이 열리고 창의 이름을 지정 
+ 4. specs : 창의 위치, 창의 크기, 스크롤 여부, 리사이즈 가능등 속성 지정
+ 5. replace : true 현재 히스토리ㅣ를 대체, false 히스토리에 새항목을 만듬
+  -->
+  
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		var win = window.open(	"/kosMember/kos_script/popup_notice1.jsp", 
+								"_blank" ,
+								"left=100,top=100,width=300,height=300", 
+								false);
+		
+		
+		function popup_close(){
+			alert('3초 후 팝업 자동으로 닫기.');
+			alert("win >>> : " + win);
+			
+			//if(win) {
+				win.close();
+			//} 
+		}
+
+		// 3초 후에 popup_close 프로퍼티를 실행하시오
+		// popup_close -> function popup_close() {}
+		setTimeout(popup_close, 1000);
+		
+	});
+		
+</script>
+</head>
+<body>
+<h3>공지사항 팝업 부모창(윈도우)</h3>
+<hr>
+</body>
+</html>

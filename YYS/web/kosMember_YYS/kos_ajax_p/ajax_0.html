@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax load() 함수</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		alert("jQuery ready 함수 진입 >>> : ");
+		$("button").click(function(){
+			alert("버튼 클릭 >>> : ");
+			$("#target").load("text_file.txt");
+		});
+	});
+</script>
+</head>
+<body>
+<h3>Ajax load() 함수 사용하기</h3>
+<div id="target" style="width:300px; height:100px; border:solid 1px red">
+</div>
+<button>Get Data</button>
+</body>
+</html>

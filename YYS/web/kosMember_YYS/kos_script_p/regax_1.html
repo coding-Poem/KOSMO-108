@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>정규표현식 연습</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log("jQueyr ready function >>> : ");
+		// mid
+		$("#midBtn").click(function(){
+			console.log("midBtn >>> : ");
+			
+			const expId=/^a-zA-Z+$/;
+			// a-zA-Z : 영어 알파벳 (-으로 범위 지정)
+			// /패턴/
+			// ^  : 특정 문자열로 시작(괄호없음 주의)
+			console.log("영어 처음과 끝 >>> : "+expId);
+			const midV=$("#mid").val();
+			console.log("midV >>> : "+midV);
+			
+			let midL=midV.length;
+			console.log("midL >>> : "+midL);
+			
+			if(midL<6 || midL>8){
+				// 만약 아이디의 길이가 6자보다 작거나, 8자보다 길다면
+				alert("id는 영문자 6~8");
+				// 초기화
+				$("#mid").val('');
+				$("#mid").focus();
+				
+				return false;
+			}else if(!expId.test(midV)){
+				// 문자가 정규표현식을 만족하지 않는다면
+				// .test() : test() 메서드는 주어진 문자열이 정규 표현식을 만족하는지 판별하고, 그 여부를 true 또는 false로 반환합니다.
+				alert("id는 영문자 ");
+				// 초기화
+				$("#mid").val('');
+				$("#mid").focus();
+				return false;
+			}
+		});
+		
+		// mpw
+		$("#mpwBtn").click(function(){
+			console.log("mpwBtn >>> : ");
+			/*			
+			적어도 하나의 대문자 영어 편지 ,(?=.*?[A-Z])
+			영문 소문자 1 자 이상 (?=.*?[a-z])
+			적어도 하나의 숫자 (?=.*?[0-9])
+			하나 이상의 특수 문자 (?=.*?[#?!@$%^&*-])
+		*/
+			const expPw=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+			// /패턴/
+			// () : 그룹 검색 및 분류(메서드에서 그룹별로 묶어줌)
+			// ^문자열 : 특정 문자열로 시작(괄호없음 주의)
+			// ? : 최대 한번 (없음 || 한개)
+			// . : 모든 문자열
+			// * : 없거나 있거나 (없음 || 있음)
+			// 모든 문자열중에 영문자 대문자가 최대 한 번
+			
+			// 영문자 소문자가 최대 한 번
+			// 숫자가 최대 한번
+			// 특수기호가 최대 한 번 
+			
+			// {Min, } 최소 Min개 이상
+			// 최소 8개로 끝나는지 확인하세요 
+ 			const mpwV=$("#mpw").val();
+			console.log("mpwV >>> : "+mpwV);
+			
+			let mpwL=mpwV.length;
+			console.log("mpwL >>> : "+mpwL);
+			alert("mpwL >>> : "+mpwL);
+			
+			if(mpwL<8||mpwL>20){
+				// 만약 비밀번호가 8자보다 짧거나, 20자보다 길다면
+				$("#mpw").val('');
+				$("#mpw").focus();
+				return false;
+			}else if(!expPw.test(mpwV)){
+				alert("pw는 하나의 대문자 영문 소문자 1자이상 하나의 숫자 특수문자 하나 이상");
+				$("#mpw").val('');
+				$("#mpw").focus();
+				return false;
+			}
+		});
+		
+		// mbirth
+		$("#mbirthBtn").click(function(){
+			console.log(" mbirthBtn >>> : ");
+			const expBirth=/^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+			//  ^ : 특정 문자열로 시작(괄호 없음 주의)
+			
+			// 년
+			// 19로 시작
+			// [0-9] : 0부터 9까지 중 하나
+			// | : or
+			// 20으로 시작
+			// \d : 숫자
+			// {2} : 2개
+			
+			// 월
+			// 앞자리가 0이면:  0[0-9] : 0-9사이 문자들 중 하나
+			// 앞자리가 1이면: 1[0-2] : 0-2사이 문자들 중 하나 
+			
+			// 일
+			// 앞자리가 0이면 : 1-9 사이 문자들 중 하나
+			// 앞자리가 1-2 사이 문자들중 하나면  0-9사이 문자들중 하나
+			// 앞자리가 3이면 0-1문자들중 하나
+		});
+		
+		// memail
+		$("#memailBtn").click(function(){
+			console.log(" memailBtn >>> : ");
+			
+		});
+		
+		// mhp
+		$("#mhpBtn").click(function(){
+			console.log("mhpBtn >>> : ");
+			
+		});
+	});
+
+</script>
+</head>
+<body>
+<form>
+<input type="text" name="mid" id="mid" />
+<input type="button" id="midBtn" value="id_val"><br>
+<input type="text" name="mpw" id="mpw" />
+<input type="button" id="mpwBtn" value="pw_val"><br>
+<input type="text" name="mbirth" id="mbirth" />
+<input type="button" id="mbirthBtn" value="birth_val"><br>
+<input type="text" name="memail" id="memail" />
+<input type="button" id="memailBtn" value="email_val"><br>
+<input type="text" name="mhp" id="mhp" />
+<input type="button" id="mhpBtn" value="hp_val"><br>
+
+</form>
+</body>
+</html>

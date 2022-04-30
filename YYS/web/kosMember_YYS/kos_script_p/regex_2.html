@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+<style type="text/css">
+.mem{ text-align: center;}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	alert("jQuery ready function is ready >>> : ");
+	// <input type="button" id="btn" value="확인" >
+	    $("#btn").on("click", function(){
+	    // 폼태그 :  <form class="member" id="member" name="member" method="POST" >
+	    	//이름
+	    	// 이름 : <input type="text" id="mname" name="mname" /><br/>
+	    	var mname=$("#mname").val();
+	    	console.log("이름 입력 값 :: mname >>>> : "+mname);
+	    	if(mname==''){
+	    		alert("이름을 입력하세요 >>> : ");
+	    		$("#manme").focus();
+	    		return false;
+	    	} // if
+	    	else{
+	    		var exp=/^[a-zA-z]+$/
+	    		if(!exp.test(mname)){
+	    			alert("이름오류 : 영문자로 입력하세요.");
+	    			$("#manme").focus();
+	    			return false;
+	    		}
+	    		// 주소 젤 앞 : <input type="text" id="maddrno" name="maddrno" size=6/>
+	    		$("#maddrno").focus();	
+	    	} // end of mname
+	    		
+	    	//주소
+	    	// 주소 젤 앞 : <input type="text" id="maddrno" name="maddrno" size=6/>
+	    	var maddrno=$("#maddrno").val();
+	    	console.log("주소 입력 값 :: maddrno >>> : "+maddrno);
+	    	var maddrnoLength=$("#maddrno").val().length;
+	    	console.log("주소 입력 값 길이 :: maddrnoLength >>> : "+maddrnoLength);
+	    	
+	    	if(maddrnoLength==0){
+	    		alert("주소를 입력하세요 >>> : ");
+	    		$("#maddrno").focus();
+	    		return false;
+	    	}
+	    	else{
+	    		$("#mbirth").focus();
+	    	} // end of maddrno
+	    	
+	    	//생년월일
+	    	// <input type="text" id="mbirth" name="mbirth" /><br/>
+	    	var mbirth=$("#mbirth").val();
+	    	console.log("생년월일 입력값 :: mbirth >>> : "+mbirth);
+	    	var mbirthLength=$("#mbirth").val().length;
+	    	console.log("생년월일 입력값 길이 :: mbirthLength >>> : "+mbirthLength);
+	    
+	    	if(mbirthLength==0){
+	    		alert("생년월일을 입력하세요.");
+	    		$("#mbirth").focus();
+	    	}
+	    	else{
+	    		var exp = /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+	    		if(!exp.test(mbirth)){
+	    			alert("생일 오류 - YYYY-MM-DD 형식");
+	    			alert("생년월일 입력값 :: mbirth >>> : "+mbirth);
+	    			$("#mbirth").focus();
+	    			return false;
+	    		}
+	    		$("#mid").focus();
+	    	} // end of mbirth
+	    		
+	    	// 아이디
+	    	// <input type="text" id="mid" name="mid" />
+	    	var mid=$("#mid").val();
+	    	console.log("아이디 :: mid >>> : "+mid);
+	    	var midLength=$("#mid").val().length;
+	    	console.log("아이디 길이 :: midLength >>> : "+midLength);
+	    	
+	    	if(midLength==0){
+	    		alert("아이디를 입력하세요.");
+	    		$("#mid").focus();
+	    	}
+	    	else{
+	    		if(midLength<6 || midLength>8){
+	    			alert("아이디 오류 -- 6자 이상 8자 이하");
+	    			alert("아이디 길이 :: midLength >>> : "+midLength);
+	    			$("#mid").focus();
+	    			return false;
+	    		} 
+	    		$("#mpw").focus();
+	    	} // end of mid
+	    		
+	        // 비밀번호
+	        var mpw=$("#mpw").val();
+	        console.log("비밀번호 :: mpw >>> : "+mpw);
+	        var mpwLength=$("#mpw").val().length;
+	        console.log("비밀번호의 길이 :: mpwLength >>> : "+mpwLength);
+	        
+	        if(mpwLength==0){
+	        	alert("비밀번호를 입력하세요.");
+	        	$("#mpw").focus();
+	        	return false;
+	        }
+	        else{
+	        	if(mpwLength<6||mpwLength>12){
+	        		alert("비밀번호 오류 - 6자 이상 12자 이하 ");
+	        		alert("비밀번호의 길이 :: mpwLength >>> : "+mpwLength);
+	        		return false;
+	        	}
+	        	$("#mpw").focus();
+	        } // end of mpw
+	        
+	        // 성별
+	        var mgender=$("#mgender").val();
+            console.log("성별 선택 :: mgender >>> : "+mgender);
+            // sel or male or female
+	        if(mgender!="sel"){
+	        	console.log(mgender);
+	        }else{
+	        	if(true){
+	        		alert("성별을 입력하세요");
+	        		$("#mgender").focus();
+	        		return false;
+	        	}
+	        	$("#memail0").focus();
+	        } // end of mgender
+	        
+	        
+	        // 이메일
+	        var memail0=$("#memail0").val();
+	        console.log("이메일 아이디 입력값 :: memail0 >>> : "+memail0);
+	        var memail0Length=$("#memail0").val().length;
+	        console.log("이메일 아이디 입력값 길이 :: memail0Length >>> : "+memail0Length);
+	        var memail1=$("#memail1").val();
+	        console.log("이메일 주소 값 :: memail1 >>> : "+memail1);
+	        var tot=memail0+'@'+memail1;
+	        console.log("이메일 입력값 :: tot >>>> : "+tot);
+	        
+	        if(memail0Length==0){
+	        	alert("이메일 입력하세요");
+	        	$("#memail0").focus();
+	        	return false;
+	        }
+	        else{	
+	        	var exp = /^[a-zA-Z0-9_-]+\@[a-zA-Z]+\.[a-zA-Z]+$/;
+	        	
+	        	if(!exp.test(tot)){
+	        		alert("이메일 오류");
+	        		$("#memail0").focus();
+	        		return false;
+	        	}
+	        	console.log("이메일 성공");
+	        	$("#mphone").focus();
+	        } // end of memail
+	        
+	        // 휴대폰
+	        var mphone=$("#mphone").val();
+	        var mphone1=$("#mphone1").val();
+	        var mphone2=$("#mphone2").val();
+	        console.log("mphone >>> : "+mphone);
+	        console.log("mphone1 >>> : "+mphone1);
+	        console.log("mphone2 >>> : "+mphone2);
+	        
+	        var mphone_tot=mphone+"-"+mphone1+"-"+mphone2;
+	        console.log("mphone_tot >>> : "+mphone_tot);
+            
+	        var mphoneLength=mphone_tot.length;
+	        console.log("휴대폰 입력 값 값 길이 :: mphoneLength >>> : "+mphoneLength);
+	        
+	        if(mphoneLength==0){
+	        	alert("핸드폰 번호를 입력하세요. >>> : ");
+	        	$("#mphone").focus();
+	        	return false;
+	        }
+	        else{
+	        	var exp = /^\d{3}\-\d{4}\-\d{4}$/;
+	        	if(!exp.test(mphone_tot)){
+	        		alert("핸드폰 번호 오류 - 000-0000-0000 형식");
+	        		$("#mphone").focus();
+	        		return false;
+	        	}
+	        } // end of phone
+	    
+	    }); // end of btn click function
+		
+		//http://localhost:8088/testServlet/PhmMemberController
+		//window.document.member.action = "/testServlet/PhmMember";
+		//window.document.member.submit();
+    }); // end of jQuery ready function
+	
+	function addrCheck(){
+		console.log(" addrCheck 함수 진입");	
+		var width = 500;
+		var height = 600;
+		daum.postcode.load(function(){
+			new daum.Postcode({
+				oncomplete: function(data){
+					alert(">>>>");	
+					console.log("우편번호 >>> : " + data.zonecode);
+					console.log("주소값 >>> : " + data.roadAddress);
+					console.log("빌딩값 >>> : " + data.buildingName);
+					
+					$("#maddrno").val(data.zonecode);
+					$("#maddr1").val(data.roadAddress);
+					$("#maddr2").val(data.buildingName);
+				}	
+			}).open({
+				left: (window.screen.width / 2) - (width / 2),
+				top: (window.screen.height / 2) - (height / 2),
+			});						
+		});				
+	}//end of addrCheck
+	
+	
+	function emailCheck(){
+		console.log("emailCheck 함수 진입");
+		var eVal=$(".memail option:selected").val();
+		console.log("eVal >>> : "+eVal);				
+		if (eVal == '0'){								
+			$("#memail1").prop("readOnly", true);
+			$("#memail1").val('');
+		}
+		if (eVal == '9'){
+			document.member.memail1.readOnly = false;
+			$("#memail1").prop("readOnly", false);
+			$("#memail1").val('');
+			$("#memail1").focus();
+		}else{
+			document.member.memail1.readOnly = true;
+			$("#memail").prop("readOnly", true);
+			$("#memail1").val(eVal);
+		}	
+	}//end of emailCheck
+	
+	
+	function idCheck(){
+		console.log("idCheck 함수 진입 >>> : ");
+		let urlVal="/kosServlet_YYS/kos_ajax_p/check/idCheck.jsp"
+		console.log("urlVal >>> : "+urlVal);
+		let typeVal="GET"
+		console.log("typeVal >>> : "+typeVal);
+		let midVal=$("#mid").val();
+		console.log("midVal >>> : "+midVal);
+		let isudtypeVal=$("#ISUD_TYPE").val("IDCHECK");
+		console.log("isudtypeVal >>> : "+typeof(isudtypeVal));
+		isudtypeVal=isudtypeVal.val();
+		console.log("isudtypeVal >>> : "+isudtypeVal);
+		
+		if(midVal==''){
+			alert("중복 체크할 아이디를 입력하세요. ");
+			$("#mid").focus();
+			return false;
+		}
+		
+		$.ajax({
+			url:urlVal,
+			type:typeVal,
+			data:{
+				"mid":midVal,
+				"ISUD_TYPE":isudtypeVal,
+			},
+			success:whenIDSuccess,
+			error:whenIDError
+			
+		}); // end of ajax
+	} // end of idCheck
+	
+	function whenIDSuccess(resultData){
+		var sVal=$(resultData).find("result").text();
+		
+		if(sVal=="IDGOOD"){
+			alert("사용할 수 있는 아이디 입니다.");
+			$("#mid").css("background-color", "hsl(0, 100%, 50%)");
+			$("#mid").attr("readonly", true);
+			$("#mid").focus();
+		}else{
+			alert("이미 아이디가 사용중 입니다.");
+			$("#mid").val('');
+			$("#mid").focus();
+		}
+	}
+	
+	function whenIDError(){
+		alert("error");
+	}
+	
+	
+	
+	function pwCheck(){
+		console.log("pwCheck 함수 진입 >>> : ");
+		let urlVal="/kosServlet_YYS/kos_ajax_p/check/pwCheck.jsp"
+		console.log("urlVal >>> : "+urlVal);
+		let typeVal="GET"
+		console.log("typeVal >>> : "+typeVal);
+		let mpwVal=$("#mpw").val();
+		console.log("mpwVal >>> : "+mpwVal);
+		let isudtypeVal=$("#ISUD_TYPE").val("PWCHECK");
+		console.log("isudtypeVal >>> : "+typeof(isudtypeVal));
+		isudtypeVal=isudtypeVal.val();
+		console.log("isudtypeVal >>> : "+isudtypeVal);
+		
+		if (mpwVal == '') {
+			alert("비밀번호를  입력하세요 >>> : ");
+			$("#mpw").focus();
+			return false;
+		}
+		
+		
+		$.ajax({
+			url:urlVal,
+			type:typeVal,
+			data:{
+				"mpw":mpwVal,
+				"ISUD_TYPE":isudtypeVal,
+			},
+			success:whenPWSuccess,
+			error:whenPWError
+		}); // end of ajax
+	} // end of pwCheck
+	
+	function whenPWSuccess(resultData){
+		var sVal=$(resultData).find("result").text();
+		
+		if(sVal=="PW_GOOD"){
+			alert("비밀번호가 확인 되었습니다.");
+			$("#mpw").css("background-color", "hsl(216, 100%, 50%)");
+			$("#mpw").attr("readonly", true);
+			$("#mpw").focus();
+		}else{
+			alert("비밀번호가 다릅니다.");
+			$("#mpw").val('');
+			$("#mpw").focus();
+		}
+	} // end of whenPWSuccess
+	
+	function whenPWError(){
+		alert("error");
+	}
+</script>
+</head>
+<body>
+<div class="container">
+
+<h1> 회원가입</h1>
+<form class="member" id="member" name="member" method="POST" >
+<table  class="table table-bordered">
+<tr>
+	<td class="mem"> 회원번호 : </td> 
+	<td>
+		<input type="text" id="mno" name="mno" disabled/><br/>
+	</td>
+</tr>
+<tr>
+	<td class="mem"> 이름 : </td> 
+	<td>
+		<input type="text" id="mname" name="mname" placeholder="영문자로 입력"/><br/>
+	</td>
+</tr>		
+<tr>
+	<td class="mem"> 주소 : </td> 
+	<td>
+		 <input type="text" id="maddrno" name="maddrno" size=6/>
+		 <input type="button" value="우편번호"onclick="addrCheck()"/>(도로명주소)<br/>
+	 <input type="text" id="maddr1" name="maddr1" size=35 readonly/><br>							 
+	 <input type="text" id="maddr2" name="maddr2" size=35 /><br/>
+</td>
+</tr>
+<tr>
+<td class="mem"> 생일 : </td> 
+<td>
+	<input type="text" id="mbirth" name="mbirth" placeholder="YYYY-MM-DD 형식으로 입력"/><br/>
+</td>
+</tr>
+<tr>
+<td class="mem"> 아이디(6 ~ 8 문자) :  </td> 
+<td>
+	<input type="text" id="mid" name="mid" placeholder="6자 이상 8자 이하"/>
+	<input type="button" value="아이디중복확인" onclick="idCheck()" /><br/>
+</td>
+</tr>
+<tr>
+<td class="mem"> 비밀번호 :  </td> 
+<td>
+	<input type="text" id="mpw" name="mpw" placeholder="6자 이상 12자 이하"/><br/>
+	<input type="text" id="mpw_r" name="mpw_r" />
+	<input type="button" value="비밀번호확인" onclick="pwCheck()"/><br/>
+	
+</td>
+</tr>
+<tr>
+<td class="mem"> 성별 : </td>
+<td>
+	<select id="mgender" name="mgender" >
+		<option value="sel">
+			--- 성별 ---
+		</option>
+		<option value="male">
+			남성
+		</option>
+		<option value="female">
+			여성
+		</option>
+	</select>
+</td>
+</tr>
+<tr>
+<td class="mem"> 이메일 : </td> 
+<td>
+	<input type="text" id="memail0" name="memail0" value=""size=10 onfocus="this.value=''"/> @
+	<input type="text" id="memail1" name="memail1" value="" size=10 readonly /> 
+	<select class="memail" id="memail" name="memail" onchange="emailCheck()" >
+		<option value="0">선택하세요</option>
+		<option value="9">직접입력</option>
+		<option>naver.com</option>
+		<option>gmail.com</option>
+	</select> 
+</td>
+</tr>
+<tr>
+<td class="mem"> 휴대폰 : </td> 
+<td>
+	<input type="text" id="mphone" name="mphone" style="width:50px;" maxlength=3 placeholder="000"/>-
+	<input type="text" id="mphone1" name="mphone1" style="width:50px;" maxlength=4 placeholder="0000"/>-
+	<input type="text" id="mphone2" name="mphone2" style="width:50px;" maxlength=4 placeholder="0000"/><br/>
+</td>
+</tr>
+<tr>						
+<td colspan=2 align="center">
+	<input type="hidden" name="ISUD_TYPE" id="ISUD_TYPE" value="I">
+	<input type="button" id="btn" value="확인" >
+		<input type="reset" value="다시">
+	</td>
+</tr>					
+</table>			
+</form>
+</div>
+</body>
+</html>
