@@ -8,7 +8,8 @@
 |---|---|
 |2022.01.24 ~ 2022.03.02|JAVA|
 |2022.03.02~2022.03.18|SQL(ORACLE DB)|
-|2022.03.18~|WEB|
+|2022.03.18~2022.05.03|WEB|
+|2022.05.03~|Spring|
 
 <hr>
 
@@ -55,7 +56,7 @@
 |2022-03-16|[T6_ISUD](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-16T6_ISUD.md)|
 |2022-03-17|[개발방법론](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-17%EA%B0%9C%EB%B0%9C%EB%B0%A9%EB%B2%95%EB%A1%A0.md)|
 
-#### WEB(HTML, CSS, JavaScript, jQuery, jsp, Ajax)
+#### WEB(HTML, CSS, JavaScript, jQuery, jsp, Ajax, Servlet)
 
 |일자|강의노트|
 |---|---|
