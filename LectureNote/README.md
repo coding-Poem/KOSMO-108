@@ -55,7 +55,7 @@
 |2022-03-16|[T6_ISUD](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-16T6_ISUD.md)|
 |2022-03-17|[개발방법론](https://github.com/coding-Poem/KOSMO-108/blob/main/LectureNote/SQL/2022-03-17%EA%B0%9C%EB%B0%9C%EB%B0%A9%EB%B2%95%EB%A1%A0.md)|
 
-#### WEB(HTML, CSS, JS, jQuery)
+#### WEB(HTML, CSS, JavaScript, jQuery, jsp, Ajax)
 
 |일자|강의노트|
 |---|---|
