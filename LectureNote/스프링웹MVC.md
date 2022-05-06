@@ -7,3 +7,6 @@
 ![image](https://user-images.githubusercontent.com/81727895/167079024-9949d2e1-fc0e-4d7a-ae7e-f89d3a794821.png)
 
 
+## 컨트롤러의 반환 타입
+
+![image](https://user-images.githubusercontent.com/81727895/167091510-ff7eec22-405a-42f4-9a46-db983b7e9897.png)
