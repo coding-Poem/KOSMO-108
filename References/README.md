@@ -36,3 +36,5 @@ Standard Ed. 8](https://docs.oracle.com/javase/8/docs/api/)**
 > **[Spring Library](https://repo.spring.io/ui/native/release/org/springframework/spring/)**
 
 > **[전자정부 프레임워크 : 표준프레임워크 아키텍쳐-실행환경](https://www.egovframe.go.kr/home/sub.do?menuNo=14)**
+
+> **[토비의 스프링  3.1세트 : 나중에 읽어보는 것을 권장하는 책](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788960773431&orderClick=&Kc=)**
