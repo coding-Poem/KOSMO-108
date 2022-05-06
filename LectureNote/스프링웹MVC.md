@@ -14,3 +14,6 @@
 ![image](https://user-images.githubusercontent.com/81727895/167091658-051b0e1f-5787-41a6-8f36-2b11cfb2d9d7.png)
 
 ![image](https://user-images.githubusercontent.com/81727895/167091709-a9144926-6d02-41c8-b54f-9d2fc3c7c3c8.png)
+
+- addAttribute는 더하는 것 (여러 개 가능)
+- setAttribute는 하나를 세팅하는 것
