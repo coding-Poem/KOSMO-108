@@ -33,7 +33,7 @@ Standard Ed. 8](https://docs.oracle.com/javase/8/docs/api/)**
 
 > **[Spring](https://spring.io/tools)**
 
-> **[Spring Library](https://repo.spring.io/ui/native/release/org/springframework/spring/)**
+> **[Spring Framework Library](https://repo.spring.io/ui/native/release/org/springframework/spring/)**
 
 > **[전자정부 프레임워크 : 표준프레임워크 아키텍쳐-실행환경](https://www.egovframe.go.kr/home/sub.do?menuNo=14)**
 
