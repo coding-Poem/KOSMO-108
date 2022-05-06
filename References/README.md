@@ -19,7 +19,7 @@ Standard Ed. 8](https://docs.oracle.com/javase/8/docs/api/)**
 
 > **[Servlets.com](http://servlets.com/)**
 
-> **[MavenRepository](https://mvnrepository.com/artifact/javax.mail/mail/1.4.7)**
+> **[Maven Repository](https://mvnrepository.com/artifact/javax.mail/mail/1.4.7)**
 
 > **[kakaomap Maps API](https://apis.map.kakao.com/)**
 
