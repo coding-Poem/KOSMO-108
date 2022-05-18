@@ -29,16 +29,34 @@ public class KosmoProductServiceImpl implements KosmoProductService {
 	}
 	
 	@Override
-	public List kosmoProductSelectAll(){
+	public List<KosmoProductVO> kosmoProductSelectAll(KosmoProductVO kvo){
 		logger.info("KosmoProductServiceImpl :: kosmoProductSelectAll 함수 진입 >>> : ");
-		return kosmoProductDAO.kosmoProductSelectAll();
+		return kosmoProductDAO.kosmoProductSelectAll(kvo);
 	};
 	
 	
 	@Override
-	public List kosmoProductSelect(KosmoProductVO kvo){
+	public List<KosmoProductVO> kosmoProductSelect(KosmoProductVO kvo){
 		logger.info("KosmoProductServiceImpl :: kosmoProductSelect 함수 진입 >>> : ");
 		return kosmoProductDAO.kosmoProductSelect(kvo);
+	};
+	
+	@Override
+	public List<KosmoProductVO> kosmoProductMSelect(KosmoProductVO kvo){
+		logger.info("KosmoProductServiceImpl :: kosmoProductMSelect 함수 진입 >>> : ");
+		return kosmoProductDAO.kosmoProductMSelect(kvo);
+	};
+	
+	@Override
+	public int kosmoProductUpdate(KosmoProductVO kvo){
+		logger.info("KosmoProductServiceImpl :: kosmoProductUpdate 함수 진입 >>> : ");
+		return kosmoProductDAO.kosmoProductUpdate(kvo);
+	};
+	
+	@Override
+	public int kosmoProductDelete(KosmoProductVO kvo){
+		logger.info("KosmoProductServiceImpl :: kosmoProductDelete 함수 진입 >>> : ");
+		return kosmoProductDAO.kosmoProductDelete(kvo);
 	};
 	
 }

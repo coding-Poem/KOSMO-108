@@ -20,6 +20,12 @@ public class KosmoProductVO {
 	private String startDate;		// 검색기간 시작일
 	private String endDate;			// 검색기간 종료일
 	
+	// 페이징 이동 필드
+	private String pageSize;
+	private String groupSize;
+	private String curPage;
+	private String totalCount;
+	
 	public KosmoProductVO(){
 		
 	}
@@ -41,7 +47,7 @@ public class KosmoProductVO {
 
 	public KosmoProductVO(String mnum, String mid, String mcnt, String mname, String mprice, String mdes, String mcom,
 			String mimg, String minsertdate, String mupdatedate, String mdeleteyn, String keyword, String searchFilter,
-			String startDate, String endDate) {
+			String startDate, String endDate, String pageSize, String groupSize, String curPage, String totalCount) {
 		this.mnum = mnum;
 		this.mid = mid;
 		this.mcnt = mcnt;
@@ -57,6 +63,10 @@ public class KosmoProductVO {
 		this.searchFilter = searchFilter;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.pageSize = pageSize;
+		this.groupSize = groupSize;
+		this.curPage = curPage;
+		this.totalCount = totalCount;
 	}
 
 	public String getMnum() {
@@ -177,5 +187,37 @@ public class KosmoProductVO {
 
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+
+	public String getPageSize() {
+		return pageSize;
+	}
+
+	public String getGroupSize() {
+		return groupSize;
+	}
+
+	public String getCurPage() {
+		return curPage;
+	}
+
+	public String getTotalCount() {
+		return totalCount;
+	}
+
+	public void setPageSize(String pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public void setGroupSize(String groupSize) {
+		this.groupSize = groupSize;
+	}
+
+	public void setCurPage(String curPage) {
+		this.curPage = curPage;
+	}
+
+	public void setTotalCount(String totalCount) {
+		this.totalCount = totalCount;
 	}
 }

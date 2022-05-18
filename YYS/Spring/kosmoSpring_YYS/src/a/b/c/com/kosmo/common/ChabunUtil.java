@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 
 public abstract class ChabunUtil {
 	public static final String BIZ_GUBUN_M 	= "M"; // 
+	public static final String BIZ_GUBUN_KM = "KM"; // 
 	public static final String BIZ_GUBUN_B 	= "B"; // 
 	public static final String BIZ_GUBUN_RB = "RB"; // 
 	public static final String BIZ_GUBUN_N 	= "NB"; // 
@@ -32,6 +33,16 @@ public abstract class ChabunUtil {
 		
 		
 		return BIZ_GUBUN_M.concat(ChabunUtil.numPad(type, memNum));
+		// M202205120001
+	}
+	
+	public static String getKosmoMemberChabun(String type, String memNum) {
+		logger.info(" ChabunUtil :: getKosmoMemberChabun 함수 진입 >>> : ");
+		logger.info("String type >>> : "+type);
+		logger.info("String memNum >>> : "+memNum);
+		
+		
+		return BIZ_GUBUN_KM.concat(ChabunUtil.numPad(type, memNum));
 		// M202205120001
 	}
 }

@@ -1,6 +1,8 @@
 package a.b.c.com.kosmo.common.service;
 
 import a.b.c.com.kosmo.common.dao.ChabunDAO;
+import a.b.c.com.kosmo.member.vo.KosmoMemberVO;
+import a.b.c.com.kosmo.product.vo.KosmoProductVO;
 
 import java.util.List;
 
@@ -15,16 +17,25 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ChabunServiceImpl implements ChabunService {
 	private Logger logger = Logger.getLogger(ChabunServiceImpl.class);
-	private ChabunDAO chabunDAO;
 	
 	@Autowired(required=false)
+	private ChabunDAO chabunDAO;
+	
+	/*
 	public ChabunServiceImpl(ChabunDAO chabunDAO) {
 		this.chabunDAO = chabunDAO;
 	}
+	*/
 	
 	@Override
-	public List getKosmoProductChabun(){
+	public List<KosmoProductVO> getKosmoProductChabun(){
 		logger.info("ChabunServiceImpl :: getKosmoProductChabun 함수 진입 >>> : ");
 		return chabunDAO.getKosmoProductChabun();
+	};
+	
+	@Override
+	public List<KosmoMemberVO> getKosmoMemberChabun(){
+		logger.info("ChabunServiceImpl :: getKosmoMemberChabun 함수 진입 >>> : ");
+		return chabunDAO.getKosmoMemberChabun();
 	};
 }

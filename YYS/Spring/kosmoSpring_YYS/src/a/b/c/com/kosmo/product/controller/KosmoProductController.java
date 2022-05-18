@@ -25,18 +25,21 @@ import a.b.c.com.kosmo.product.vo.KosmoProductVO;
 public class KosmoProductController {
 		Logger logger = LogManager.getLogger(KosmoProductController.class);
 		
-		
+		// 필드 오토와이드
 		// 컨트롤러에서 서비스 연결
+		@Autowired(required=false)
 		private KosmoProductService kosmoProductService;
+		@Autowired(required=false)
 		private ChabunService chabunService;
 		
-		
+		/*
 		// 생성자에 @Autowired 어노테이션으로 DI(의존성 주입하기)
 		@Autowired(required=false)
 		public KosmoProductController(KosmoProductService kosmoProductService, ChabunService chabunService){
 			this.kosmoProductService=kosmoProductService;
 			this.chabunService=chabunService;
 		}
+		*/
 		
 		
 		// INSERT FORM importing
@@ -117,19 +120,45 @@ public class KosmoProductController {
 		}
 		
 		
-		// SELECT ALL
+		// SELECT ALL :: 상품 목록 페이징 조회
 		@RequestMapping(value="kosmoProductSelectAll", method=RequestMethod.GET)
-		public String kosmoProductSelectAll(Model model){
+		public String kosmoProductSelectAll(KosmoProductVO kvo, Model model){
 			logger.info("KosmoProductController :: kosmoProductSelectAll 함수 진입 >>> : ");
 			
-			List<KosmoProductVO> listAll=kosmoProductService.kosmoProductSelectAll();
+			// 페이징 처리
+			int pageSize=CommonUtils.PRODUCT_PAGE_SIZE;
+			logger.info("pageSize >>>> : "+pageSize);
+			int groupSize=CommonUtils.PRODUCT_GROUP_SIZE;
+			logger.info("groupSize >>> : "+groupSize);
+			int curPage=CommonUtils.PRODUCT_CUR_PAGE;
+			logger.info("curPage >>> : "+curPage);
+			int totalCount=CommonUtils.PRODUCT_TOTAL_COUNT;
+			logger.info("totalCount >>> : "+totalCount);
+			
+			if(kvo.getCurPage()!=null){
+				curPage=Integer.parseInt(kvo.getCurPage());
+			}
+			
+			kvo.setPageSize(String.valueOf(pageSize));
+			kvo.setGroupSize(String.valueOf(groupSize));
+			kvo.setCurPage(String.valueOf(curPage));
+			kvo.setTotalCount(String.valueOf(totalCount));
+			
+			logger.info("kvo.getPageSize() >>> : "+kvo.getPageSize());
+			logger.info("kvo.getGroupSize() >>> : "+kvo.getGroupSize());
+			logger.info("kvo.getCurPage() >>> : "+kvo.getCurPage());
+			logger.info("kvo.setTotalCount() >>> : "+kvo.getTotalCount());
+			
+			// 서비스 호출
+			List<KosmoProductVO> listAll=kosmoProductService.kosmoProductSelectAll(kvo);
 			int nCnt=listAll.size();
 			logger.info("KosmoProductController :: kosmoProductSelectAll nCnt >>> : "+nCnt);
 			
-			if(nCnt>0){
+			if(listAll.size() >0){
+				logger.info("listAll.size() >>> : "+listAll.size());
+				model.addAttribute("pagingKVO", kvo);
 				model.addAttribute("listAll", listAll);
 				return "product/kosmoProductSelectAll";
-				
 			}
 			
 			return "product/kosmoProductInsertForm";
@@ -165,5 +194,94 @@ public class KosmoProductController {
 			return "product/kosmoProductSelectForm";
 		}
 		
+		// SELECT Merchandise
+		@RequestMapping(value="kosmoProductMSelect", method=RequestMethod.GET)
+		public String kosmoProductMSelect(KosmoProductVO kvo, Model model){
+			logger.info("KosmoProductController :: kosmoProductMSelect 함수 진입 >>> : ");
+			logger.info("KosmoProductController :: kvo.getMnum() >>> : "+kvo.getMnum());
+			
+			List<KosmoProductVO> listS=kosmoProductService.kosmoProductMSelect(kvo);
+			if (listS.size() > 0) { 
+				logger.info("KosmoProductController ::  listS.size() >>> : "+listS.size());
+				model.addAttribute("listS", listS);
+				return "product/kosmoProductMSelect";
+			}
+			return "product/kosmoProductSelectAll";
+		}
 		
+		
+		// Update FORM
+		@RequestMapping(value="kosmoProductUpdateForm", method=RequestMethod.GET)
+		public String kosmoProductUpdateForm(@ModelAttribute KosmoProductVO kvo, Model model){
+			logger.info("KosmoProductController :: kosmoProductUpdateForm 함수 진입 >>> : ");
+			
+			return "product/kosmoProductUpdateForm";
+		}
+		
+		// Update
+		@RequestMapping(value="kosmoProductUpdate", method=RequestMethod.POST)
+		public String kosmoProductUpdate(HttpServletRequest req){
+			logger.info("KosmoProductController :: kosmoProductUpdate 함수 진입 >>> : ");
+			
+			FileUploadUtil fu = new FileUploadUtil(	CommonUtils.BOARD_IMG_UPLOAD_PATH
+                    ,CommonUtils.BOARD_IMG_FILE_SIZE
+                    ,CommonUtils.BOARD_EN_CODE);
+			boolean bool = fu.imgfileUpload(req);
+			logger.info("KosmoProductController :: kosmoProductUpdate 함수 :: bool >>> : "+bool);
+			
+			KosmoProductVO kvo=null;
+			kvo=new KosmoProductVO();
+			
+			kvo.setMnum(fu.getParameter("mnum"));
+			kvo.setMid(fu.getParameter("mid"));
+			kvo.setMcnt(fu.getParameter("mcnt"));
+			kvo.setMname(fu.getParameter("mname"));
+			kvo.setMprice(fu.getParameter("mprice"));
+			kvo.setMdes(fu.getParameter("mdes"));
+			kvo.setMcom(fu.getParameter("mcom"));
+			kvo.setMimg(fu.getFileName("mimg"));		
+			
+			
+			logger.info("kvo.getMnum() >>> : "+kvo.getMnum());
+			logger.info("kvo.getMid() >>> : "+kvo.getMid());
+			logger.info("kvo.getMcnt() >>> : "+kvo.getMcnt());
+			logger.info("kvo.getMname() >>> : "+kvo.getMname());
+			logger.info("kvo.getMprice() >>> : "+kvo.getMprice());
+			logger.info("kvo.getMdes() >>> : "+kvo.getMdes());
+			logger.info("kvo.getMcom() >>> : "+kvo.getMcom());
+			logger.info("kvo.getMimg() >>> : "+kvo.getMimg());
+			
+			
+			int nCnt=kosmoProductService.kosmoProductUpdate(kvo);
+			logger.info("KosmoProductController :: kosmoProductUpdate nCnt >>> : "+nCnt);
+			
+			if (nCnt > 0) { return "product/kosmoProductUpdate";}
+			
+			return "product/kosmoProductUpdateForm";
+		}
+		
+		// Delete Form
+		// kosmoProductDeleteForm.yys
+		@RequestMapping(value="kosmoProductDeleteForm", method=RequestMethod.GET)
+		public String kosmoProductDeleteForm(@ModelAttribute KosmoProductVO kvo, Model model){
+			logger.info("KosmoProductController :: kosmoProductDeleteForm 함수 진입 >>> : ");
+			
+			return "product/kosmoProductDeleteForm";
+		}
+		
+		@RequestMapping(value="kosmoProductDelete", method=RequestMethod.GET)
+		public String kosmoProductDelete(@ModelAttribute KosmoProductVO kvo, Model model){
+			logger.info("KosmoProductController :: kosmoProductDelete 함수 진입 >>> : ");
+			logger.info("KosmoProductController :: kvo.getMnum() >>> : "+kvo.getMnum());
+			
+			int deleteCnt=kosmoProductService.kosmoProductDelete(kvo);
+			if(deleteCnt>0){
+				logger.info("KosmoProductController :: deleteCnt  >>> : "+deleteCnt);
+				
+				model.addAttribute("deleteCnt", new Integer(deleteCnt));
+				return "product/kosmoProductDelete";
+			}
+			
+			return "product/kosmoProductDeleteForm";
+		}
 }

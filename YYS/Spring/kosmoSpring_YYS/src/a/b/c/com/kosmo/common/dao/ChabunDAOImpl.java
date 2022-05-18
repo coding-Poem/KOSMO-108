@@ -8,6 +8,8 @@ import java.util.List;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.mybatis.spring.SqlSessionTemplate;
+
+import a.b.c.com.kosmo.member.vo.KosmoMemberVO;
 import a.b.c.com.kosmo.product.vo.KosmoProductVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +24,14 @@ public class ChabunDAOImpl implements ChabunDAO {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public List getKosmoProductChabun(){
+	public List<KosmoProductVO> getKosmoProductChabun(){
 		logger.info("ChabunDAOImpl :: getKosmoProductChabun 함수 진입 >>> : ");
 		return sqlSession.selectList("getKosmoProductChabun");
+	};
+	
+	@Override
+	public List<KosmoMemberVO> getKosmoMemberChabun(){
+		logger.info("ChabunDAOImpl :: getKosmoProductChabun 함수 진입 >>> : ");
+		return sqlSession.selectList("getKosmoMemberChabun");
 	};
 }

@@ -21,16 +21,33 @@ public class KosmoProductDAOImpl implements KosmoProductDAO {
 		}
 	
 	@Override
-	public List kosmoProductSelectAll(){
+	public List<KosmoProductVO> kosmoProductSelectAll(KosmoProductVO kvo){
 		
 		return sqlSession.selectList("kosmoProductSelectAll");
 	};
 	
 	
 	@Override
-	public List kosmoProductSelect(KosmoProductVO kvo){
+	public List<KosmoProductVO> kosmoProductSelect(KosmoProductVO kvo){
 		
 		return sqlSession.selectList("kosmoProductSelect", kvo);
+	};
+	
+	@Override
+	public List<KosmoProductVO> kosmoProductMSelect(KosmoProductVO kvo){
+		return sqlSession.selectList("kosmoProductMSelect", kvo);
+	};
+	
+	@Override
+	public int kosmoProductUpdate(KosmoProductVO kvo){
+		
+		return (Integer)sqlSession.update("kosmoProductUpdate", kvo);
+	};
+	
+	@Override
+	public int kosmoProductDelete(KosmoProductVO kvo){
+		
+		return (Integer)sqlSession.update("kosmoProductDelete", kvo);
 	};
 	
 }
