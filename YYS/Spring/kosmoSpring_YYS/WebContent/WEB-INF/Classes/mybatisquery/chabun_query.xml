@@ -8,6 +8,10 @@
 	SELECT NVL(MAX(SUBSTR(A.MNUM, -4)), 0) + 1 AS MNUM FROM KOSMO_PRODUCT  A
 </select>
 
+<select id="getKosmoMemberChabun" resultType="kosmomembervo">
+	SELECT NVL(MAX(SUBSTR(A.KMNUM, -4)), 0) + 1 AS KMNUM FROM KOSMO_MEMBER  A
+</select>
+
 </mapper>
 
 

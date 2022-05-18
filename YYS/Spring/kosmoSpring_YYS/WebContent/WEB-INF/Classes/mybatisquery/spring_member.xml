@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="a.b.c.com.kosmo.member.dao.KosmoMemberDAO">
+
+<insert id="kosmoMemberInsert" parameterType="kosmomembervo" >
+	INSERT INTO KOSMO_MEMBER(KMNUM, KMID, KMPW, KMNAME, KMHP
+                             , KMEMAIL, KMZONE, KMROAD, KMROAD2
+                             ,KMJIBUN, KMIMAGE, MDELETEYN, MINSERTDATE, MUPDATEDATE)
+	VALUES    (#{kmnum,jdbcType=VARCHAR},  
+			   #{kmid,jdbcType=VARCHAR},  
+			   #{kmpw,jdbcType=VARCHAR},  
+		   	   #{kmname,jdbcType=VARCHAR},  
+		   	   #{kmhp,jdbcType=VARCHAR}, 
+           	   #{kmemail,jdbcType=VARCHAR}, 
+           	   #{kmzone,jdbcType=VARCHAR}, 
+           	   #{kmroad,jdbcType=VARCHAR}, 
+           	   #{kmroad2,jdbcType=VARCHAR}, 
+           	   #{kmjibun,jdbcType=VARCHAR},  
+           	   #{kmimage,jdbcType=VARCHAR},  
+           		'Y', 
+           		SYSDATE, 
+           		SYSDATE)
+</insert>
+
+<select id="kosmoMemberSelectAll" resultType="kosmomembervo">
+SELECT*FROM(
+SELECT
+        A.KMNUM  AS  KMNUM
+        , A.KMID AS KMID
+        , A.KMPW AS KMPW
+        , A.KMNAME AS KMNAMEAS
+        , A.KMHP AS KMHP
+         , A.KMEMAIL AS KMEMAIL
+         ,  A.KMZONE AS KMZONE
+         , A.KMROAD AS KMROAD
+         , A.KMROAD2 AS KMROAD2
+         ,A.KMJIBUN AS KMJIBUN
+         , A.KMIMAGE AS KMIMAGE
+         , A.MDELETEYN AS MDELETEYN
+         , TO_CHAR(TO_DATE(A.MINSERTDATE), 'YYYY-MM-DD') AS MINSERTDATE
+         , TO_CHAR(TO_DATE(A.MUPDATEDATE), 'YYYY-MM-DD') AS MUPDATEDATE
+         ,CEIL(ROW_NUMBER() OVER(ORDER BY A.KMNUM)/ #{pageSize} ) AS pageSize	
+         ,COUNT( A.KMNUM) OVER() AS totalCount 
+FROM KOSMO_MEMBER A
+WHERE MDELETEYN='Y'
+)
+WHERE PAGESIZE=#{curPage}
+</select>
+</mapper>

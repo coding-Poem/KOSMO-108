@@ -20,6 +20,7 @@
 </insert>
 
 <select id="kosmoProductSelectAll" resultType="kosmoproductvo">
+	SELECT*FROM(
 	SELECT
         A.MNUM  AS MNUM
         ,A.MID   AS MID
@@ -32,8 +33,11 @@
         ,TO_CHAR(TO_DATE(A.MINSERTDATE), 'YYYY-MM-DD') AS MINSERTDATE  
         ,TO_CHAR(TO_DATE(A.MUPDATEDATE), 'YYYY-MM-DD') AS MUPDATEDATE  
         ,A.MDELETEYN  AS  MDELETEYN
+        ,CEIL(ROW_NUMBER() OVER(ORDER BY A.MNUM)/ #{pageSize} ) AS pageSize		
+		,COUNT(A.MNUM) OVER() AS totalCount 
 	FROM KOSMO_PRODUCT A
 	WHERE A.MDELETEYN='Y'
+	)WHERE pageSize=#{curPage}
 </select>
 
 <select id="kosmoProductSelect" parameterType="kosmoproductvo" resultType="kosmoproductvo">
@@ -64,4 +68,36 @@ SELECT
 					<= TO_CHAR(TO_DATE(#{endDate, jdbcType=VARCHAR}), 'YYYY-MM-DD')]]>
 	</if>	
 </select>
+
+<select id="kosmoProductMSelect" parameterType="kosmoproductvo" resultType="kosmoproductvo">
+SELECT
+         A.MNUM  AS MNUM
+        ,A.MID   AS MID
+        ,A.MCNT AS MCNT
+        ,A.MNAME AS MNAME
+        ,A.MPRICE AS MPRICE
+        ,A.MDES  AS MDES
+        ,A.MCOM  AS MCOM
+        ,A.MIMG  AS MIMG
+        ,TO_CHAR(TO_DATE(A.MINSERTDATE), 'YYYY-MM-DD') AS MINSERTDATE  
+        ,TO_CHAR(TO_DATE(A.MUPDATEDATE), 'YYYY-MM-DD') AS MUPDATEDATE  
+FROM KOSMO_PRODUCT A
+WHERE A.MDELETEYN='Y'
+AND A.MNUM= #{mnum}
+</select>
+
+<update id="kosmoProductUpdate" parameterType="kosmoproductvo">
+	UPDATE KOSMO_PRODUCT
+	SET MID=#{mid ,jdbcType=VARCHAR},MCNT=#{mcnt,jdbcType=VARCHAR},MNAME=#{mname,jdbcType=VARCHAR},MPRICE=#{mprice,jdbcType=VARCHAR}
+		,MDES=#{mdes,jdbcType=VARCHAR},MCOM=#{mcom,jdbcType=VARCHAR},MIMG=#{mimg,jdbcType=VARCHAR}
+		,MUPDATEDATE=SYSDATE
+	WHERE MNUM=#{mnum,jdbcType=VARCHAR}
+	AND MDELETEYN='Y'
+</update>
+
+<update id="kosmoProductDelete" parameterType="kosmoproductvo">
+	UPDATE KOSMO_PRODUCT
+	SET MUPDATEDATE=SYSDATE, MDELETEYN='N'
+	WHERE MNUM=#{mnum,jdbcType=VARCHAR}
+</update>
 </mapper>          
