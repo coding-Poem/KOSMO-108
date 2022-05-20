@@ -35,6 +35,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="/kosmoSpring_YYS/js/common.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		alert("jQuery ready~~~");
+		
+	});
+</script>
 </head>
 <body>
 <h3>kosmoProductSelectAll.jsp</h3>
@@ -74,6 +82,19 @@ for(int i=0; i<nCnt; i++){
 }
 %>
 </tbody>
+<tfoot>
+<tr>
+<td colspan="3">
+	<jsp:include page="memberPaging.jsp" flush="true">
+		<jsp:param name="url" value="kosmoMemberSelectAll.yys"/>
+		<jsp:param name="str" value=""/>
+		<jsp:param name="pageSize" value="<%= pageSize %>"/>
+		<jsp:param name="groupSize" value="<%= groupSize %>"/>
+		<jsp:param name="curPage" value="<%= curPage %>"/>
+		<jsp:param name="totalCount" value="<%= totalCount %>"/>
+	</jsp:include>
+</td>
+</tfoot>
 </table>
 </form>	
 </body>
