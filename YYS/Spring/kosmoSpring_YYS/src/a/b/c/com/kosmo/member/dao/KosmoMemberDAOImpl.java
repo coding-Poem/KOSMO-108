@@ -15,11 +15,33 @@ public class KosmoMemberDAOImpl implements KosmoMemberDAO {
 	@Autowired(required=false)
 	private SqlSession sqlSession;
 	
+	@Override
 	public int kosmoMemberInsert(KosmoMemberVO kmvo){
 		return (Integer)sqlSession.insert("kosmoMemberInsert", kmvo);
 	};
 	
+	@Override
 	public List<KosmoMemberVO> kosmoMemberSelectAll(KosmoMemberVO kmvo){
 		return sqlSession.selectList("kosmoMemberSelectAll");
+	};
+	
+	@Override
+	public List<KosmoMemberVO> kosmoMemberSelect(KosmoMemberVO kmvo){
+		return sqlSession.selectList("kosmoMemberSelect");
+	};
+	
+	@Override
+	public int kosmoMemberUpdate(KosmoMemberVO kmvo){
+		return (Integer)sqlSession.update("kosmoMemberUpdate", kmvo);
+	};
+	
+	@Override
+	public int kosmoMemberDelete(KosmoMemberVO kmvo) {
+		return (Integer)sqlSession.update("kosmoMemberDelete", kmvo);	
+	};
+	
+	@Override
+	public List<KosmoMemberVO> kosmoIdCheck(KosmoMemberVO kmvo){
+		return sqlSession.selectList("kosmoIdCheck");
 	};
 }

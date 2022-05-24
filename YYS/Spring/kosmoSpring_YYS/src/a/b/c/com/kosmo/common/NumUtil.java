@@ -17,8 +17,20 @@ public class NumUtil {
 		return new DecimalFormat("###,###").format(is);
 	}
 	
+	public static String comma_replace(String s){
+		logger.info("NumUtil :: comma_replace 함수 진입 >>> : ");
+		logger.info("매개변수 String s >>>> : "+s);
+		
+		String rs="";
+		rs=String.valueOf(Integer.parseInt(s.replace(",","")));
+		
+		
+		return rs;
+	}
+	
 	public static void main(String args[]){
 		logger.info("NumUtil.comma('5000') >>> : "+NumUtil.comma("5000"));
 		// NumUtil.comma('5000') >>> : 5,000
+		logger.info("NumUtil.comma_replace('5,000') >>> : "+NumUtil.comma_replace("5,000"));
 	}
 }

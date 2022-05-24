@@ -5,13 +5,28 @@
 <mapper namespace="a.b.c.com.kosmo.common.dao.ChabunDAO">          
 
 <select id="getKosmoProductChabun" resultType="kosmoproductvo">
-	SELECT NVL(MAX(SUBSTR(A.MNUM, -4)), 0) + 1 AS MNUM FROM KOSMO_PRODUCT  A
+	SELECT /*+ INDEX_DESC(A SYS_C0012988) */
+		NVL(MAX(SUBSTR(A.MNUM, -4)), 0) + 1 AS MNUM 
+	FROM KOSMO_PRODUCT  A
 </select>
 
 <select id="getKosmoMemberChabun" resultType="kosmomembervo">
-	SELECT NVL(MAX(SUBSTR(A.KMNUM, -4)), 0) + 1 AS KMNUM FROM KOSMO_MEMBER  A
+	SELECT /*+ INDEX_DESC(A SYS_C0012984) */
+		NVL(MAX(SUBSTR(A.KMNUM, -4)), 0) + 1 AS KMNUM 
+	FROM KOSMO_MEMBER  A
 </select>
 
+<select id="getKosmoCartChabun" resultType="kosmocartvo">
+	SELECT /*+ INDEX_DESC(A SYS_C0013078) */
+		NVL(MAX(SUBSTR(A.MCNUM, -4)), 0) + 1 AS MCNUM 
+	FROM KOSMO_CART  A
+</select>
+
+<select id="getKosmoBoardChabun" resultType="kosmoboardvo">
+	SELECT  /*+ INDEX_DESC(A SYS_C0013161) */
+        NVL(MAX(SUBSTR(A.KBNUM, -4)), 0) + 1  KBNUM 
+	FROM    KOSMO_BOARD A
+</select>
 </mapper>
 
 

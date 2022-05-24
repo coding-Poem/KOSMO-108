@@ -99,5 +99,6 @@ AND A.MNUM= #{mnum}
 	UPDATE KOSMO_PRODUCT
 	SET MUPDATEDATE=SYSDATE, MDELETEYN='N'
 	WHERE MNUM=#{mnum,jdbcType=VARCHAR}
+	AND MDELETEYN='Y'
 </update>
 </mapper>          

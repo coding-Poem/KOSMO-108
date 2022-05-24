@@ -48,4 +48,60 @@ WHERE MDELETEYN='Y'
 )
 WHERE PAGESIZE=#{curPage}
 </select>
+
+<select id="kosmoMemberSelect" parameterType="kosmomembervo"	resultType="kosmomembervo">
+SELECT
+        A.KMNUM  AS  KMNUM
+        , A.KMID AS KMID
+        , A.KMPW AS KMPW
+        , A.KMNAME AS KMNAME
+        , A.KMHP AS KMHP
+         , A.KMEMAIL AS KMEMAIL
+         ,  A.KMZONE AS KMZONE
+         , A.KMROAD AS KMROAD
+         , A.KMROAD2 AS KMROAD2
+         ,A.KMJIBUN AS KMJIBUN
+         , A.KMIMAGE AS KMIMAGE
+         , A.MDELETEYN AS MDELETEYN
+         , TO_CHAR(TO_DATE(A.MINSERTDATE), 'YYYY-MM-DD') AS MINSERTDATE
+         , TO_CHAR(TO_DATE(A.MUPDATEDATE), 'YYYY-MM-DD') AS MUPDATEDATE
+FROM KOSMO_MEMBER A
+WHERE MDELETEYN='Y'
+AND A.KMNUM=#{kmnum,jdbcType=VARCHAR}
+</select>
+
+
+<update id="kosmoMemberUpdate" parameterType="kosmomembervo">
+	UPDATE KOSMO_MEMBER
+	SET   
+		  KMID= #{kmid,jdbcType=VARCHAR},  
+		  KMPW=#{kmpw,jdbcType=VARCHAR},  
+	   	  KMNAME=#{kmname,jdbcType=VARCHAR},  
+	   	  KMHP= #{kmhp,jdbcType=VARCHAR}, 
+       	  KMEMAIL= #{kmemail,jdbcType=VARCHAR}, 
+       	  KMZONE= #{kmzone,jdbcType=VARCHAR}, 
+       	  KMROAD= #{kmroad,jdbcType=VARCHAR}, 
+       	  KMROAD2= #{kmroad2,jdbcType=VARCHAR}, 
+       	  KMJIBUN= #{kmjibun,jdbcType=VARCHAR},  
+       	  KMIMAGE= #{kmimage,jdbcType=VARCHAR},  
+          MUPDATEDATE=SYSDATE
+	WHERE MDELETEYN='Y'      
+	AND   KMNUM=#{kmnum,jdbcType=VARCHAR}     		
+</update>
+
+<update id="kosmoMemberDelete" parameterType="kosmomembervo">
+	UPDATE KOSMO_MEMBER
+	SET MUPDATEDATE=SYSDATE, MDELETEYN='N'
+	WHERE MDELETEYN='Y'    
+	AND   KMNUM=#{kmnum,jdbcType=VARCHAR}    
+</update>
+
+<select id="kosmoIdCheck" parameterType="kosmomembervo" resultType="kosmomembervo">
+	SELECT 
+		        A.KMID 		KMID
+		FROM 	KOSMO_MEMBER A
+		WHERE 	A.MDELETEYN = 'Y' 	
+		AND     A.KMID = #{kmid} 
+</select>
+
 </mapper>

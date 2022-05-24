@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="a.b.c.com.kosmo.board.dao.KosmoBoardDAO">
+
+<insert id="kosmoBoardInsert" parameterType="kosmoboardvo" >
+INSERT INTO KOSMO_BOARD (	KBNUM, KBSUBJECT, KBNAME, 
+								KBCONTENT, KBFILE, KBPW,
+								MDELETEYN, MINSERTDATE, MUPDATEDATE)
+            			VALUES( #{kbnum}, 
+            					#{kbsubject}, 
+            					#{kbname}, 
+            					#{kbcontent}, 
+            					#{kbfile}, 
+            					#{kbpw},             					
+            					'Y', 
+            					SYSDATE, 
+            					SYSDATE)
+</insert>
+
+<select id="kosmoBoardSelectAll" parameterType="kosmoboardvo" resultType="kosmoboardvo">	
+	
+		SELECT 	A.KBNUM 		KBNUM
+		       ,A.KBSUBJECT 	KBSUBJECT
+		       ,A.KBNAME 		KBNAME
+		       ,A.KBCONTENT 	KBCONTENT
+		       ,A.KBFILE 		KBFILE
+		       ,A.KBPW 			KBPW		   
+		       ,A.MDELETEYN 	MDELETEYN
+		       ,TO_CHAR(A.MINSERTDATE, 'YYYY-MM-DD') MINSERTDATE
+		       ,TO_CHAR(A.MUPDATEDATE, 'YYYY-MM-DD') MUPDATEDATE	 		      
+		FROM 	KOSMO_BOARD A
+		WHERE 	A.MDELETEYN = 'Y' 	
+		ORDER BY 1 DESC  
+</select>
+
+<select id="kosmoBoardSelect" parameterType="kosmoboardvo" resultType="kosmoboardvo">	
+	
+		SELECT 	A.KBNUM 		KBNUM
+		       ,A.KBSUBJECT 	KBSUBJECT
+		       ,A.KBNAME 		KBNAME
+		       ,A.KBCONTENT 	KBCONTENT
+		       ,A.KBFILE 		KBFILE
+		       ,A.KBPW 			KBPW		   
+		       ,A.MDELETEYN 	MDELETEYN
+		       ,A.MINSERTDATE 	MINSERTDATE
+		       ,A.MUPDATEDATE	MUPDATEDATE	 		      
+		FROM 	KOSMO_BOARD A
+		WHERE 	A.MDELETEYN = 'Y' 
+		AND     A.KBNUM = #{kbnum}	
+</select>
+
+<select id="kosmoBoardPwCheck" parameterType="kosmoboardvo" resultType="kosmoboardvo">	
+	
+		SELECT 	A.KBNUM 		KBNUM		    
+		       ,A.KBPW 			KBPW		   		     
+		FROM 	KOSMO_BOARD A
+		WHERE 	A.MDELETEYN = 'Y' 
+		AND     A.KBNUM = #{kbnum, jdbcType=VARCHAR}	
+		AND     A.KBPW = #{kbpw, jdbcType=VARCHAR}
+		
+</select>
+
+</mapper>          

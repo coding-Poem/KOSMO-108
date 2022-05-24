@@ -20,13 +20,39 @@ public class KosmoMemberServiceImpl implements KosmoMemberService {
 	@Autowired(required=false)
 	private KosmoMemberDAO kosmoMemberDAO;
 	
+	@Override
 	public int kosmoMemberInsert(KosmoMemberVO kmvo){
 		logger.info("KosmoMemberServiceImpl :: kosmoMemberInsert 함수 진입 >>> : ");
 		return kosmoMemberDAO.kosmoMemberInsert(kmvo);
 	};
 	
+	@Override
 	public List<KosmoMemberVO> kosmoMemberSelectAll(KosmoMemberVO kmvo){
 		logger.info("KosmoMemberServiceImpl :: kosmoMemberSelectAll 함수 진입 >>> : ");
 		return kosmoMemberDAO.kosmoMemberSelectAll(kmvo);
+	};
+	
+	@Override
+	public List<KosmoMemberVO> kosmoMemberSelect(KosmoMemberVO kmvo){
+		logger.info("KosmoMemberServiceImpl :: kosmoMemberSelect 함수 진입 >>> :  ");
+		return kosmoMemberDAO.kosmoMemberSelect(kmvo);
+	};
+	
+	@Override
+	public int kosmoMemberUpdate(KosmoMemberVO kmvo){
+		logger.info("KosmoMemberServiceImpl :: kosmoMemberUpdate 함수 진입 >>> :  ");
+		return kosmoMemberDAO.kosmoMemberUpdate(kmvo);
+	};
+	
+	@Override
+	public int kosmoMemberDelete(KosmoMemberVO kmvo){
+		logger.info("KosmoMemberServiceImpl :: kosmoMemberDelete 함수 진입 >>> :  ");
+		return kosmoMemberDAO.kosmoMemberDelete(kmvo);
+	};
+	
+	@Override
+	public List<KosmoMemberVO> kosmoIdCheck(KosmoMemberVO kmvo){
+		logger.info("KosmoMemberServiceImpl :: kosmoIdCheck 함수 진입 >>> :  ");
+		return kosmoMemberDAO.kosmoIdCheck(kmvo);
 	};
 }

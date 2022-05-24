@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="a.b.c.com.kosmo.cart.dao.KosmoCartDAO">
+<insert id="kosmoCartInsert" parameterType="kosmocartvo" >
+INSERT INTO KOSMO_CART(MCNUM, KMNUM, MNUM, MID, MCNT, MNAME, MPRICE
+                            , MPRICESUM,  MDES, MCOM, MIMG
+                            ,MINSERTDATE,MUPDATEDATE, MDELETEYN)
+VALUES (
+#{mcnum,jdbcType=VARCHAR}, 
+#{kmnum,jdbcType=VARCHAR},
+#{mnum,jdbcType=VARCHAR},  
+#{mid,jdbcType=VARCHAR}, 
+#{mcnt,jdbcType=VARCHAR}, 
+#{mname,jdbcType=VARCHAR}, 
+#{mprice,jdbcType=VARCHAR}, 
+#{mpricesum,jdbcType=VARCHAR},  
+#{mdes,jdbcType=VARCHAR}, 
+#{mcom,jdbcType=VARCHAR}, 
+#{mimg,jdbcType=VARCHAR}
+,SYSDATE,SYSDATE, 'Y'
+)
+</insert>
+
+<select id="kosmoCartSelectAll" resultType="kosmocartvo">
+SELECT*FROM(
+SELECT
+    A.MCNUM                   AS  MCNUM              
+    ,A.KMNUM                  AS  KMNUM
+    ,A.MNUM					  AS  MNUM                          
+    ,A.MID                    AS  MID               
+    ,A.MCNT                   AS  MCNT         
+    ,A.MNAME                  AS  MNAME   
+     ,A.MPRICE                AS  MPRICE        
+    ,A.MPRICESUM              AS  MPRICESUM           
+    ,A.MDES                   AS  MDES  
+    ,A.MCOM                   AS MCOM   
+    ,A.MIMG                   AS MIMG   
+     , A.MDELETEYN 			  AS MDELETEYN
+    , TO_CHAR(TO_DATE(A.MINSERTDATE), 'YYYY-MM-DD') AS MINSERTDATE
+    , TO_CHAR(TO_DATE(A.MUPDATEDATE), 'YYYY-MM-DD') AS MUPDATEDATE
+    ,CEIL(ROW_NUMBER() OVER(ORDER BY A.KMNUM)/ #{pageSize} ) AS pageSize	
+    ,COUNT( A.MCNUM) OVER() AS totalCount 
+FROM KOSMO_CART A
+WHERE A.MDELETEYN='Y'
+)
+WHERE PAGESIZE=#{curPage}
+</select>
+
+<update id="kosmoCartDelete" parameterType="kosmocartvo">
+	UPDATE KOSMO_CART
+	SET MUPDATEDATE=SYSDATE, MDELETEYN='N'
+	WHERE KMNUM=#{kmnum,jdbcType=VARCHAR}
+	AND MDELETEYN='Y'
+</update>
+</mapper>

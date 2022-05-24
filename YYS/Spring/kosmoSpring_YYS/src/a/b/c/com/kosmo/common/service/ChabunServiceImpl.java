@@ -1,5 +1,7 @@
 package a.b.c.com.kosmo.common.service;
 
+import a.b.c.com.kosmo.board.vo.KosmoBoardVO;
+import a.b.c.com.kosmo.cart.vo.KosmoCartVO;
 import a.b.c.com.kosmo.common.dao.ChabunDAO;
 import a.b.c.com.kosmo.member.vo.KosmoMemberVO;
 import a.b.c.com.kosmo.product.vo.KosmoProductVO;
@@ -37,5 +39,17 @@ public class ChabunServiceImpl implements ChabunService {
 	public List<KosmoMemberVO> getKosmoMemberChabun(){
 		logger.info("ChabunServiceImpl :: getKosmoMemberChabun 함수 진입 >>> : ");
 		return chabunDAO.getKosmoMemberChabun();
+	};
+	
+	@Override
+	public List<KosmoCartVO> getKosmoCartChabun(){
+		logger.info("ChabunServiceImpl :: getKosmoCartChabun 함수 진입 >>> : ");
+		return chabunDAO.getKosmoCartChabun();
+	};
+	
+	@Override
+	public List<KosmoBoardVO> getKosmoBoardChabun(){
+		logger.info("ChabunServiceImpl :: getKosmoBoardChabun 함수 진입 >>> : ");
+		return chabunDAO.getKosmoBoardChabun();
 	};
 }
