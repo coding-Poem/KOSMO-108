@@ -19,6 +19,10 @@
 		<url-pattern>*.yys</url-pattern>
 	</servlet-mapping>
 	
+	<session-config>
+        <session-timeout>540</session-timeout>
+    </session-config>
+	
 	<!-- POST 방식 인코딩 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name> 
