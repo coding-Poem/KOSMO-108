@@ -73,6 +73,51 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		alert("jQuery ready~");
+		
+		// 아이디 중복체크
+		$("#kmidCheckBtn").click(function(){
+			alert("midCheckBtn 함수 진입 >>> : ");
+			
+			let urlVal="/kosmoSpring_YYS/kosmoMemberIdcheck.yys";
+			let typeVal="POST";
+			let kmidVal=$("#kmid").val();
+			
+			if(kmidVal==''){
+				alert("중복 체크할 아이디를 입력하세요 >>> : ");
+				$("#kmid").focus();
+				return false;
+			}
+			
+			console.log("urlVal >>> : "+urlVal);
+			console.log("typeVal >>> : "+typeVal);
+			console.log("kmidVal >>> : "+kmidVal);
+			
+			$.ajax({
+				url:urlVal,
+				type:typeVal,
+				data:{
+					"kmid":kmidVal
+				},
+				success:whenSuccess,
+				error:whenError
+			});
+			
+			function whenSuccess(resData){			
+				if (resData == 'ID_YES'){
+					alert("사용할 수 있는 아이디 입니다.");
+					$("#kmid").focus();
+				}else{
+					alert("아이디가 이미 있습니다.");
+					$("#kmpw").focus();
+				}
+			}
+			 
+			function whenError(){
+				alert("error");
+			}
+			
+		});
+		
 		$("#kmpwChange").click(function(){
 			alert("비밀번호 변경 버튼 >>> : ");
 			$("#kmpw").prop("readonly", false);
@@ -129,6 +174,7 @@
 				}
 			}).open();
 		}); 
+		
 		
 		$("#updatebtn").click(function(){
 			alert("update 버튼 클릭 >>> : ");
@@ -188,7 +234,10 @@
 	</tr>	
 	<tr>	
 		<td  class="tt">회원아이디</td>
-		<td><input type="text" name="kmid" id="kmid"  value=<%= _kmvo.getKmid()  %> size="25"></td>
+		<td>
+			<input type="text" name="kmid" id="kmid"  value=<%= _kmvo.getKmid()  %> size="25">
+			<input type="button" id="kmidCheckBtn" name="kmidCheckBtn" value="아이디중복확인" >	
+		</td>
 	</tr>
 	<tr>	
 		<td  class="tt">회원비밀번호</td>
